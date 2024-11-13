@@ -152,7 +152,6 @@ async function parse_page(page) {
 
         let currentRatingRowIndex = 0;
         song.isNewRated = false;
-        //setting mostRecentGame to the first ddr game
 
         //determining most recent  game rating
         for (let i = 1; i < difficultyRows.length; i++) {

@@ -1,62 +1,75 @@
 // scrape from all these pages https://remywiki.com/Category:DanceDanceRevolution_Songs
 
-const axios = require('axios')
-const cheerio = require('cheerio')
+const axios = require("axios");
+const cheerio = require("cheerio");
 
-function parseRuntime(time){
-    const arr = time.split(":")
-    return parseInt(arr[1])*60 + parseInt(arr[2])
+function parseRuntime(time) {
+    const arr = time.split(":");
+    return parseInt(arr[1]) * 60 + parseInt(arr[2]);
 }
-function parseBPM(bpm){
-    const arr = bpm.split("-")
-    if (bpm.includes("-")){
+function parseBPM(bpm) {
+    const arr = bpm.split("-");
+    if (bpm.includes("-")) {
         return {
             lower: arr[0],
-            higher: arr[1]
-        }
+            higher: arr[1],
+        };
     } else {
         return {
             lower: arr[0],
-            higher: arr[0]
-        }
+            higher: arr[0],
+        };
     }
 }
-async function fetch_page(page){
+async function fetch_page(page) {
     try {
         const response = await axios.get(page);
         const html = response.data;
         const $ = cheerio.load(html);
-        const obj = {}
-        obj.songName = $('.mw-page-title-main').text();
+        const obj = {};
+        obj.songName = $(".mw-page-title-main").text();
 
-        const songInfo = $('.mw-parser-output p').first().text().split('\n');
-        songInfo.forEach(element => {
-            if (element.includes("Artist"))
-                obj.artist = element.split(": ")[1];
-            if (element.includes("BPM")){
-                const bpmObj = parseBPM(element.split(": ")[1])
+        const songInfo = $(".mw-parser-output p").first().text().split("\n");
+        songInfo.forEach((element) => {
+            if (element.includes("Artist")) obj.artist = element.split(": ")[1];
+            if (element.includes("BPM")) {
+                const bpmObj = parseBPM(element.split(": ")[1]);
                 obj.lowerBPM = bpmObj.lower;
                 obj.higherBPM = bpmObj.higher;
+                obj.changingBPM = bpmObj.lower != bpmObj.higher
             }
-            if (element.includes("Length"))
-                obj.runtime = parseRuntime(element)
+            if (element.includes("Length")) obj.runtime = parseRuntime(element);
         });
         obj.playable = true;
         obj.licensed = false;
-        $('.mw-normal-catlinks ul li a').each((index, element) => {
-            const t = $(element).text()
-            if(t.includes("DanceDanceRevolution Cut Songs")){
-                obj.playable =false;
+        $(".mw-normal-catlinks ul li a").each((index, element) => {
+            const t = $(element).text();
+            if (t.includes("DanceDanceRevolution Cut Songs")) {
+                obj.playable = false;
             }
-            if (t.includes("DanceDanceRevolution Licensed Songs")){
+            if (t.includes("DanceDanceRevolution Licensed Songs")) {
                 obj.licensed = true;
             }
         });
-        
-        console.log(obj)
-        return obj
-    } catch(e) {
-        console.error(e)
+        const table = $("h3:has(.mw-headline#DanceDanceRevolution)").next("table");
+        const secondRowData = [];
+        $('h3:has(.mw-headline#DanceDanceRevolution)')
+            .next('table')
+            .find('tbody tr')
+            .eq(1)  
+            .find('th')
+            .each((i, cell) => {
+                secondRowData.push($(cell).text().trim());
+            });
+        const charts = [
+            
+        ];
+        const
+        console.log(secondRowData);
+        console.log(obj);
+        return obj;
+    } catch (e) {
+        console.error(e);
     }
 }
 

@@ -16,13 +16,35 @@ At least one **user story**, unrelated to user creation or authentication, must 
 
 Include a class diagram that clearly describes the model classes used in the project and their associations.
 
+![pics/class_diagram.png](pics/class_diagram.png)
+
 # Development Process 
 
 This section should describe, in general terms, how Scrum was used in this project. Include a table summarizing the division of the project into sprints, the user story goals planned for each sprint, the user stories actually completed, and the start and end dates of each sprint. You may also add any relevant observations about the sprints as you see fit.
 
+## US # Points:
+
+## US # Points:
+
+## US # Points:
+
+## US # Points:
+
+## US # Points:
+
+## US # Points:
+
+## US # Points:
+
+## US # Points:
+
+## US # Points:
+
 |Sprint#|Goals|Start|End|Done|Observations|
 |---|---|---|---|---|---|
-|1|US#1, US#2, ...|mm/dd/23|mm/dd/23|US#1|...|
+|1|US# 1, US# 2, US# 3|11/12/24|11/18/24| US#1 | ... |
+|2|US# 5, US# 5, US# 6|11/12/24|11/12/24| ... | ... |
+|3|US# 7, US# 8, US# 9|11/12/24|11/12/24| ... | ... |
 
 As in Project 2, you should take notes on the major sprint meetings: planning, daily scrums, review, and retrospective. Use the scrum folder and the shared templates to record your notes.
 

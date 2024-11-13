@@ -8,6 +8,9 @@ const wanakana = require('wanakana');
 const oldRatedGames = chronoGames.splice(0, 15)
 const newRatedGames = chronoGames.splice(-10)
 
+function removeNonAscii(string){
+    return string.replace(/[^\x00-\x7F]/g, "");
+}
 // scrape from all these pages https://remywiki.com/Category:DanceDanceRevolution_Songs
 function parseRuntime(time) {
     const arr = time.split(":");
@@ -49,9 +52,11 @@ async function parse_page(page) {
             }
             else if (element.includes("Artist")) {
                 let artist = element.split(':').slice(1).join(':').trim();
-                //handling japanese words
+                //attempt to handle japanese words
                 if (hepburn.containsKana(artist))
                     artist = wanakana.toRomaji(artist)
+                //remove all non-ascii
+                artist = removeNonAscii(artist)
                 song.artist = artist
             }
 
@@ -118,7 +123,8 @@ async function parse_page(page) {
                 if (rowData.length != 0)
                     difficultyRows.push(rowData);
             });
-    // case like in https://remywiki.com/Acid,Tribal_%26_Dance_(DDR_EDITION), where it just says difficulty and notecounts
+    // attempt to handle case like in https://remywiki.com/Acid,Tribal_%26_Dance_(DDR_EDITION), where it just says difficulty and notecounts
+    //CURRENTLY NOT WORKING!!!!!!!!!!
         if (difficultyClasses.length === 0){
             $('h2:has(.mw-headline)')
             .next('table')
@@ -190,10 +196,10 @@ async function parse_page(page) {
 
             //Notecount might be split in two ways... either "680 / 4" or "948 / 9 / 0".. thus we must handle shocks differently
             let shockNotes = 0;
-            if (difficultyRows.length === 2) {
+            if (noteArr.length === 3) {
+                console.log("hi")
                 shockNotes = parseInt(noteArr[2])
             }
-            console.log("gHELLO")
             charts.push(
                 {
                     "difficulty": difficultyClasses[i],
@@ -201,7 +207,7 @@ async function parse_page(page) {
                     "notes": parseInt(noteArr[0]),
                     "freezeNotes": parseInt(noteArr[1]),
                     "shockNotes": shockNotes,
-                    "difficultyRating": parseInt((difficultyRows[currentRatingRowIndex][i + 1]).replace("↑", "").replace("↓",""))
+                    "difficultyRating": parseInt(removeNonAscii(difficultyRows[currentRatingRowIndex][i + 1]))
                 }
             )
         }
@@ -214,4 +220,4 @@ async function parse_page(page) {
     }
 }
 
-parse_page("https://remywiki.com/Scarlet_keisatsu_no_ghetto_patrol_24_ji");
+parse_page("https://remywiki.com/Right_on_time_(Ryu_Remix)")

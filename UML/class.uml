@@ -8,7 +8,8 @@ class Song{
     - id(PK): int
 'runtime is in seconds
     - runtime: int
-    - isPlayable: int
+    - isPlayable: bool
+    - licensed: bool
     - usesOldRatingScale: bool
 }
 class Game{

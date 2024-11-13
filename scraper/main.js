@@ -5,6 +5,7 @@ const cheerio = require('cheerio')
 
 function parseRuntime(time){
     const arr = time.split(":")
+    return parseInt(arr[1])*60 + parseInt(arr[2])
 }
 function parseBPM(bpm){
     const arr = bpm.split("-")
@@ -38,8 +39,20 @@ async function fetch_page(page){
                 obj.higherBPM = bpmObj.higher;
             }
             if (element.includes("Length"))
-                obj.runtime 
+                obj.runtime = parseRuntime(element)
         });
+        obj.playable = true;
+        obj.licensed = false;
+        $('.mw-normal-catlinks ul li a').each((index, element) => {
+            const t = $(element).text()
+            if(t.includes("DanceDanceRevolution Cut Songs")){
+                obj.playable =false;
+            }
+            if (t.includes("DanceDanceRevolution Licensed Songs")){
+                obj.licensed = true;
+            }
+        });
+        
         console.log(obj)
         return obj
     } catch(e) {
@@ -47,4 +60,4 @@ async function fetch_page(page){
     }
 }
 
-fetch_page("https://remywiki.com/Acid,Tribal_%26_Dance_(DDR_EDITION)");
+fetch_page("https://remywiki.com/Scarlet_keisatsu_no_ghetto_patrol_24_ji");

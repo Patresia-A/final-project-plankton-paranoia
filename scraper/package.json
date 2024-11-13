@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@jikyo/romaji": "^0.0.1",
+    "axios": "^1.7.7",
+    "cheerio": "^1.0.0",
+    "hepburn": "^1.2.1",
+    "jp-conversion": "^0.0.7",
+    "wanakana": "^5.3.1"
+  }
+}

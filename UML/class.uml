@@ -11,6 +11,7 @@ class Song{
     - isPlayable: bool
     - licensed: bool
     - usesOldRatingScale: bool
+    - changingBPM: bool
 }
 class Game{
     - id(PK) : int
@@ -20,6 +21,9 @@ class Game{
 class Chart{
     - difficultyRating: int
     - isDoubles: bool
+    - notes: int
+    - freezeNotes: int
+    - shockNotes: int
 }
 class DifficultyClassification{
     - name: string

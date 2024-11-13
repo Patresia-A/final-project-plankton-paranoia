@@ -8,7 +8,13 @@ const wanakana = require('wanakana');
 const oldRatedGames = chronoGames.splice(0, 15)
 const newRatedGames = chronoGames.splice(-10)
 
-function removeNonAscii(string){
+function removeNonAscii(string) {
+    return string.replace(/[^\x00-\x7F]/g, "");
+}
+//romanizes a string, then removes all non-ascii
+function asciiNormalize(string){
+    if (hepburn.containsKana(string))
+        string = wanakana.toRomaji(string)
     return string.replace(/[^\x00-\x7F]/g, "");
 }
 // scrape from all these pages https://remywiki.com/Category:DanceDanceRevolution_Songs
@@ -37,11 +43,27 @@ async function parse_page(page) {
         const html = response.data;
         const $ = cheerio.load(html);
         const song = {};
-        song.songName = $(".mw-page-title-main").text();
+
+        song.licensed = false;
+        let isCutSong = false;
+        $(".mw-normal-catlinks ul li a").each((index, element) => {
+            const t = $(element).text();
+            // we only want playable songs! exit if song has been cut
+            if (t.includes("DanceDanceRevolution Cut Songs")) {
+                isCutSong = true;
+                return null;
+            }
+            if (t.includes("DanceDanceRevolution Licensed Songs")) {
+                song.licensed = true;
+            }
+        });
+        
+        if (isCutSong) return null;
+
+        song.songName = asciiNormalize($(".mw-page-title-main").text());
 
         const songInfo = $(".mw-parser-output p").first().text().split("\n");
 
-        //parsing description area
         let hasGame = false
         songInfo.forEach((element) => {
             if (element.includes("BPM")) {
@@ -51,13 +73,7 @@ async function parse_page(page) {
                 song.changingBPM = bpmObj.lower != bpmObj.higher
             }
             else if (element.includes("Artist")) {
-                let artist = element.split(':').slice(1).join(':').trim();
-                //attempt to handle japanese words
-                if (hepburn.containsKana(artist))
-                    artist = wanakana.toRomaji(artist)
-                //remove all non-ascii
-                artist = removeNonAscii(artist)
-                song.artist = artist
+                song.artist = asciiNormalize(element.split(':').slice(1).join(':').trim())
             }
 
             else if (element.includes("Length")) song.runtime = parseRuntime(element);
@@ -79,23 +95,6 @@ async function parse_page(page) {
             }
         });
 
-
-        //determining cut and licensed status 
-        song.playable = true;
-        song.licensed = false;
-        $(".mw-normal-catlinks ul li a").each((index, element) => {
-            const t = $(element).text();
-            if (t.includes("DanceDanceRevolution Cut Songs")) {
-                song.playable = false;
-            }
-            if (t.includes("DanceDanceRevolution Licensed Songs")) {
-                song.licensed = true;
-            }
-        });
-        if (song.playable) {
-            song.isNewRated = true;
-        }
-
         //difficulty class meaning "expert", "challenge", "beginner"
         const difficultyClasses = [];
         $('h3:has(.mw-headline#DanceDanceRevolution)')
@@ -106,8 +105,6 @@ async function parse_page(page) {
             .each((i, cell) => {
                 difficultyClasses.push($(cell).text().trim());
             });
-        
-
 
         // the rows of raw data containing difficulties and notecounts
         const difficultyRows = []
@@ -120,70 +117,38 @@ async function parse_page(page) {
                     // console.log(cell).text().trim()
                     rowData.push($(cell).text().trim());
                 });
-                if (rowData.length != 0)
+                if (rowData.length !== 0)
                     difficultyRows.push(rowData);
             });
-    // attempt to handle case like in https://remywiki.com/Acid,Tribal_%26_Dance_(DDR_EDITION), where it just says difficulty and notecounts
-    //CURRENTLY NOT WORKING!!!!!!!!!!
-        if (difficultyClasses.length === 0){
-            $('h2:has(.mw-headline)')
-            .next('table')
-            .find('tbody tr')
-            .eq(1)
-            .find('th')
-            .each((i, cell) => {
-                difficultyClasses.push($(cell).text().trim());
+
+        // attempt to handle case like in https://remywiki.com/Acid,Tribal_%26_Dance_(DDR_EDITION), where it just says difficulty and notecounts
+        if (difficultyClasses.length === 0) {
+            $('table.wikitable tbody tr').eq(1).find('th').each((i, row) => {
+                difficultyClasses.push($(row).text().trim());
             });
-            $('h2:has(.mw-headline)')
-            .next('table')
-            .find('tbody tr')
-            .each((i, row) => {
+
+            $('table.wikitable td')
+            $('table.wikitable tbody tr').each((i, row) => {
                 const rowData = [];
                 $(row).find('td').each((j, cell) => {
-                    console.log$(cell).text().trim()
                     rowData.push($(cell).text().trim());
                 });
-                if (rowData.length != 0)
+                if (rowData.length !== 0)
                     difficultyRows.push(rowData);
-            });
+            })
         }
-
+        
         charts = []
-
         let currentRatingRowIndex = 0;
-        song.isNewRated = false;
-
-        //determining most recent  game rating
+        //determining most up to date rating rating
         for (let i = 1; i < difficultyRows.length; i++) {
-            const gameName = difficultyRows[i][0]
-            if (gameName.includes("Present")) {
+            if (difficultyRows[i][0].includes("Present")) {
                 currentRatingRowIndex = i;
-                song.isNewRated = true;
                 break;
             }
         }
-        //case where present is not found
-        //I can't find a great way to determine the most recent ratings for a song which has been removed.... I will just suffer
-        if (currentRatingRowIndex === 0) {
-            currentRatingRowIndex = 1
-        }
-
-        //determining newrating status
-        // if (!isNewRated){
-
-        //     for (let i = 1; i < difficultyRows.length; i++) {
-        //         if (!isNewRated) {
-        //             for (let j = 0; j < newRatedGames.length; j++) {
-        //                 if (newRatedGames[j].includes(difficultyRows[i][0])) {
-        //                     song.isNewRated = true;
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
         let isDoubles = false;
 
-        console.log(difficultyClasses)
         for (let i = 0; i < difficultyClasses.length; i++) {
             //parsing if chart is a doubles chart...
             if (isDoubles || i > 5 || ((difficultyClasses[i] === "Beginner" || difficultyClasses[i] === "Basic" || difficultyClasses[i] === "Difficult") &&
@@ -196,7 +161,6 @@ async function parse_page(page) {
             //Notecount might be split in two ways... either "680 / 4" or "948 / 9 / 0".. thus we must handle shocks differently
             let shockNotes = 0;
             if (noteArr.length === 3) {
-                console.log("hi")
                 shockNotes = parseInt(noteArr[2])
             }
             charts.push(
@@ -210,7 +174,6 @@ async function parse_page(page) {
                 }
             )
         }
-        console.log(difficultyRows)
         song.charts = charts;
         console.log(song);
         return song;
@@ -219,4 +182,6 @@ async function parse_page(page) {
     }
 }
 
-parse_page("https://remywiki.com/Right_on_time_(Ryu_Remix)")
+parse_page("https://remywiki.com/Scarlet_keisatsu_no_ghetto_patrol_24_ji")
+parse_page("https://remywiki.com/Acid,Tribal_%26_Dance_(DDR_EDITION)")
+parse_page("https://remywiki.com/17_sai")

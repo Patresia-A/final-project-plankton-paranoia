@@ -1,0 +1,50 @@
+@startuml
+
+class Song{
+    - name: string
+    - artist: string
+    - upperBPM: int
+    - lowerBPM: int
+    - id(PK): int
+'runtime is in seconds
+    - runtime: int
+    - licensed: bool
+    - changingBPM: bool
+}
+class Game{
+    - id(PK) : int
+    - releaseDate: date
+    - picture: blob
+}
+class Chart{
+    - id(PK): int
+    - difficultyRating: int
+    - notes: int
+    - freezeNotes: int
+    - shockNotes: int
+    - difficultyClassification: string
+}
+class DoublesChart{
+    - id(PK): int
+    - difficultyRating: int
+    - notes: int
+    - freezeNotes: int
+    - shockNotes: int
+    - difficultyClassification: string
+}
+
+
+class User{
+    - id(PK) : int
+    - name: string
+    - email: string
+    - password: string
+}
+class FavoritesList{
+}
+User "each" --o "1" FavoritesList : has
+FavoritesList "each" --o "many" Song: has
+Song "each" --o  "many" Chart : has
+Song "each" --o  "many" DoublesChart : has
+Song "each" --o  "1" Game : belongs to
+@enduml

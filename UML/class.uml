@@ -19,8 +19,15 @@ class Game{
     - picture: blob
 }
 class Chart{
+    - id(PK): int
     - difficultyRating: int
-    - isDoubles: bool
+    - notes: int
+    - freezeNotes: int
+    - shockNotes: int
+}
+class DoublesChart{
+    - id(PK): int
+    - difficultyRating: int
     - notes: int
     - freezeNotes: int
     - shockNotes: int
@@ -41,6 +48,8 @@ class FavoritesList{
 User "each" --o "1" FavoritesList : has
 FavoritesList "each" --o "many" Song: has
 Chart "each" --o  "1" DifficultyClassification : has
+DoublesChart "each" --o  "1" DifficultyClassification : has
 Song "each" --o  "many" Chart : has
+Song "each" --o  "many" DoublesChart : has
 Song "each" --o  "1" Game : belongs to
 @enduml

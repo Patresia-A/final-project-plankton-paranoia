@@ -1,7 +1,13 @@
 # Sprint Retrospective
 
-Date/Time: 
+Date/Time: 10/29/24, 3:00 pm
+Participants: Lala, Hannah, Patty, Logan
 
-Participants: 
+## What Went Well
 
-Notes...
+
+## What Could Be Improved
+
+
+## Action Items for Next Sprint
+

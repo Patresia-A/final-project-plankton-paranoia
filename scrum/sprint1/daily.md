@@ -1,7 +1,14 @@
 # Daily Scrums
 
-## 99/99/99-99:99
+Date/Time: 
+Participants: Lala, Hannah, Patty Logan
 
-Participants: 
+# What was accomplished yesterday?
 
-Notes...
+
+
+# What is planned for today?
+
+
+
+# Are there any blockers?

@@ -45,12 +45,11 @@ async function parse_page(page) {
         const song = {};
 
         song.licensed = false;
-        let isCutSong = false;
         $(".mw-normal-catlinks ul li a").each((index, element) => {
             const t = $(element).text();
             // we only want playable songs! exit if song has been cut
             if (t.includes("DanceDanceRevolution Cut Songs")) {
-                isCutSong = true;
+                song.isCutSong = true;
                 return null;
             }
             if (t.includes("DanceDanceRevolution Licensed Songs")) {
@@ -58,42 +57,50 @@ async function parse_page(page) {
             }
         });
         
-        if (isCutSong) return null;
+        if (song.isCutSong) return null;
 
         song.songName = asciiNormalize($(".mw-page-title-main").text());
 
-        const songInfo = $(".mw-parser-output p").first().text().split("\n");
+        const songInfo = $('div.mw-parser-output > div.thumb.tright').nextAll('p').first().text().split("\n");
 
-        let hasGame = false
+
         songInfo.forEach((element) => {
-            if (element.includes("BPM")) {
+            console.log("element: " + element)
+            console.log(typeof(element))
+            if (!song.lowerBPM && element.includes("BPM")) {
                 const bpmObj = parseBPM(element.split(": ")[1]);
                 song.lowerBPM = parseInt(bpmObj.lower);
                 song.higherBPM = parseInt(bpmObj.higher);
                 song.changingBPM = bpmObj.lower != bpmObj.higher
             }
-            else if (element.includes("Artist")) {
+            else if (!song.artist && element.includes("Artist")) {
+                const a = element.split(':').slice(1).join(':').trim()
+                console.log(element)
                 song.artist = asciiNormalize(element.split(':').slice(1).join(':').trim())
             }
 
-            else if (element.includes("Length")) song.runtime = parseRuntime(element);
-
-            else if (!hasGame && element.includes("First Music Game Appearance: DanceDance")) {
+            else if (!song.runtime && element.includes("Length")) song.runtime = parseRuntime(element);
+            else if (!song.game && element.includes("DanceDanceRevolution"))
                 song.game = element.split(": ")[1];
-                hasGame = true;
-            }
-            else if (!hasGame) {
-                $('.mw-parser-output > ul').first().find('li').each((i, e) => {
-                    const text = $(e).text().trim();
-                    if (text.includes('Dance')) {
-                        song.game = text;
-                        hasGame = true;
-                        return false;
-                    }
-                });
+            // else if (!hasGame && element.includes("First Music Game Appearance: DanceDance")) {
+            //     song.game = element.split(": ")[1];
+            //     hasGame = true;
+            // }
+            // else if (!hasGame) {
+            //     $('.mw-parser-output > ul').first().find('li').each((i, e) => {
+            //         const text = $(e).text().trim();
+            //         if (text.includes('DanceDanceRevo')) {
+            //             song.game = text;
+            //             hasGame = true;
+            //             return false;
+            //         }
+            //     });
 
-            }
+            // }
         });
+        if (!song.game){
+            
+        }
 
         //difficulty class meaning "expert", "challenge", "beginner"
         const difficultyClasses = [];
@@ -137,7 +144,7 @@ async function parse_page(page) {
                     difficultyRows.push(rowData);
             })
         }
-        
+
         charts = []
         let currentRatingRowIndex = 0;
         //determining most up to date rating rating
@@ -176,12 +183,21 @@ async function parse_page(page) {
         }
         song.charts = charts;
         console.log(song);
+        
         return song;
     } catch (e) {
         console.error(e);
+        return e;
     }
 }
 
+songUrls = []
+songUrls.forEach((element) =>{
+    parse_page(url).then((result) => {
+        console.log(result)
+    })
+})
 parse_page("https://remywiki.com/Scarlet_keisatsu_no_ghetto_patrol_24_ji")
-parse_page("https://remywiki.com/Acid,Tribal_%26_Dance_(DDR_EDITION)")
-parse_page("https://remywiki.com/17_sai")
+// parse_page("https://remywiki.com/Acid,Tribal_%26_Dance_(DDR_EDITION)")
+// parse_page("https://remywiki.com/Shakunetsu_Beach_Side_Bunny")
+// parse_page("https://remywiki.com/PARANOiA")

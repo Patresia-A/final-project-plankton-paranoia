@@ -1,8 +1,8 @@
 # Sprint Planning
 
 ## Date/Time: 
-Starts 
-Ends 
+Starts: Nov 12, 2024, 5:25pm 
+Ends: Nov 21, 2024, 2pm
 
 # Story Points 
 

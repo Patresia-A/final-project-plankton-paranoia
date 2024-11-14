@@ -3,6 +3,8 @@ CS3250 - Software Development Methods and Tools - Fall 2024
 Instructor: Thyago Mota
 Student(s): Hannah, Amina, Alex, Logan, Patty 
 Description: Project 3 - DDR WebSearch
+
+    in progress !!!
 '''
 
 from flask_sqlalchemy import SQLAlchemy
@@ -31,6 +33,8 @@ Class User(db.Model, Usermixin):
 Class Song(db.Model):
     __tablename__ = 'songs'
     code = db.Column(db.String(10), primary_key=True)
+    title = db.Column(db.String, nullable=False)
+    artist = db.Column(db.String, nullable=False)
     description = db.Column(db.String, nullable=False)
 
     def __str__(self):

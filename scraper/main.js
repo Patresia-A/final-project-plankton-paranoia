@@ -38,6 +38,7 @@ function parseBPM(bpm) {
 
 async function parse_page(page) {
     try {
+        console.log("processing page: " + page)
         const response = await axios.get(page);
         const $ = cheerio.load(response.data);
         const song = {};
@@ -94,7 +95,7 @@ async function parse_page(page) {
                     })
                 })
         }
-        if (!song.game){
+        if (!song.game) {
             return null;
         }
 
@@ -190,6 +191,7 @@ async function parse_page(page) {
 const baseURL = "https://remywiki.com"
 const songLinks = []
 async function getPageURLs(page) {
+    console.log("reading from page " + baseURL + page)
     const response = await axios.get(baseURL + page);
     const $ = cheerio.load(response.data);
 
@@ -210,23 +212,27 @@ async function getPageURLs(page) {
         return "ok!"
 }
 csvRows = []
-async function getSongs(firstPage){
+async function getSongs(firstPage) {
     songs = []
-   await getPageURLs(firstPage)
-   for(let i = 0; i < 30; i++){
+    await getPageURLs(firstPage)
+    //    for(let i = 0; i < 30; i++){
+    //         song = await parse_page(baseURL + songLinks[i])
+    //         if(song)
+    //         songs.push(song)
+    //    }
+    //    for production
+    for (let i = 0; i < songLinks.length; i++) {
         song = await parse_page(baseURL + songLinks[i])
-        if(song)
-        songs.push(song)
-   }
-   //for production
-//    for(let i = 0; i < songLinks.length; i++){
-//         song = await parse_page(baseURL + songLinks[i])
-//         if(song)
-//         songs.push(song)
-//     }
-   return songs;
+        if (song)
+            songs.push(song)
+    }
+    return songs;
 }
 
-getSongs("/Category:DanceDanceRevolution_Songs").then((res) =>{
-    console.log(res)
+const fs = require("fs")
+getSongs("/Category:DanceDanceRevolution_Songs").then((res) => {
+    console.log("Writing songs")
+    fs.writeFile("songs.json", JSON.stringify(res), (e) => {
+        if (e) throw e
+    })
 })

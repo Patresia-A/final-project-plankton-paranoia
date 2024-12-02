@@ -10,7 +10,7 @@
         "game": "DanceDanceRevolution 4thMIX",
         "charts": [
             {
-                "difficulty": "BEGINNER",
+                "difficulty": "Beginner",
                 "isDoubles": false,
                 "notes": 90,
                 "freezeNotes": 0,
@@ -2834,68 +2834,12 @@
         "runtime": 93,
         "charts": [
             {
-                "difficulty": "Beginner",
-                "isDoubles": false,
-                "notes": 159,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Basic",
-                "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Difficult",
-                "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Expert",
-                "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
                 "difficulty": "Challenge",
                 "isDoubles": false,
                 "notes": 355,
                 "freezeNotes": 9,
                 "shockNotes": 0,
                 "difficultyRating": 10
-            },
-            {
-                "difficulty": "Basic",
-                "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Difficult",
-                "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Expert",
-                "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
             },
             {
                 "difficulty": "Challenge",
@@ -4462,14 +4406,6 @@
                 "difficultyRating": 11
             },
             {
-                "difficulty": "Challenge",
-                "isDoubles": false,
-                "notes": 264,
-                "freezeNotes": 2,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
                 "difficulty": "Basic",
                 "isDoubles": true,
                 "notes": 166,
@@ -4492,14 +4428,6 @@
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 10
-            },
-            {
-                "difficulty": "Challenge",
-                "isDoubles": true,
-                "notes": 264,
-                "freezeNotes": 2,
-                "shockNotes": 0,
-                "difficultyRating": null
             }
         ]
     },
@@ -18327,7 +18255,7 @@
         "higherBPM": 135,
         "changingBPM": false,
         "runtime": 103,
-        "game": "DanceDanceRevolution II",
+        "game": "DanceDanceRevolution (2014)",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -20915,7 +20843,7 @@
         "higherBPM": 135,
         "changingBPM": false,
         "runtime": 113,
-        "game": "DanceDanceRevolution II",
+        "game": "DanceDanceRevolution (2013)",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -23435,7 +23363,7 @@
         "higherBPM": 150,
         "changingBPM": false,
         "runtime": 94,
-        "game": "DDRMAX -DanceDanceRevolution-",
+        "game": "DDRMAX -DanceDanceRevolution 6thMIX-",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -24443,12 +24371,12 @@
         "higherBPM": 118,
         "changingBPM": false,
         "runtime": 93,
-        "game": "DanceDanceRevolution II",
+        "game": "DanceDanceRevolution WORLD",
         "charts": [
             {
                 "difficulty": "Beginner",
                 "isDoubles": false,
-                "notes": 91,
+                "notes": 64,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 2
@@ -24456,65 +24384,65 @@
             {
                 "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 102,
-                "freezeNotes": 0,
+                "notes": 143,
+                "freezeNotes": 6,
                 "shockNotes": 0,
                 "difficultyRating": 6
             },
             {
                 "difficulty": "Difficult",
                 "isDoubles": false,
-                "notes": 187,
-                "freezeNotes": 0,
+                "notes": 217,
+                "freezeNotes": 5,
                 "shockNotes": 0,
                 "difficultyRating": 9
             },
             {
                 "difficulty": "Expert",
                 "isDoubles": false,
-                "notes": 229,
-                "freezeNotes": 0,
+                "notes": 292,
+                "freezeNotes": 10,
                 "shockNotes": 0,
                 "difficultyRating": 12
             },
             {
                 "difficulty": "Challenge",
                 "isDoubles": false,
-                "notes": null,
+                "notes": 419,
                 "freezeNotes": 0,
-                "shockNotes": null,
+                "shockNotes": 0,
                 "difficultyRating": 14
             },
             {
                 "difficulty": "Basic",
                 "isDoubles": true,
-                "notes": 102,
-                "freezeNotes": 0,
+                "notes": 135,
+                "freezeNotes": 6,
                 "shockNotes": 0,
                 "difficultyRating": 5
             },
             {
                 "difficulty": "Difficult",
                 "isDoubles": true,
-                "notes": 187,
-                "freezeNotes": 0,
+                "notes": 204,
+                "freezeNotes": 2,
                 "shockNotes": 0,
                 "difficultyRating": 9
             },
             {
                 "difficulty": "Expert",
                 "isDoubles": true,
-                "notes": 229,
-                "freezeNotes": 0,
+                "notes": 286,
+                "freezeNotes": 6,
                 "shockNotes": 0,
                 "difficultyRating": 12
             },
             {
                 "difficulty": "Challenge",
                 "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": null,
+                "notes": 354,
+                "freezeNotes": 5,
+                "shockNotes": 0,
                 "difficultyRating": 14
             }
         ]
@@ -29147,7 +29075,7 @@
         "higherBPM": 128,
         "changingBPM": false,
         "runtime": 90,
-        "game": "DDRMAX2 -DanceDanceRevolution-",
+        "game": "DDRMAX2 -DanceDanceRevolution 7thMIX-",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -30575,7 +30503,7 @@
         "higherBPM": 155,
         "changingBPM": false,
         "runtime": 94,
-        "game": "DanceDanceRevolution II",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -35111,7 +35039,7 @@
         "higherBPM": 155,
         "changingBPM": false,
         "runtime": 106,
-        "game": "DanceDanceRevolution II",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -35615,7 +35543,7 @@
         "higherBPM": 148,
         "changingBPM": false,
         "runtime": 97,
-        "game": "DanceDanceRevolution II",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -38975,7 +38903,7 @@
         "higherBPM": 114,
         "changingBPM": false,
         "runtime": 96,
-        "game": "DDRMAX2 -DanceDanceRevolution-",
+        "game": "DDRMAX2 -DanceDanceRevolution 7thMIX-",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -40067,7 +39995,7 @@
         "higherBPM": 150,
         "changingBPM": false,
         "runtime": 96,
-        "game": "DanceDanceRevolution STR!KE",
+        "game": "DanceDanceRevolution SuperNOVA",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -40655,7 +40583,7 @@
         "higherBPM": 140,
         "changingBPM": false,
         "runtime": 87,
-        "game": "DanceDanceRevolution II",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -49139,7 +49067,7 @@
         "higherBPM": 340,
         "changingBPM": true,
         "runtime": 105,
-        "game": "DanceDanceRevolution II",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -49727,7 +49655,7 @@
         "higherBPM": 180,
         "changingBPM": false,
         "runtime": 104,
-        "game": "DanceDanceRevolution EXTREME2",
+        "game": "DanceDanceRevolution SuperNOVA",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -50231,7 +50159,7 @@
         "higherBPM": 190,
         "changingBPM": true,
         "runtime": 91,
-        "game": "DanceDanceRevolution 2ndReMIX",
+        "game": "DanceDanceRevolution 3rdMIX PLUS",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -51323,7 +51251,7 @@
         "higherBPM": 130,
         "changingBPM": false,
         "runtime": 120,
-        "game": "DanceDanceRevolution EXTREME2",
+        "game": "DanceDanceRevolution SuperNOVA",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -51407,7 +51335,7 @@
         "higherBPM": 124,
         "changingBPM": false,
         "runtime": 97,
-        "game": "DanceDanceRevolution CS",
+        "game": "DanceDanceRevolution 2ndMIX / DanceDanceRevolution 2ndMIX LINK VERSION",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -51827,7 +51755,7 @@
         "higherBPM": 158,
         "changingBPM": false,
         "runtime": 117,
-        "game": "DanceDanceRevolution EXTREME2",
+        "game": "DanceDanceRevolution SuperNOVA",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -61823,7 +61751,7 @@
         "higherBPM": 300,
         "changingBPM": true,
         "runtime": 100,
-        "game": "DanceDanceRevolution X3",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -63419,7 +63347,7 @@
         "higherBPM": 180,
         "changingBPM": false,
         "runtime": 98,
-        "game": "DanceDanceRevolution CS",
+        "game": "DanceDanceRevolution 2ndMIX / DanceDanceRevolution 2ndMIX LINK VERSION",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -64007,7 +63935,7 @@
         "higherBPM": 301,
         "changingBPM": true,
         "runtime": 102,
-        "game": "DanceDanceRevolution Supernova",
+        "game": "DanceDanceRevolution SuperNOVA",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -73667,7 +73595,7 @@
         "higherBPM": 184,
         "changingBPM": false,
         "runtime": 93,
-        "game": "VJ GYO (18 Resort Anthem→19 Lincle), Unknown (20 tricoro→Present, DanceDanceRevolution)",
+        "game": "DanceDanceRevolution X2",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -74255,37 +74183,37 @@
         "higherBPM": 97,
         "changingBPM": false,
         "runtime": 123,
-        "game": "DanceDanceRevolution II",
+        "game": "DanceDanceRevolution A3",
         "charts": [
             {
                 "difficulty": "Beginner",
                 "isDoubles": false,
-                "notes": 75,
-                "freezeNotes": 4,
+                "notes": 47,
+                "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 2
             },
             {
                 "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 124,
-                "freezeNotes": 6,
+                "notes": 113,
+                "freezeNotes": 1,
                 "shockNotes": 0,
                 "difficultyRating": 4
             },
             {
                 "difficulty": "Difficult",
                 "isDoubles": false,
-                "notes": 215,
-                "freezeNotes": 10,
+                "notes": 187,
+                "freezeNotes": 17,
                 "shockNotes": 0,
                 "difficultyRating": 6
             },
             {
                 "difficulty": "Expert",
                 "isDoubles": false,
-                "notes": 259,
-                "freezeNotes": 13,
+                "notes": 247,
+                "freezeNotes": 21,
                 "shockNotes": 0,
                 "difficultyRating": 8
             },
@@ -74300,24 +74228,24 @@
             {
                 "difficulty": "Basic",
                 "isDoubles": true,
-                "notes": 126,
-                "freezeNotes": 7,
+                "notes": 113,
+                "freezeNotes": 1,
                 "shockNotes": 0,
                 "difficultyRating": 4
             },
             {
                 "difficulty": "Difficult",
                 "isDoubles": true,
-                "notes": 219,
-                "freezeNotes": 11,
+                "notes": 184,
+                "freezeNotes": 17,
                 "shockNotes": 0,
                 "difficultyRating": 6
             },
             {
                 "difficulty": "Expert",
                 "isDoubles": true,
-                "notes": 268,
-                "freezeNotes": 13,
+                "notes": 245,
+                "freezeNotes": 36,
                 "shockNotes": 0,
                 "difficultyRating": 8
             },
@@ -76355,7 +76283,7 @@
         "higherBPM": 125,
         "changingBPM": false,
         "runtime": 110,
-        "game": "DanceDanceRevolution II",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -78707,7 +78635,7 @@
         "higherBPM": 192,
         "changingBPM": true,
         "runtime": 103,
-        "game": "DanceDanceRevolution X3",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -80639,7 +80567,7 @@
         "higherBPM": 95,
         "changingBPM": false,
         "runtime": 108,
-        "game": "DanceDanceRevolution II",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -84839,7 +84767,7 @@
         "higherBPM": 142,
         "changingBPM": false,
         "runtime": 115,
-        "game": "DanceDanceRevolution II",
+        "game": "DanceDanceRevolution (2013)",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -85763,12 +85691,12 @@
         "higherBPM": 130,
         "changingBPM": false,
         "runtime": 95,
-        "game": "DanceDanceRevolution II",
+        "game": "DanceDanceRevolution A3",
         "charts": [
             {
                 "difficulty": "Beginner",
                 "isDoubles": false,
-                "notes": 77,
+                "notes": 72,
                 "freezeNotes": 7,
                 "shockNotes": 0,
                 "difficultyRating": 2
@@ -85776,24 +85704,24 @@
             {
                 "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 122,
-                "freezeNotes": 10,
+                "notes": 175,
+                "freezeNotes": 29,
                 "shockNotes": 0,
                 "difficultyRating": 7
             },
             {
                 "difficulty": "Difficult",
                 "isDoubles": false,
-                "notes": 202,
-                "freezeNotes": 11,
+                "notes": 281,
+                "freezeNotes": 23,
                 "shockNotes": 0,
                 "difficultyRating": 10
             },
             {
                 "difficulty": "Expert",
                 "isDoubles": false,
-                "notes": 329,
-                "freezeNotes": 14,
+                "notes": 385,
+                "freezeNotes": 24,
                 "shockNotes": 0,
                 "difficultyRating": 15
             },
@@ -85808,24 +85736,24 @@
             {
                 "difficulty": "Basic",
                 "isDoubles": true,
-                "notes": 122,
-                "freezeNotes": 10,
+                "notes": 166,
+                "freezeNotes": 29,
                 "shockNotes": 0,
                 "difficultyRating": 6
             },
             {
                 "difficulty": "Difficult",
                 "isDoubles": true,
-                "notes": 190,
-                "freezeNotes": 11,
+                "notes": 279,
+                "freezeNotes": 20,
                 "shockNotes": 0,
                 "difficultyRating": 10
             },
             {
                 "difficulty": "Expert",
                 "isDoubles": true,
-                "notes": 335,
-                "freezeNotes": 10,
+                "notes": 333,
+                "freezeNotes": 25,
                 "shockNotes": 0,
                 "difficultyRating": 14
             },
@@ -87107,7 +87035,7 @@
         "higherBPM": 145,
         "changingBPM": false,
         "runtime": 104,
-        "game": "DanceDanceRevolution II",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -88031,7 +87959,7 @@
         "higherBPM": 145,
         "changingBPM": false,
         "runtime": 107,
-        "game": "DanceDanceRevolution II",
+        "game": "DanceDanceRevolution (2013)",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -88787,7 +88715,7 @@
         "higherBPM": 140,
         "changingBPM": false,
         "runtime": 104,
-        "game": "DanceDanceRevolution II",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -89879,7 +89807,7 @@
         "higherBPM": 136,
         "changingBPM": false,
         "runtime": 97,
-        "game": "DanceDanceRevolution 2ndReMIX",
+        "game": "DanceDanceRevolution 3rdMIX PLUS",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -93239,7 +93167,7 @@
         "higherBPM": 160,
         "changingBPM": false,
         "runtime": 104,
-        "game": "DanceDanceRevolution 2ndReMIX",
+        "game": "DanceDanceRevolution 3rdMIX PLUS",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -93995,7 +93923,7 @@
         "higherBPM": 115,
         "changingBPM": false,
         "runtime": 80,
-        "game": "DDRMAX2 -DanceDanceRevolution-",
+        "game": "DDRMAX2 -DanceDanceRevolution 7thMIX-",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -95423,7 +95351,7 @@
         "higherBPM": 175,
         "changingBPM": true,
         "runtime": 114,
-        "game": "DanceDanceRevolution II",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -99355,7 +99283,7 @@
         "higherBPM": 175,
         "changingBPM": false,
         "runtime": 110,
-        "game": "DanceDanceRevolution II",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",

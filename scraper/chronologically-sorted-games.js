@@ -1,6 +1,7 @@
 module.exports = [
     "DanceDanceRevolution",
     "DanceDanceRevolution Internet Ranking Version",
+    "DanceDanceRevolution 2ndMIX",
     "DanceDanceRevolution 2ndMIX / DanceDanceRevolution 2ndMIX LINK VERSION",
     "DanceDanceRevolution 2ndMIX CLUB VERSiON",
     "DanceDanceRevolution 2ndMIX CLUB VERSiON 2",

@@ -75,7 +75,7 @@
         "higherBPM": 190,
         "changingBPM": false,
         "runtime": 110,
-        "game": "DanceDanceRevolution GRAND PRIX",
+        "game": "DanceDanceRevolution WORLD",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -915,7 +915,7 @@
         "higherBPM": 444,
         "changingBPM": true,
         "runtime": 104,
-        "game": "DanceDanceRevolution UNIVERSE3",
+        "game": "DanceDanceRevolution X2",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -1167,7 +1167,7 @@
         "higherBPM": 155,
         "changingBPM": false,
         "runtime": 114,
-        "game": "DanceDanceRevolution S+",
+        "game": "DanceDanceRevolution X2",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -2771,7 +2771,7 @@
                 "notes": 158,
                 "freezeNotes": 0,
                 "shockNotes": 0,
-                "difficultyRating":4
+                "difficultyRating": 4
             },
             {
                 "difficulty": "Basic",
@@ -2807,8 +2807,8 @@
             },
             {
                 "difficulty": "difficult",
-                "isDoubles":true,
-                "notes":322,
+                "isDoubles": true,
+                "notes": 322,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 13
@@ -3167,7 +3167,7 @@
         "higherBPM": 157,
         "changingBPM": false,
         "runtime": 118,
-        "game": "DanceDanceRevolution UNIVERSE3",
+        "game": "DanceDanceRevolution X2",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -4511,7 +4511,7 @@
         "higherBPM": 130,
         "changingBPM": false,
         "runtime": 92,
-        "game": "DanceDanceRevolution KONAMIX",
+        "game": "DanceDanceRevolution EXTREME",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -6671,7 +6671,6 @@
             }
         ]
     },
-    
     {
         "licensed": false,
         "songName": "B4U(B4 ZA BEAT MIX)",
@@ -7352,7 +7351,7 @@
         "higherBPM": 92,
         "changingBPM": false,
         "runtime": 96,
-        "game": "DanceDanceRevolution ULTRAMIX2",
+        "game": "DanceDanceRevolution SuperNOVA",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -7533,15 +7532,15 @@
             {
                 "difficulty": "basic",
                 "isDoubles": false,
-                "notes":104,
+                "notes": 104,
                 "freezeNotes": 10,
                 "shockNotes": 0,
-                "difficultyRating":5
+                "difficultyRating": 5
             },
             {
                 "difficulty": "difficult",
                 "isDoubles": false,
-                "notes":150,
+                "notes": 150,
                 "freezeNotes": 27,
                 "shockNotes": 0,
                 "difficultyRating": 7
@@ -7556,7 +7555,7 @@
             },
             {
                 "difficulty": "basic",
-                "isDoubles":true,
+                "isDoubles": true,
                 "notes": 75,
                 "freezeNotes": 9,
                 "shockNotes": 0,
@@ -7574,7 +7573,7 @@
                 "difficulty": "expert",
                 "isDoubles": true,
                 "notes": 245,
-                "freezeNotes":11,
+                "freezeNotes": 11,
                 "shockNotes": 0,
                 "difficultyRating": 9
             }
@@ -9360,7 +9359,7 @@
                 "notes": 100,
                 "freezeNotes": 0,
                 "shockNotes": 0,
-                "difficultyRating":3
+                "difficultyRating": 3
             },
             {
                 "difficulty": "basic",
@@ -9373,7 +9372,7 @@
             {
                 "difficulty": "difficult",
                 "isDoubles": false,
-                "notes":252,
+                "notes": 252,
                 "freezeNotes": 14,
                 "shockNotes": 0,
                 "difficultyRating": 8
@@ -9381,7 +9380,7 @@
             {
                 "difficulty": "expert",
                 "isDoubles": false,
-                "notes":374,
+                "notes": 374,
                 "freezeNotes": 25,
                 "shockNotes": 0,
                 "difficultyRating": 12
@@ -9390,7 +9389,7 @@
                 "difficulty": "basic",
                 "isDoubles": true,
                 "notes": 169,
-                "freezeNotes":22,
+                "freezeNotes": 22,
                 "shockNotes": 0,
                 "difficultyRating": 5
             },
@@ -10749,19 +10748,18 @@
             {
                 "difficulty": "challenge",
                 "isDoubles": true,
-                "notes":229,
+                "notes": 229,
                 "freezeNotes": 8,
                 "shockNotes": 0,
                 "difficultyRating": 10
             }
-
         ]
     },
     {
         "licensed": true,
         "songName": "BRILLIANT 2U (AKBK MIX)",
         "artist": "NAOKI",
-        "game": "DanceDanceRevolution 2ndMIX ORIGINAL SOUNDTRACK (2011)",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "lowerBPM": 162,
         "higherBPM": 162,
         "changingBPM": false,
@@ -11757,7 +11755,7 @@
         "higherBPM": 132,
         "changingBPM": false,
         "runtime": 97,
-        "game": "DanceDanceRevolution Party Collection",
+        "game": "DanceDanceRevolution SuperNOVA",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -11862,7 +11860,7 @@
             {
                 "difficulty": "difficult",
                 "isDoubles": false,
-                "notes":235,
+                "notes": 235,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 7
@@ -12126,7 +12124,8 @@
                 "freezeNotes": 27,
                 "shockNotes": 0,
                 "difficultyRating": 8
-            },{
+            },
+            {
                 "difficulty": "Expert",
                 "isDoubles": true,
                 "notes": 325,
@@ -12461,90 +12460,6 @@
                 "freezeNotes": 55,
                 "shockNotes": 0,
                 "difficultyRating": 18
-            },
-            {
-                "difficulty": "Challenge",
-                "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": null,
-                "difficultyRating": null
-            }
-        ]
-    },
-    {
-        "licensed": false,
-        "songName": "Caught In The Moment",
-        "artist": "Entona",
-        "lowerBPM": 130,
-        "higherBPM": 130,
-        "changingBPM": false,
-        "runtime": 90,
-        "game": "DanceDanceRevolution UNIVERSE3",
-        "charts": [
-            {
-                "difficulty": "Beginner",
-                "isDoubles": false,
-                "notes": 43,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 43
-            },
-            {
-                "difficulty": "Basic",
-                "isDoubles": false,
-                "notes": 77,
-                "freezeNotes": 12,
-                "shockNotes": 0,
-                "difficultyRating": 77
-            },
-            {
-                "difficulty": "Difficult",
-                "isDoubles": false,
-                "notes": 162,
-                "freezeNotes": 10,
-                "shockNotes": 0,
-                "difficultyRating": 162
-            },
-            {
-                "difficulty": "Expert",
-                "isDoubles": false,
-                "notes": 214,
-                "freezeNotes": 11,
-                "shockNotes": 0,
-                "difficultyRating": 214
-            },
-            {
-                "difficulty": "Challenge",
-                "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": null,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Basic",
-                "isDoubles": true,
-                "notes": 77,
-                "freezeNotes": 12,
-                "shockNotes": 0,
-                "difficultyRating": 77
-            },
-            {
-                "difficulty": "Difficult",
-                "isDoubles": true,
-                "notes": 162,
-                "freezeNotes": 10,
-                "shockNotes": 0,
-                "difficultyRating": 162
-            },
-            {
-                "difficulty": "Expert",
-                "isDoubles": true,
-                "notes": 214,
-                "freezeNotes": 11,
-                "shockNotes": 0,
-                "difficultyRating": 214
             },
             {
                 "difficulty": "Challenge",
@@ -13824,78 +13739,78 @@
         "higherBPM": 110,
         "changingBPM": true,
         "runtime": 111,
-        "game": "DanceDanceRevolution ULTRAMIX4",
+        "game": "DanceDanceRevolution A",
         "charts": [
             {
                 "difficulty": "Beginner",
                 "isDoubles": false,
-                "notes": 102,
-                "freezeNotes": 0,
+                "notes": 71,
+                "freezeNotes": 10,
                 "shockNotes": 0,
                 "difficultyRating": 2
             },
             {
                 "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 102,
-                "freezeNotes": 13,
+                "notes": 114,
+                "freezeNotes": 18,
                 "shockNotes": 0,
                 "difficultyRating": 4
             },
             {
                 "difficulty": "Difficult",
                 "isDoubles": false,
-                "notes": 155,
-                "freezeNotes": 20,
+                "notes": 185,
+                "freezeNotes": 25,
                 "shockNotes": 0,
                 "difficultyRating": 8
             },
             {
                 "difficulty": "Expert",
                 "isDoubles": false,
-                "notes": 360,
-                "freezeNotes": 53,
+                "notes": 283,
+                "freezeNotes": 17,
                 "shockNotes": 0,
                 "difficultyRating": 9
             },
             {
                 "difficulty": "Challenge",
                 "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": null,
+                "notes": 400,
+                "freezeNotes": 20,
+                "shockNotes": 0,
                 "difficultyRating": 12
             },
             {
                 "difficulty": "Basic",
                 "isDoubles": true,
-                "notes": 99,
-                "freezeNotes": 13,
+                "notes": 116,
+                "freezeNotes": 23,
                 "shockNotes": 0,
                 "difficultyRating": 4
             },
             {
                 "difficulty": "Difficult",
                 "isDoubles": true,
-                "notes": 155,
-                "freezeNotes": 19,
+                "notes": 184,
+                "freezeNotes": 25,
                 "shockNotes": 0,
                 "difficultyRating": 8
             },
             {
                 "difficulty": "Expert",
                 "isDoubles": true,
-                "notes": 368,
-                "freezeNotes": 45,
+                "notes": 283,
+                "freezeNotes": 16,
                 "shockNotes": 0,
                 "difficultyRating": 10
             },
             {
                 "difficulty": "Challenge",
                 "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": null,
+                "notes": 401,
+                "freezeNotes": 8,
+                "shockNotes": 0,
                 "difficultyRating": 12
             }
         ]
@@ -15756,79 +15671,63 @@
         "higherBPM": 155,
         "changingBPM": true,
         "runtime": 99,
-        "game": "DanceDanceRevolution A",
+        "game": "DanceDanceRevolution A3",
         "charts": [
             {
                 "difficulty": "BEGINNER",
                 "isDoubles": false,
-                "notes": 198,
-                "freezeNotes": 0,
+                "notes": 71,
+                "freezeNotes": 5,
                 "shockNotes": 0,
-                "difficultyRating": 2
+                "difficultyRating": 3
             },
             {
-                "difficulty": "NORMAL",
+                "difficulty": "basic",
                 "isDoubles": false,
-                "notes": 460,
-                "freezeNotes": 0,
+                "notes": 121,
+                "freezeNotes": 4,
                 "shockNotes": 0,
                 "difficultyRating": 5
             },
             {
-                "difficulty": "HYPER",
+                "difficulty": "difficult",
                 "isDoubles": false,
-                "notes": 915,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 10
-            },
-            {
-                "difficulty": "ANOTHER",
-                "isDoubles": false,
-                "notes": 1311,
-                "freezeNotes": 0,
+                "notes": 323,
+                "freezeNotes": 10,
                 "shockNotes": 0,
                 "difficultyRating": 12
             },
             {
-                "difficulty": "LEGGENDARIA",
+                "difficulty": "expert",
                 "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 458,
+                "freezeNotes": 6,
                 "shockNotes": 0,
-                "difficultyRating": null
+                "difficultyRating": 10
             },
             {
-                "difficulty": "NORMAL",
-                "isDoubles": false,
-                "notes": 486,
-                "freezeNotes": 0,
+                "difficulty": "basic",
+                "isDoubles": true,
+                "notes": 119,
+                "freezeNotes": 4,
                 "shockNotes": 0,
                 "difficultyRating": 5
             },
             {
-                "difficulty": "HYPER",
+                "difficulty": "difficult",
                 "isDoubles": true,
-                "notes": 972,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 10
-            },
-            {
-                "difficulty": "ANOTHER",
-                "isDoubles": true,
-                "notes": 1425,
-                "freezeNotes": 0,
+                "notes": 324,
+                "freezeNotes": 10,
                 "shockNotes": 0,
                 "difficultyRating": 12
             },
             {
-                "difficulty": "LEGGENDARIA",
+                "difficulty": "expert",
                 "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 491,
+                "freezeNotes": 12,
                 "shockNotes": 0,
-                "difficultyRating": null
+                "difficultyRating": 16
             }
         ]
     },
@@ -16764,7 +16663,7 @@
         "higherBPM": 177,
         "changingBPM": true,
         "runtime": 112,
-        "game": "DanceDanceRevolution (2010) / DanceDanceRevolution (PS3)",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -17184,13 +17083,13 @@
         "higherBPM": 165,
         "changingBPM": false,
         "runtime": 97,
-        "game": "DanceDanceRevolution (2010) / DanceDanceRevolution (PS3)",
+        "game": "DanceDanceRevolution A3",
         "charts": [
             {
                 "difficulty": "Beginner",
                 "isDoubles": false,
-                "notes": 138,
-                "freezeNotes": 0,
+                "notes": 68,
+                "freezeNotes": 5,
                 "shockNotes": 0,
                 "difficultyRating": 2
             },
@@ -17198,23 +17097,23 @@
                 "difficulty": "Basic",
                 "isDoubles": false,
                 "notes": 159,
-                "freezeNotes": 26,
+                "freezeNotes": 9,
                 "shockNotes": 0,
                 "difficultyRating": 6
             },
             {
                 "difficulty": "Difficult",
                 "isDoubles": false,
-                "notes": 236,
-                "freezeNotes": 6,
+                "notes": 209,
+                "freezeNotes": 101,
                 "shockNotes": 0,
                 "difficultyRating": 10
             },
             {
                 "difficulty": "Expert",
                 "isDoubles": false,
-                "notes": 320,
-                "freezeNotes": 20,
+                "notes": 318,
+                "freezeNotes": 31,
                 "shockNotes": 0,
                 "difficultyRating": 13
             },
@@ -17229,24 +17128,24 @@
             {
                 "difficulty": "Basic",
                 "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 159,
+                "freezeNotes": 10,
                 "shockNotes": 0,
                 "difficultyRating": 6
             },
             {
                 "difficulty": "Difficult",
                 "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 190,
+                "freezeNotes": 106,
                 "shockNotes": 0,
                 "difficultyRating": 9
             },
             {
                 "difficulty": "Expert",
                 "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 272,
+                "freezeNotes": 37,
                 "shockNotes": 0,
                 "difficultyRating": 12
             },
@@ -17436,12 +17335,12 @@
         "higherBPM": 126,
         "changingBPM": false,
         "runtime": 84,
-        "game": "おはスタ DanceDanceRevolution",
+        "game": "DanceDanceRevolution EXTREME",
         "charts": [
             {
                 "difficulty": "Beginner",
                 "isDoubles": false,
-                "notes": null,
+                "notes": 73,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 3
@@ -17449,7 +17348,7 @@
             {
                 "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 89,
+                "notes": 91,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 3
@@ -17457,7 +17356,7 @@
             {
                 "difficulty": "Difficult",
                 "isDoubles": false,
-                "notes": 118,
+                "notes": 140,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 4
@@ -17465,8 +17364,8 @@
             {
                 "difficulty": "Expert",
                 "isDoubles": false,
-                "notes": 122,
-                "freezeNotes": 0,
+                "notes": 215,
+                "freezeNotes": 8,
                 "shockNotes": 0,
                 "difficultyRating": 9
             },
@@ -17481,7 +17380,7 @@
             {
                 "difficulty": "Basic",
                 "isDoubles": true,
-                "notes": 84,
+                "notes": 86,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 4
@@ -17489,7 +17388,7 @@
             {
                 "difficulty": "Difficult",
                 "isDoubles": true,
-                "notes": null,
+                "notes": 162,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 6
@@ -17497,8 +17396,8 @@
             {
                 "difficulty": "Expert",
                 "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 197,
+                "freezeNotes": 5,
                 "shockNotes": 0,
                 "difficultyRating": 9
             },
@@ -17693,74 +17592,58 @@
             {
                 "difficulty": "BEGINNER",
                 "isDoubles": false,
-                "notes": 363,
+                "notes": 124,
                 "freezeNotes": 0,
                 "shockNotes": 0,
-                "difficultyRating": null
+                "difficultyRating": 3
             },
             {
-                "difficulty": "NORMAL",
+                "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 494,
-                "freezeNotes": 0,
+                "notes": 147,
+                "freezeNotes": 5,
                 "shockNotes": 0,
-                "difficultyRating": 5
+                "difficultyRating": 4
             },
             {
-                "difficulty": "HYPER",
+                "difficulty": "difficult",
                 "isDoubles": false,
-                "notes": 671,
-                "freezeNotes": 0,
+                "notes": 236,
+                "freezeNotes": 29,
                 "shockNotes": 0,
-                "difficultyRating": 6
+                "difficultyRating": 7
             },
             {
-                "difficulty": "ANOTHER",
+                "difficulty": "expert",
                 "isDoubles": false,
-                "notes": 823,
-                "freezeNotes": 0,
+                "notes": 327,
+                "freezeNotes": 7,
+                "shockNotes": 0,
+                "difficultyRating": 11
+            },
+            {
+                "difficulty": "basic",
+                "isDoubles": true,
+                "notes": 138,
+                "freezeNotes": 4,
+                "shockNotes": 0,
+                "difficultyRating": 4
+            },
+            {
+                "difficulty": "difficult",
+                "isDoubles": true,
+                "notes": 238,
+                "freezeNotes": 10,
                 "shockNotes": 0,
                 "difficultyRating": 8
             },
             {
-                "difficulty": "LEGGENDARIA",
-                "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "NORMAL",
-                "isDoubles": false,
-                "notes": 525,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 5
-            },
-            {
-                "difficulty": "HYPER",
+                "difficulty": "expert",
                 "isDoubles": true,
-                "notes": 665,
+                "notes": 322,
                 "freezeNotes": 0,
                 "shockNotes": 0,
-                "difficultyRating": 6
-            },
-            {
-                "difficulty": "ANOTHER",
-                "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "LEGGENDARIA",
-                "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
+                "difficultyRating": 11
             }
         ]
     },
@@ -17772,7 +17655,7 @@
         "higherBPM": 156,
         "changingBPM": false,
         "runtime": 104,
-        "game": "VJ GYO (beatmania IIDX 22 PENDUAL→23 copula), 菌類 (BeatStream, beatmania IIDX 24 SINOBUZ→Present, DanceDanceRevolution)",
+        "game": "DanceDanceRevolution A",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -17856,7 +17739,7 @@
         "higherBPM": 172,
         "changingBPM": true,
         "runtime": 107,
-        "game": "MORO (beatmania), あまも (GF/DM), ? (DanceDanceRevolution)",
+        "game": "DanceDanceRevolution EXTREME",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -20292,7 +20175,7 @@
         "higherBPM": 600,
         "changingBPM": true,
         "runtime": 126,
-        "game": "DanceDanceRevolution UNIVERSE3",
+        "game": "DanceDanceRevolution X2",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -20549,74 +20432,58 @@
             {
                 "difficulty": "BEGINNER",
                 "isDoubles": false,
-                "notes": 337,
+                "notes": 115,
                 "freezeNotes": 0,
                 "shockNotes": 0,
-                "difficultyRating": null
+                "difficultyRating": 3
             },
             {
-                "difficulty": "NORMAL",
+                "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 546,
+                "notes": 116,
                 "freezeNotes": 0,
                 "shockNotes": 0,
-                "difficultyRating": 5
+                "difficultyRating": 3
             },
             {
-                "difficulty": "HYPER",
+                "difficulty": "difficult",
                 "isDoubles": false,
-                "notes": 700,
-                "freezeNotes": 0,
+                "notes": 239,
+                "freezeNotes": 16,
                 "shockNotes": 0,
-                "difficultyRating": 6
+                "difficultyRating": 7
             },
             {
-                "difficulty": "ANOTHER",
+                "difficulty": "expert",
                 "isDoubles": false,
-                "notes": 925,
-                "freezeNotes": 0,
+                "notes": 322,
+                "freezeNotes": 8,
+                "shockNotes": 0,
+                "difficultyRating": 10
+            },
+            {
+                "difficulty": "basic",
+                "isDoubles": true,
+                "notes": 147,
+                "freezeNotes": 5,
+                "shockNotes": 0,
+                "difficultyRating": 3
+            },
+            {
+                "difficulty": "difficult",
+                "isDoubles": true,
+                "notes": 268,
+                "freezeNotes": 2,
                 "shockNotes": 0,
                 "difficultyRating": 8
             },
             {
-                "difficulty": "LEGGENDARIA",
-                "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "NORMAL",
-                "isDoubles": false,
-                "notes": 575,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 4
-            },
-            {
-                "difficulty": "HYPER",
+                "difficulty": "expert",
                 "isDoubles": true,
-                "notes": 700,
-                "freezeNotes": 0,
+                "notes": 336,
+                "freezeNotes": 4,
                 "shockNotes": 0,
-                "difficultyRating": 6
-            },
-            {
-                "difficulty": "ANOTHER",
-                "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "LEGGENDARIA",
-                "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
+                "difficultyRating": 11
             }
         ]
     },
@@ -20628,7 +20495,7 @@
         "higherBPM": 170,
         "changingBPM": false,
         "runtime": 94,
-        "game": "tQy (GF/DM), moroEX (DanceDanceRevolution)",
+        "game": "DanceDanceRevolution EXTREME",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -21384,7 +21251,7 @@
         "higherBPM": 140,
         "changingBPM": false,
         "runtime": 89,
-        "game": "DanceDanceRevolution UNIVERSE3",
+        "game": "DanceDanceRevolution X2",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -22980,7 +22847,7 @@
         "higherBPM": 143,
         "changingBPM": false,
         "runtime": 118,
-        "game": "DanceDanceRevolution (2010) / DanceDanceRevolution (PS3)",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -23400,7 +23267,7 @@
         "higherBPM": 260,
         "changingBPM": false,
         "runtime": 102,
-        "game": "DanceDanceRevolution Solo 2000",
+        "game": "DanceDanceRevolution 4thMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -23473,90 +23340,6 @@
                 "freezeNotes": 0,
                 "shockNotes": null,
                 "difficultyRating": null
-            }
-        ]
-    },
-    {
-        "licensed": true,
-        "songName": "DROP OUT(FROM NONSTOP MEGAMIX)",
-        "artist": "NW260",
-        "game": "DanceDanceRevolution Solo 2000 ORIGINAL SOUNDTRACK (2000)",
-        "lowerBPM": 130,
-        "higherBPM": 130,
-        "changingBPM": false,
-        "runtime": 89,
-        "charts": [
-            {
-                "difficulty": "Beginner",
-                "isDoubles": false,
-                "notes": 91,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Basic",
-                "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Difficult",
-                "isDoubles": false,
-                "notes": 251,
-                "freezeNotes": 4,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Expert",
-                "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Challenge",
-                "isDoubles": false,
-                "notes": 281,
-                "freezeNotes": 4,
-                "shockNotes": 0,
-                "difficultyRating": 12
-            },
-            {
-                "difficulty": "Basic",
-                "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Difficult",
-                "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Expert",
-                "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Challenge",
-                "isDoubles": true,
-                "notes": 277,
-                "freezeNotes": 4,
-                "shockNotes": 0,
-                "difficultyRating": 13
             }
         ]
     },
@@ -23904,7 +23687,7 @@
         "higherBPM": 175,
         "changingBPM": false,
         "runtime": 93,
-        "game": "DanceDanceRevolution UNIVERSE3",
+        "game": "DanceDanceRevolution X2",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -24077,71 +23860,71 @@
             {
                 "difficulty": "BEGINNER",
                 "isDoubles": false,
-                "notes": null,
+                "notes": 110,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 3
             },
             {
-                "difficulty": "NORMAL",
+                "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 345,
-                "freezeNotes": 0,
+                "notes": 188,
+                "freezeNotes": 5,
                 "shockNotes": 0,
                 "difficultyRating": 6
             },
             {
-                "difficulty": "HYPER",
+                "difficulty": "difficult",
                 "isDoubles": false,
-                "notes": 598,
+                "notes": 269,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 10
             },
             {
-                "difficulty": "ANOTHER",
+                "difficulty": "expert",
                 "isDoubles": false,
-                "notes": 614,
+                "notes": 398,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 12
             },
             {
-                "difficulty": "LEGGENDARIA",
+                "difficulty": "Challenge",
                 "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 362,
+                "freezeNotes": 6,
                 "shockNotes": 0,
                 "difficultyRating": 12
             },
             {
-                "difficulty": "NORMAL",
-                "isDoubles": false,
-                "notes": 342,
+                "difficulty": "basic",
+                "isDoubles": true,
+                "notes": 217,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 7
             },
             {
-                "difficulty": "HYPER",
+                "difficulty": "difficult",
                 "isDoubles": true,
-                "notes": 589,
-                "freezeNotes": 0,
+                "notes": 250,
+                "freezeNotes": 10,
                 "shockNotes": 0,
                 "difficultyRating": 8
             },
             {
-                "difficulty": "ANOTHER",
+                "difficulty": "expert",
                 "isDoubles": true,
-                "notes": 604,
+                "notes": 331,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 11
             },
             {
-                "difficulty": "LEGGENDARIA",
+                "difficulty": "challenge",
                 "isDoubles": true,
-                "notes": null,
+                "notes": 327,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 12
@@ -24159,52 +23942,76 @@
         "game": "DanceDanceRevolution 2ndMIX CLUB VERSiON",
         "charts": [
             {
-                "difficulty": "Normal",
+                "difficulty": "BEGINNER",
                 "isDoubles": false,
-                "notes": 96,
+                "notes": 54,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 2
             },
             {
-                "difficulty": "Hard",
+                "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": null,
+                "notes": 99,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 5
             },
             {
-                "difficulty": "Another",
+                "difficulty": "difficult",
                 "isDoubles": false,
-                "notes": null,
+                "notes": 122,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 6
             },
             {
-                "difficulty": "Normal",
+                "difficulty": "expert",
                 "isDoubles": false,
-                "notes": 125,
+                "notes": 133,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 8
             },
             {
-                "difficulty": "Hard",
+                "difficulty": "Challenge",
                 "isDoubles": false,
                 "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
+                "freezeNotes": null,
+                "shockNotes": null,
                 "difficultyRating": null
             },
             {
-                "difficulty": "Another",
-                "isDoubles": false,
-                "notes": null,
+                "difficulty": "basic",
+                "isDoubles": true,
+                "notes": 110,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 6
+            },
+            {
+                "difficulty": "difficult",
+                "isDoubles": true,
+                "notes": 136,
+                "freezeNotes": 0,
+                "shockNotes": 0,
+                "difficultyRating": 8
+            },
+            {
+                "difficulty": "expert",
+                "isDoubles": true,
+                "notes": 154,
+                "freezeNotes": 17,
+                "shockNotes": 0,
+                "difficultyRating": 11
+            },
+            {
+                "difficulty": "challenge",
+                "isDoubles": true,
+                "notes": null,
+                "freezeNotes": null,
+                "shockNotes": null,
+                "difficultyRating": null
             }
         ]
     },
@@ -24809,73 +24616,73 @@
             {
                 "difficulty": "BEGINNER",
                 "isDoubles": false,
-                "notes": null,
+                "notes": 104,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 3
             },
             {
-                "difficulty": "NORMAL",
+                "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 341,
-                "freezeNotes": 0,
+                "notes": 147,
+                "freezeNotes": 2,
                 "shockNotes": 0,
                 "difficultyRating": 4
             },
             {
-                "difficulty": "HYPER",
+                "difficulty": "difficult",
                 "isDoubles": false,
-                "notes": 733,
-                "freezeNotes": 0,
+                "notes": 209,
+                "freezeNotes": 1,
                 "shockNotes": 0,
                 "difficultyRating": 6
             },
             {
-                "difficulty": "ANOTHER",
+                "difficulty": "expert",
                 "isDoubles": false,
-                "notes": 947,
-                "freezeNotes": 0,
+                "notes": 273,
+                "freezeNotes": 9,
                 "shockNotes": 0,
                 "difficultyRating": 10
             },
             {
-                "difficulty": "LEGGENDARIA",
+                "difficulty": "Challenge",
                 "isDoubles": false,
                 "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
+                "freezeNotes": null,
+                "shockNotes": null,
                 "difficultyRating": null
             },
             {
-                "difficulty": "NORMAL",
-                "isDoubles": false,
-                "notes": 587,
-                "freezeNotes": 0,
+                "difficulty": "basic",
+                "isDoubles": true,
+                "notes": 178,
+                "freezeNotes": 1,
                 "shockNotes": 0,
                 "difficultyRating": 5
             },
             {
-                "difficulty": "HYPER",
+                "difficulty": "difficult",
                 "isDoubles": true,
-                "notes": 885,
-                "freezeNotes": 0,
+                "notes": 206,
+                "freezeNotes": 1,
                 "shockNotes": 0,
                 "difficultyRating": 6
             },
             {
-                "difficulty": "ANOTHER",
+                "difficulty": "expert",
                 "isDoubles": true,
-                "notes": 1282,
-                "freezeNotes": 0,
+                "notes": 286,
+                "freezeNotes": 3,
                 "shockNotes": 0,
                 "difficultyRating": 11
             },
             {
-                "difficulty": "LEGGENDARIA",
+                "difficulty": "challenge",
                 "isDoubles": true,
                 "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
+                "freezeNotes": null,
+                "shockNotes": null,
                 "difficultyRating": null
             }
         ]
@@ -26067,52 +25874,76 @@
         "game": "DanceDanceRevolution 4thMIX",
         "charts": [
             {
-                "difficulty": "Normal",
+                "difficulty": "BEGINNER",
                 "isDoubles": false,
-                "notes": 420,
+                "notes": 54,
                 "freezeNotes": 0,
                 "shockNotes": 0,
-                "difficultyRating": null
+                "difficultyRating": 2
             },
             {
-                "difficulty": "Hard",
+                "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 538,
+                "notes": 99,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 5
             },
             {
-                "difficulty": "Another",
+                "difficulty": "difficult",
                 "isDoubles": false,
-                "notes": 746,
+                "notes": 122,
+                "freezeNotes": 0,
+                "shockNotes": 0,
+                "difficultyRating": 6
+            },
+            {
+                "difficulty": "expert",
+                "isDoubles": false,
+                "notes": 133,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 8
             },
             {
-                "difficulty": "Normal",
+                "difficulty": "Challenge",
                 "isDoubles": false,
-                "notes": 436,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 9
-            },
-            {
-                "difficulty": "Hard",
-                "isDoubles": false,
-                "notes": 948,
-                "freezeNotes": 0,
-                "shockNotes": 0,
+                "notes": null,
+                "freezeNotes": null,
+                "shockNotes": null,
                 "difficultyRating": null
             },
             {
-                "difficulty": "Another",
-                "isDoubles": false,
-                "notes": 1186,
+                "difficulty": "basic",
+                "isDoubles": true,
+                "notes": 110,
                 "freezeNotes": 0,
                 "shockNotes": 0,
-                "difficultyRating": 5
+                "difficultyRating": 6
+            },
+            {
+                "difficulty": "difficult",
+                "isDoubles": true,
+                "notes": 136,
+                "freezeNotes": 0,
+                "shockNotes": 0,
+                "difficultyRating": 8
+            },
+            {
+                "difficulty": "expert",
+                "isDoubles": true,
+                "notes": 154,
+                "freezeNotes": 17,
+                "shockNotes": 0,
+                "difficultyRating": 11
+            },
+            {
+                "difficulty": "challenge",
+                "isDoubles": true,
+                "notes": null,
+                "freezeNotes": null,
+                "shockNotes": null,
+                "difficultyRating": null
             }
         ]
     },
@@ -26544,7 +26375,7 @@
         "higherBPM": 145,
         "changingBPM": false,
         "runtime": 118,
-        "game": "DanceDanceRevolution (2010) / DanceDanceRevolution (PS3)",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -27888,7 +27719,7 @@
         "higherBPM": 150,
         "changingBPM": false,
         "runtime": 94,
-        "game": "DanceDanceRevolution (2010) / DanceDanceRevolution (PS3)",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -29400,7 +29231,7 @@
         "higherBPM": 148,
         "changingBPM": false,
         "runtime": 91,
-        "game": "DanceDanceRevolution Party Collection",
+        "game": "DanceDanceRevolution SuperNOVA",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -30243,52 +30074,76 @@
         "game": "DanceDanceRevolution EXTREME",
         "charts": [
             {
-                "difficulty": "Normal",
+                "difficulty": "BEGINNER",
                 "isDoubles": false,
-                "notes": 479,
+                "notes": 114,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 3
             },
             {
-                "difficulty": "Hard",
+                "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 555,
+                "notes": 149,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 4
             },
             {
-                "difficulty": "Another",
+                "difficulty": "difficult",
                 "isDoubles": false,
-                "notes": 656,
+                "notes": 175,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 7
             },
             {
-                "difficulty": "Normal",
+                "difficulty": "expert",
                 "isDoubles": false,
-                "notes": 543,
+                "notes": 298,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 12
             },
             {
-                "difficulty": "Hard",
+                "difficulty": "Challenge",
                 "isDoubles": false,
-                "notes": 617,
-                "freezeNotes": 0,
-                "shockNotes": 0,
+                "notes": null,
+                "freezeNotes": null,
+                "shockNotes": null,
                 "difficultyRating": null
             },
             {
-                "difficulty": "Another",
-                "isDoubles": false,
-                "notes": 656,
+                "difficulty": "basic",
+                "isDoubles": true,
+                "notes": 152,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 5
+            },
+            {
+                "difficulty": "difficult",
+                "isDoubles": true,
+                "notes": 171,
+                "freezeNotes": 0,
+                "shockNotes": 0,
+                "difficultyRating": 7
+            },
+            {
+                "difficulty": "expert",
+                "isDoubles": true,
+                "notes": 297,
+                "freezeNotes": 0,
+                "shockNotes": 0,
+                "difficultyRating": 13
+            },
+            {
+                "difficulty": "challenge",
+                "isDoubles": true,
+                "notes": null,
+                "freezeNotes": null,
+                "shockNotes": null,
+                "difficultyRating": null
             }
         ]
     },
@@ -30471,52 +30326,76 @@
         "game": "DanceDanceRevolution 2ndMIX CLUB VERSiON",
         "charts": [
             {
-                "difficulty": "Normal",
+                "difficulty": "BEGINNER",
                 "isDoubles": false,
-                "notes": 582,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Hard",
-                "isDoubles": false,
-                "notes": null,
+                "notes": 84,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 3
             },
             {
-                "difficulty": "Another",
+                "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 662,
+                "notes": 169,
                 "freezeNotes": 0,
                 "shockNotes": 0,
-                "difficultyRating": 6
+                "difficultyRating": 7
             },
             {
-                "difficulty": "Normal",
+                "difficulty": "difficult",
                 "isDoubles": false,
-                "notes": 745,
+                "notes": 205,
+                "freezeNotes": 0,
+                "shockNotes": 0,
+                "difficultyRating": 8
+            },
+            {
+                "difficulty": "expert",
+                "isDoubles": false,
+                "notes": 238,
+                "freezeNotes": 0,
+                "shockNotes": 0,
+                "difficultyRating": 11
+            },
+            {
+                "difficulty": "Challenge",
+                "isDoubles": false,
+                "notes": null,
+                "freezeNotes": null,
+                "shockNotes": null,
+                "difficultyRating": null
+            },
+            {
+                "difficulty": "basic",
+                "isDoubles": true,
+                "notes": 195,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 9
             },
             {
-                "difficulty": "Hard",
-                "isDoubles": false,
-                "notes": null,
+                "difficulty": "difficult",
+                "isDoubles": true,
+                "notes": 225,
                 "freezeNotes": 0,
                 "shockNotes": 0,
-                "difficultyRating": null
+                "difficultyRating": 11
             },
             {
-                "difficulty": "Another",
-                "isDoubles": false,
-                "notes": 745,
-                "freezeNotes": 0,
+                "difficulty": "expert",
+                "isDoubles": true,
+                "notes": 272,
+                "freezeNotes": 7,
                 "shockNotes": 0,
-                "difficultyRating": 3
+                "difficultyRating": 12
+            },
+            {
+                "difficulty": "challenge",
+                "isDoubles": true,
+                "notes": null,
+                "freezeNotes": null,
+                "shockNotes": null,
+                "difficultyRating": null
             }
         ]
     },
@@ -32628,7 +32507,7 @@
         "higherBPM": 135,
         "changingBPM": false,
         "runtime": 96,
-        "game": "DanceDanceRevolution ULTRAMIX Song Pack #06",
+        "game": "DanceDanceRevolution SuperNOVA",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -33725,74 +33604,74 @@
             {
                 "difficulty": "BEGINNER",
                 "isDoubles": false,
-                "notes": 169,
+                "notes": 123,
                 "freezeNotes": 0,
                 "shockNotes": 0,
-                "difficultyRating": 2
+                "difficultyRating": 3
             },
             {
-                "difficulty": "NORMAL",
+                "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 510,
-                "freezeNotes": 0,
+                "notes": 211,
+                "freezeNotes": 5,
                 "shockNotes": 0,
-                "difficultyRating": 5
+                "difficultyRating": 6
             },
             {
-                "difficulty": "HYPER",
+                "difficulty": "difficult",
                 "isDoubles": false,
-                "notes": 804,
-                "freezeNotes": 0,
+                "notes": 272,
+                "freezeNotes": 1,
                 "shockNotes": 0,
                 "difficultyRating": 8
             },
             {
-                "difficulty": "ANOTHER",
+                "difficulty": "expert",
                 "isDoubles": false,
-                "notes": 1029,
-                "freezeNotes": 0,
+                "notes": 348,
+                "freezeNotes": 1,
                 "shockNotes": 0,
-                "difficultyRating": 10
+                "difficultyRating": 11
             },
             {
-                "difficulty": "LEGGENDARIA",
+                "difficulty": "Challenge",
                 "isDoubles": false,
-                "notes": 1597,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 12
+                "notes": null,
+                "freezeNotes": null,
+                "shockNotes": null,
+                "difficultyRating": null
             },
             {
-                "difficulty": "NORMAL",
-                "isDoubles": false,
-                "notes": 592,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 7
-            },
-            {
-                "difficulty": "HYPER",
+                "difficulty": "basic",
                 "isDoubles": true,
-                "notes": 801,
-                "freezeNotes": 0,
+                "notes": 184,
+                "freezeNotes": 1,
                 "shockNotes": 0,
-                "difficultyRating": 9
+                "difficultyRating": 5
             },
             {
-                "difficulty": "ANOTHER",
+                "difficulty": "difficult",
                 "isDoubles": true,
-                "notes": 1011,
-                "freezeNotes": 0,
+                "notes": 266,
+                "freezeNotes": 1,
                 "shockNotes": 0,
-                "difficultyRating": 10
+                "difficultyRating": 8
             },
             {
-                "difficulty": "LEGGENDARIA",
+                "difficulty": "expert",
                 "isDoubles": true,
-                "notes": 1719,
-                "freezeNotes": 0,
+                "notes": 359,
+                "freezeNotes": 1,
                 "shockNotes": 0,
-                "difficultyRating": 12
+                "difficultyRating": 11
+            },
+            {
+                "difficulty": "challenge",
+                "isDoubles": true,
+                "notes": null,
+                "freezeNotes": null,
+                "shockNotes": null,
+                "difficultyRating": null
             }
         ]
     },
@@ -33888,7 +33767,7 @@
         "higherBPM": 172,
         "changingBPM": false,
         "runtime": 91,
-        "game": "竹石渉 (BeatStream NIGHTMARE, DanceDanceRevolution, GF/DM), Studio Pierrot (BeatStream LIGHT/MEDIUM/BEAST)",
+        "game": "DanceDanceRevolution (2014)",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -34560,7 +34439,7 @@
         "higherBPM": 127,
         "changingBPM": false,
         "runtime": 125,
-        "game": "mayo (BeatStream, DanceDanceRevolution, DanceEvolution ARCADE, DANCERUSH, jubeat)",
+        "game": "DanceDanceRevolution A",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -36749,73 +36628,73 @@
             {
                 "difficulty": "BEGINNER",
                 "isDoubles": false,
-                "notes": 125,
-                "freezeNotes": 0,
+                "notes": 121,
+                "freezeNotes": 15,
                 "shockNotes": 0,
-                "difficultyRating": 2
+                "difficultyRating": 3
             },
             {
-                "difficulty": "NORMAL",
+                "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 438,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 4
-            },
-            {
-                "difficulty": "HYPER",
-                "isDoubles": false,
-                "notes": 788,
-                "freezeNotes": 0,
+                "notes": 187,
+                "freezeNotes": 25,
                 "shockNotes": 0,
                 "difficultyRating": 6
             },
             {
-                "difficulty": "ANOTHER",
+                "difficulty": "difficult",
                 "isDoubles": false,
-                "notes": 1106,
-                "freezeNotes": 0,
+                "notes": 330,
+                "freezeNotes": 26,
                 "shockNotes": 0,
-                "difficultyRating": 9
+                "difficultyRating": 10
             },
             {
-                "difficulty": "LEGGENDARIA",
+                "difficulty": "expert",
+                "isDoubles": false,
+                "notes": 470,
+                "freezeNotes": 21,
+                "shockNotes": 0,
+                "difficultyRating": 13
+            },
+            {
+                "difficulty": "Challenge",
                 "isDoubles": false,
                 "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
+                "freezeNotes": null,
+                "shockNotes": null,
                 "difficultyRating": null
             },
             {
-                "difficulty": "NORMAL",
-                "isDoubles": false,
-                "notes": 439,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 5
-            },
-            {
-                "difficulty": "HYPER",
+                "difficulty": "basic",
                 "isDoubles": true,
-                "notes": 771,
-                "freezeNotes": 0,
+                "notes": 182,
+                "freezeNotes": 23,
                 "shockNotes": 0,
-                "difficultyRating": 7
+                "difficultyRating": 6
             },
             {
-                "difficulty": "ANOTHER",
+                "difficulty": "difficult",
                 "isDoubles": true,
-                "notes": 1123,
-                "freezeNotes": 0,
+                "notes": 330,
+                "freezeNotes": 24,
                 "shockNotes": 0,
-                "difficultyRating": 9
+                "difficultyRating": 10
             },
             {
-                "difficulty": "LEGGENDARIA",
+                "difficulty": "expert",
+                "isDoubles": true,
+                "notes": 467,
+                "freezeNotes": 13,
+                "shockNotes": 0,
+                "difficultyRating": 13
+            },
+            {
+                "difficulty": "challenge",
                 "isDoubles": true,
                 "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
+                "freezeNotes": null,
+                "shockNotes": null,
                 "difficultyRating": null
             }
         ]
@@ -37421,73 +37300,73 @@
             {
                 "difficulty": "BEGINNER",
                 "isDoubles": false,
-                "notes": 324,
+                "notes": 103,
                 "freezeNotes": 0,
                 "shockNotes": 0,
-                "difficultyRating": null
+                "difficultyRating": 4
             },
             {
-                "difficulty": "NORMAL",
+                "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 395,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 5
-            },
-            {
-                "difficulty": "HYPER",
-                "isDoubles": false,
-                "notes": 624,
+                "notes": 189,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 7
             },
             {
-                "difficulty": "ANOTHER",
+                "difficulty": "difficult",
                 "isDoubles": false,
-                "notes": 880,
+                "notes": 228,
+                "freezeNotes": 0,
+                "shockNotes": 0,
+                "difficultyRating": 9
+            },
+            {
+                "difficulty": "expert",
+                "isDoubles": false,
+                "notes": 313,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 11
             },
             {
-                "difficulty": "LEGGENDARIA",
+                "difficulty": "Challenge",
                 "isDoubles": false,
                 "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
+                "freezeNotes": null,
+                "shockNotes": null,
                 "difficultyRating": null
             },
             {
-                "difficulty": "NORMAL",
-                "isDoubles": false,
-                "notes": 680,
+                "difficulty": "basic",
+                "isDoubles": true,
+                "notes": 198,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 7
             },
             {
-                "difficulty": "HYPER",
+                "difficulty": "difficult",
                 "isDoubles": true,
-                "notes": 875,
+                "notes": 232,
                 "freezeNotes": 0,
                 "shockNotes": 0,
-                "difficultyRating": 10
+                "difficultyRating": 8
             },
             {
-                "difficulty": "ANOTHER",
+                "difficulty": "expert",
                 "isDoubles": true,
-                "notes": 1136,
+                "notes": 336,
                 "freezeNotes": 0,
                 "shockNotes": 0,
-                "difficultyRating": 12
+                "difficultyRating": 11
             },
             {
-                "difficulty": "LEGGENDARIA",
+                "difficulty": "challenge",
                 "isDoubles": true,
                 "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
+                "freezeNotes": null,
+                "shockNotes": null,
                 "difficultyRating": null
             }
         ]
@@ -38760,7 +38639,7 @@
         "higherBPM": 190,
         "changingBPM": false,
         "runtime": 95,
-        "game": "DanceDanceRevolution Solo BASS MIX",
+        "game": "DanceDanceRevolution 4thMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -39256,7 +39135,6 @@
             }
         ]
     },
-    
     {
         "licensed": false,
         "songName": "I WANT YOUR LOVE (Darwin remix)",
@@ -41029,7 +40907,7 @@
         "higherBPM": 124,
         "changingBPM": false,
         "runtime": 89,
-        "game": "DanceDanceRevolution (2010) / DanceDanceRevolution (PS3)",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -41538,73 +41416,73 @@
             {
                 "difficulty": "BEGINNER",
                 "isDoubles": false,
-                "notes": 275,
+                "notes": 104,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 4
             },
             {
-                "difficulty": "NORMAL",
+                "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 452,
+                "notes": 187,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 6
             },
             {
-                "difficulty": "HYPER",
+                "difficulty": "difficult",
                 "isDoubles": false,
-                "notes": 664,
+                "notes": 263,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 9
             },
             {
-                "difficulty": "ANOTHER",
+                "difficulty": "expert",
                 "isDoubles": false,
-                "notes": 835,
+                "notes": 374,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 13
             },
             {
-                "difficulty": "LEGGENDARIA",
+                "difficulty": "Challenge",
                 "isDoubles": false,
                 "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
+                "freezeNotes": null,
+                "shockNotes": null,
                 "difficultyRating": null
             },
             {
-                "difficulty": "NORMAL",
-                "isDoubles": false,
-                "notes": 445,
+                "difficulty": "basic",
+                "isDoubles": true,
+                "notes": 181,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 5
             },
             {
-                "difficulty": "HYPER",
+                "difficulty": "difficult",
                 "isDoubles": true,
-                "notes": 595,
+                "notes": 256,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 9
             },
             {
-                "difficulty": "ANOTHER",
+                "difficulty": "expert",
                 "isDoubles": true,
-                "notes": 850,
-                "freezeNotes": 0,
+                "notes": 316,
+                "freezeNotes": 10,
                 "shockNotes": 0,
                 "difficultyRating": 12
             },
             {
-                "difficulty": "LEGGENDARIA",
+                "difficulty": "challenge",
                 "isDoubles": true,
                 "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
+                "freezeNotes": null,
+                "shockNotes": null,
                 "difficultyRating": null
             }
         ]
@@ -43554,74 +43432,74 @@
             {
                 "difficulty": "BEGINNER",
                 "isDoubles": false,
-                "notes": 230,
+                "notes": 103,
                 "freezeNotes": 0,
                 "shockNotes": 0,
-                "difficultyRating": null
+                "difficultyRating": 3
             },
             {
-                "difficulty": "NORMAL",
+                "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 392,
-                "freezeNotes": 0,
+                "notes": 128,
+                "freezeNotes": 32,
                 "shockNotes": 0,
-                "difficultyRating": 6
+                "difficultyRating": 5
             },
             {
-                "difficulty": "HYPER",
+                "difficulty": "difficult",
                 "isDoubles": false,
-                "notes": 1004,
-                "freezeNotes": 0,
+                "notes": 237,
+                "freezeNotes": 15,
                 "shockNotes": 0,
-                "difficultyRating": 10
+                "difficultyRating": 9
             },
             {
-                "difficulty": "ANOTHER",
+                "difficulty": "expert",
                 "isDoubles": false,
-                "notes": 1183,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 10
-            },
-            {
-                "difficulty": "LEGGENDARIA",
-                "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "NORMAL",
-                "isDoubles": false,
-                "notes": 702,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 7
-            },
-            {
-                "difficulty": "HYPER",
-                "isDoubles": true,
-                "notes": 1209,
-                "freezeNotes": 0,
+                "notes": 371,
+                "freezeNotes": 7,
                 "shockNotes": 0,
                 "difficultyRating": 12
             },
             {
-                "difficulty": "ANOTHER",
-                "isDoubles": true,
-                "notes": 1401,
-                "freezeNotes": 0,
+                "difficulty": "Challenge",
+                "isDoubles": false,
+                "notes": 317,
+                "freezeNotes": 7,
                 "shockNotes": 0,
-                "difficultyRating": 12
+                "difficultyRating": 11
             },
             {
-                "difficulty": "LEGGENDARIA",
+                "difficulty": "basic",
                 "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 109,
+                "freezeNotes": 34,
                 "shockNotes": 0,
-                "difficultyRating": null
+                "difficultyRating": 4
+            },
+            {
+                "difficulty": "difficult",
+                "isDoubles": true,
+                "notes": 193,
+                "freezeNotes": 26,
+                "shockNotes": 0,
+                "difficultyRating": 8
+            },
+            {
+                "difficulty": "expert",
+                "isDoubles": true,
+                "notes": 365,
+                "freezeNotes": 2,
+                "shockNotes": 0,
+                "difficultyRating": 11
+            },
+            {
+                "difficulty": "challenge",
+                "isDoubles": true,
+                "notes": 305,
+                "freezeNotes": 2,
+                "shockNotes": 0,
+                "difficultyRating": 11
             }
         ]
     },
@@ -43888,52 +43766,76 @@
         "game": "DanceDanceRevolution 2ndMIX",
         "charts": [
             {
-                "difficulty": "Normal",
+                "difficulty": "BEGINNER",
                 "isDoubles": false,
-                "notes": 100,
+                "notes": 51,
                 "freezeNotes": 0,
                 "shockNotes": 0,
-                "difficultyRating": null
+                "difficultyRating": 4
             },
             {
-                "difficulty": "Hard",
+                "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 119,
+                "notes": 110,
                 "freezeNotes": 0,
                 "shockNotes": 0,
-                "difficultyRating": 2
+                "difficultyRating": 5
             },
             {
-                "difficulty": "Another",
+                "difficulty": "difficult",
+                "isDoubles": false,
+                "notes": 140,
+                "freezeNotes": 0,
+                "shockNotes": 0,
+                "difficultyRating": 7
+            },
+            {
+                "difficulty": "expert",
+                "isDoubles": false,
+                "notes": 183,
+                "freezeNotes": 0,
+                "shockNotes": 0,
+                "difficultyRating": 9
+            },
+            {
+                "difficulty": "Challenge",
                 "isDoubles": false,
                 "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 3
-            },
-            {
-                "difficulty": "Normal",
-                "isDoubles": false,
-                "notes": 100,
-                "freezeNotes": 0,
-                "shockNotes": 0,
+                "freezeNotes": null,
+                "shockNotes": null,
                 "difficultyRating": null
             },
             {
-                "difficulty": "Hard",
-                "isDoubles": false,
-                "notes": 119,
+                "difficulty": "basic",
+                "isDoubles": true,
+                "notes": 113,
                 "freezeNotes": 0,
                 "shockNotes": 0,
-                "difficultyRating": null
+                "difficultyRating": 5
             },
             {
-                "difficulty": "Another",
-                "isDoubles": false,
+                "difficulty": "difficult",
+                "isDoubles": true,
+                "notes": 162,
+                "freezeNotes": 0,
+                "shockNotes": 0,
+                "difficultyRating": 9
+            },
+            {
+                "difficulty": "expert",
+                "isDoubles": true,
+                "notes": 164,
+                "freezeNotes": 17,
+                "shockNotes": 0,
+                "difficultyRating": 10
+            },
+            {
+                "difficulty": "challenge",
+                "isDoubles": true,
                 "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 2
+                "freezeNotes": null,
+                "shockNotes": null,
+                "difficultyRating": null
             }
         ]
     },
@@ -43941,7 +43843,7 @@
         "licensed": true,
         "songName": "KEEP ON MOVIN' (Y&Co. DJ BOSS remix)",
         "artist": "N.M.R",
-        "game": "DanceDanceRevolution 2ndMIX ORIGINAL SOUNDTRACK (2011)",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "lowerBPM": 128,
         "higherBPM": 128,
         "changingBPM": false,
@@ -47814,73 +47716,73 @@
             {
                 "difficulty": "BEGINNER",
                 "isDoubles": false,
-                "notes": 247,
+                "notes": 94,
                 "freezeNotes": 0,
                 "shockNotes": 0,
+                "difficultyRating": 3
+            },
+            {
+                "difficulty": "Basic",
+                "isDoubles": false,
+                "notes": 193,
+                "freezeNotes": 0,
+                "shockNotes": 0,
+                "difficultyRating": 8
+            },
+            {
+                "difficulty": "difficult",
+                "isDoubles": false,
+                "notes": 258,
+                "freezeNotes": 0,
+                "shockNotes": 0,
+                "difficultyRating": 9
+            },
+            {
+                "difficulty": "expert",
+                "isDoubles": false,
+                "notes": 359,
+                "freezeNotes": 0,
+                "shockNotes": 0,
+                "difficultyRating": 13
+            },
+            {
+                "difficulty": "Challenge",
+                "isDoubles": false,
+                "notes": null,
+                "freezeNotes": null,
+                "shockNotes": null,
                 "difficultyRating": null
             },
             {
-                "difficulty": "NORMAL",
-                "isDoubles": false,
-                "notes": 434,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 4
-            },
-            {
-                "difficulty": "HYPER",
-                "isDoubles": false,
-                "notes": 611,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 6
-            },
-            {
-                "difficulty": "ANOTHER",
-                "isDoubles": false,
-                "notes": 645,
+                "difficulty": "basic",
+                "isDoubles": true,
+                "notes": 185,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 7
             },
             {
-                "difficulty": "LEGGENDARIA",
-                "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "NORMAL",
-                "isDoubles": false,
-                "notes": 478,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 4
-            },
-            {
-                "difficulty": "HYPER",
+                "difficulty": "difficult",
                 "isDoubles": true,
-                "notes": 611,
+                "notes": 258,
                 "freezeNotes": 0,
                 "shockNotes": 0,
-                "difficultyRating": 6
+                "difficultyRating": 10
             },
             {
-                "difficulty": "ANOTHER",
+                "difficulty": "expert",
                 "isDoubles": true,
-                "notes": 645,
+                "notes": 357,
                 "freezeNotes": 0,
                 "shockNotes": 0,
-                "difficultyRating": 6
+                "difficultyRating": 13
             },
             {
-                "difficulty": "LEGGENDARIA",
+                "difficulty": "challenge",
                 "isDoubles": true,
                 "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
+                "freezeNotes": null,
+                "shockNotes": null,
                 "difficultyRating": null
             }
         ]
@@ -48145,7 +48047,7 @@
         "higherBPM": 102,
         "changingBPM": false,
         "runtime": 88,
-        "game": "DanceDanceRevolution EXTRA MIX",
+        "game": "DDRMAX -DanceDanceRevolution 6thMIX-",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -48313,7 +48215,7 @@
         "higherBPM": 150,
         "changingBPM": false,
         "runtime": 120,
-        "game": "DanceDanceRevolution (2010) / DanceDanceRevolution (PS3)",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -49825,7 +49727,7 @@
         "higherBPM": 180,
         "changingBPM": false,
         "runtime": 104,
-        "game": "HES (beatmania IIDX), ? (DanceDanceRevolution)",
+        "game": "DanceDanceRevolution EXTREME2",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -51169,7 +51071,7 @@
         "higherBPM": 127,
         "changingBPM": false,
         "runtime": 113,
-        "game": "DanceDanceRevolution (2010) / DanceDanceRevolution (PS3)",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -51421,7 +51323,7 @@
         "higherBPM": 130,
         "changingBPM": false,
         "runtime": 120,
-        "game": "VJ GYO (beatmania IIDX 9th style→19 Lincle), ? (beatmania IIDX 20 tricoro→Present, DanceDanceRevolution)",
+        "game": "DanceDanceRevolution EXTREME2",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -51925,7 +51827,7 @@
         "higherBPM": 158,
         "changingBPM": false,
         "runtime": 117,
-        "game": "F-FLY (beatmania IIDX), ? (DanceDanceRevolution)",
+        "game": "DanceDanceRevolution EXTREME2",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -52261,79 +52163,79 @@
         "higherBPM": 300,
         "changingBPM": true,
         "runtime": 92,
-        "game": "VJ GYO (overlays by GOLI) (beatmania IIDX), ? (DanceDanceRevolution)",
+        "game": "DDRMAX -DanceDanceRevolution 6thMIX-",
         "charts": [
             {
                 "difficulty": "BEGINNER",
                 "isDoubles": false,
-                "notes": 219,
+                "notes": 85,
                 "freezeNotes": 0,
                 "shockNotes": 0,
-                "difficultyRating": null
+                "difficultyRating": 5
             },
             {
-                "difficulty": "NORMAL",
+                "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 556,
-                "freezeNotes": 0,
+                "notes": 264,
+                "freezeNotes": 2,
                 "shockNotes": 0,
-                "difficultyRating": 7
+                "difficultyRating": 9
             },
             {
-                "difficulty": "HYPER",
+                "difficulty": "difficult",
                 "isDoubles": false,
-                "notes": 982,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 10
-            },
-            {
-                "difficulty": "ANOTHER",
-                "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 373,
+                "freezeNotes": 35,
                 "shockNotes": 0,
                 "difficultyRating": 12
             },
             {
-                "difficulty": "LEGGENDARIA",
+                "difficulty": "expert",
                 "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 555,
+                "freezeNotes": 2,
                 "shockNotes": 0,
-                "difficultyRating": null
+                "difficultyRating": 15
             },
             {
-                "difficulty": "NORMAL",
+                "difficulty": "Challenge",
                 "isDoubles": false,
-                "notes": 566,
-                "freezeNotes": 0,
+                "notes": 523,
+                "freezeNotes": 30,
                 "shockNotes": 0,
-                "difficultyRating": 7
+                "difficultyRating": 17
             },
             {
-                "difficulty": "HYPER",
+                "difficulty": "basic",
                 "isDoubles": true,
-                "notes": 982,
-                "freezeNotes": 0,
+                "notes": 263,
+                "freezeNotes": 8,
                 "shockNotes": 0,
-                "difficultyRating": 10
+                "difficultyRating": 9
             },
             {
-                "difficulty": "ANOTHER",
+                "difficulty": "difficult",
                 "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 347,
+                "freezeNotes": 5,
                 "shockNotes": 0,
                 "difficultyRating": 12
             },
             {
-                "difficulty": "LEGGENDARIA",
+                "difficulty": "expert",
                 "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 485,
+                "freezeNotes": 2,
                 "shockNotes": 0,
-                "difficultyRating": null
+                "difficultyRating": 15
+            },
+            {
+                "difficulty": "challenge",
+                "isDoubles": true,
+                "notes": 514,
+                "freezeNotes": 28,
+                "shockNotes": 0,
+                "difficultyRating": 17
             }
         ]
     },
@@ -52345,7 +52247,7 @@
         "higherBPM": 320,
         "changingBPM": true,
         "runtime": 105,
-        "game": "DanceDanceRevolution ULTRAMIX2",
+        "game": "DanceDanceRevolution SuperNOVA",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -53860,36 +53762,76 @@
         "game": "DanceDanceRevolution (2013)",
         "charts": [
             {
-                "difficulty": "Light",
+                "difficulty": "Beginner",
                 "isDoubles": false,
-                "notes": 212,
-                "freezeNotes": 0,
+                "notes": 134,
+                "freezeNotes": 15,
                 "shockNotes": 0,
-                "difficultyRating": 3
+                "difficultyRating": 5
             },
             {
-                "difficulty": "Medium",
+                "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 456,
-                "freezeNotes": 0,
+                "notes": 211,
+                "freezeNotes": 7,
                 "shockNotes": 0,
                 "difficultyRating": 6
             },
             {
-                "difficulty": "Beast",
+                "difficulty": "Difficult",
                 "isDoubles": false,
-                "notes": 829,
-                "freezeNotes": 0,
+                "notes": 341,
+                "freezeNotes": 7,
                 "shockNotes": 0,
                 "difficultyRating": 9
             },
             {
-                "difficulty": "Nightmare",
+                "difficulty": "Expert",
                 "isDoubles": false,
-                "notes": 784,
-                "freezeNotes": 0,
+                "notes": 434,
+                "freezeNotes": 7,
                 "shockNotes": 0,
                 "difficultyRating": 12
+            },
+            {
+                "difficulty": "Challenge",
+                "isDoubles": false,
+                "notes": 676,
+                "freezeNotes": 29,
+                "shockNotes": 0,
+                "difficultyRating": 16
+            },
+            {
+                "difficulty": "Basic",
+                "isDoubles": true,
+                "notes": 211,
+                "freezeNotes": 7,
+                "shockNotes": 0,
+                "difficultyRating": 6
+            },
+            {
+                "difficulty": "Difficult",
+                "isDoubles": true,
+                "notes": 342,
+                "freezeNotes": 7,
+                "shockNotes": 0,
+                "difficultyRating": 9
+            },
+            {
+                "difficulty": "Expert",
+                "isDoubles": true,
+                "notes": 434,
+                "freezeNotes": 7,
+                "shockNotes": 0,
+                "difficultyRating": 12
+            },
+            {
+                "difficulty": "Challenge",
+                "isDoubles": true,
+                "notes": 651,
+                "freezeNotes": 22,
+                "shockNotes": 0,
+                "difficultyRating": 15
             }
         ]
     },
@@ -54237,7 +54179,7 @@
         "higherBPM": 250,
         "changingBPM": true,
         "runtime": 98,
-        "game": "K-GO, shiro (GF/DM), moroEX (DanceDanceRevolution)",
+        "game": "DanceDanceRevolution EXTREME",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -54993,7 +54935,7 @@
         "higherBPM": 180,
         "changingBPM": false,
         "runtime": 104,
-        "game": "DanceDanceRevolution ULTRAMIX2",
+        "game": "DanceDanceRevolution SuperNOVA",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -55573,7 +55515,6 @@
             }
         ]
     },
-    
     {
         "licensed": false,
         "songName": "Mugen no hikari",
@@ -56758,7 +56699,7 @@
         "higherBPM": 190,
         "changingBPM": false,
         "runtime": 110,
-        "game": "Fukutomi WAVE (beatmania IIDX 20 tricoro), ナツ/たかたん (BeatStream, DanceDanceRevolution, beatmania IIDX 21 SPADA→Present)",
+        "game": "DanceDanceRevolution (2013)",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -58348,13 +58289,13 @@
     },
     {
         "licensed": false,
-        "songName": "New York EVOLVED",
+        "songName": "New York EVOLVED, Type A",
         "artist": "NC underground",
         "lowerBPM": 95,
         "higherBPM": 380,
         "changingBPM": true,
         "runtime": 120,
-        "game": "DanceDanceRevolution (2010) / DanceDanceRevolution (PS3)",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -58417,6 +58358,174 @@
                 "isDoubles": true,
                 "notes": 598,
                 "freezeNotes": 30,
+                "shockNotes": 0,
+                "difficultyRating": 16
+            },
+            {
+                "difficulty": "Challenge",
+                "isDoubles": true,
+                "notes": null,
+                "freezeNotes": 0,
+                "shockNotes": null,
+                "difficultyRating": null
+            }
+        ]
+    },
+    {
+        "licensed": false,
+        "songName": "New York EVOLVED, Type B",
+        "artist": "NC underground",
+        "lowerBPM": 95,
+        "higherBPM": 380,
+        "changingBPM": true,
+        "runtime": 120,
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
+        "charts": [
+            {
+                "difficulty": "Beginner",
+                "isDoubles": false,
+                "notes": 126,
+                "freezeNotes": 11,
+                "shockNotes": 0,
+                "difficultyRating": 4
+            },
+            {
+                "difficulty": "Basic",
+                "isDoubles": false,
+                "notes": 259,
+                "freezeNotes": 15,
+                "shockNotes": 0,
+                "difficultyRating": 9
+            },
+            {
+                "difficulty": "Difficult",
+                "isDoubles": false,
+                "notes": 430,
+                "freezeNotes": 18,
+                "shockNotes": 0,
+                "difficultyRating": 13
+            },
+            {
+                "difficulty": "Expert",
+                "isDoubles": false,
+                "notes": 561,
+                "freezeNotes": 23,
+                "shockNotes": 0,
+                "difficultyRating": 16
+            },
+            {
+                "difficulty": "Challenge",
+                "isDoubles": false,
+                "notes": null,
+                "freezeNotes": 0,
+                "shockNotes": null,
+                "difficultyRating": null
+            },
+            {
+                "difficulty": "Basic",
+                "isDoubles": true,
+                "notes": 249,
+                "freezeNotes": 19,
+                "shockNotes": 0,
+                "difficultyRating": 8
+            },
+            {
+                "difficulty": "Difficult",
+                "isDoubles": true,
+                "notes": 392,
+                "freezeNotes": 16,
+                "shockNotes": 0,
+                "difficultyRating": 13
+            },
+            {
+                "difficulty": "Expert",
+                "isDoubles": true,
+                "notes": 541,
+                "freezeNotes": 14,
+                "shockNotes": 0,
+                "difficultyRating": 16
+            },
+            {
+                "difficulty": "Challenge",
+                "isDoubles": true,
+                "notes": null,
+                "freezeNotes": 0,
+                "shockNotes": null,
+                "difficultyRating": null
+            }
+        ]
+    },
+    {
+        "licensed": false,
+        "songName": "New York EVOLVED, Type C",
+        "artist": "NC underground",
+        "lowerBPM": 95,
+        "higherBPM": 380,
+        "changingBPM": true,
+        "runtime": 120,
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
+        "charts": [
+            {
+                "difficulty": "Beginner",
+                "isDoubles": false,
+                "notes": 121,
+                "freezeNotes": 5,
+                "shockNotes": 0,
+                "difficultyRating": 4
+            },
+            {
+                "difficulty": "Basic",
+                "isDoubles": false,
+                "notes": 242,
+                "freezeNotes": 5,
+                "shockNotes": 0,
+                "difficultyRating": 9
+            },
+            {
+                "difficulty": "Difficult",
+                "isDoubles": false,
+                "notes": 402,
+                "freezeNotes": 7,
+                "shockNotes": 0,
+                "difficultyRating": 13
+            },
+            {
+                "difficulty": "Expert",
+                "isDoubles": false,
+                "notes": 523,
+                "freezeNotes": 16,
+                "shockNotes": 0,
+                "difficultyRating": 16
+            },
+            {
+                "difficulty": "Challenge",
+                "isDoubles": false,
+                "notes": null,
+                "freezeNotes": 0,
+                "shockNotes": null,
+                "difficultyRating": null
+            },
+            {
+                "difficulty": "Basic",
+                "isDoubles": true,
+                "notes": 245,
+                "freezeNotes": 15,
+                "shockNotes": 0,
+                "difficultyRating": 8
+            },
+            {
+                "difficulty": "Difficult",
+                "isDoubles": true,
+                "notes": 379,
+                "freezeNotes": 7,
+                "shockNotes": 0,
+                "difficultyRating": 13
+            },
+            {
+                "difficulty": "Expert",
+                "isDoubles": true,
+                "notes": 530,
+                "freezeNotes": 9,
                 "shockNotes": 0,
                 "difficultyRating": 16
             },
@@ -59866,7 +59975,7 @@
         "higherBPM": 140,
         "changingBPM": false,
         "runtime": 106,
-        "game": "DanceDanceRevolution UNIVERSE3 DLC",
+        "game": "DanceDanceRevolution X2",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -59950,7 +60059,7 @@
         "higherBPM": 149,
         "changingBPM": false,
         "runtime": 121,
-        "game": "F-FLY (beatmania IIDX tricoro→copula), ゆうき (BeatStream, beatmania IIDX SINOBUZ→Present, DanceDanceRevolution)",
+        "game": "DanceDanceRevolution A",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -60622,12 +60731,12 @@
         "higherBPM": 155,
         "changingBPM": false,
         "runtime": 108,
-        "game": "DanceDanceRevolution (2010) / DanceDanceRevolution (PS3)",
+        "game": "DanceDanceRevolution A3",
         "charts": [
             {
                 "difficulty": "Beginner",
                 "isDoubles": false,
-                "notes": 102,
+                "notes": 86,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 3
@@ -60635,24 +60744,24 @@
             {
                 "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 159,
-                "freezeNotes": 0,
+                "notes": 182,
+                "freezeNotes": 32,
                 "shockNotes": 0,
                 "difficultyRating": 6
             },
             {
                 "difficulty": "Difficult",
                 "isDoubles": false,
-                "notes": 237,
-                "freezeNotes": 0,
+                "notes": 287,
+                "freezeNotes": 75,
                 "shockNotes": 0,
                 "difficultyRating": 11
             },
             {
                 "difficulty": "Expert",
                 "isDoubles": false,
-                "notes": 328,
-                "freezeNotes": 4,
+                "notes": 451,
+                "freezeNotes": 99,
                 "shockNotes": 0,
                 "difficultyRating": 14
             },
@@ -60667,24 +60776,24 @@
             {
                 "difficulty": "Basic",
                 "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 182,
+                "freezeNotes": 32,
                 "shockNotes": 0,
                 "difficultyRating": 6
             },
             {
                 "difficulty": "Difficult",
                 "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 287,
+                "freezeNotes": 75,
                 "shockNotes": 0,
                 "difficultyRating": 11
             },
             {
                 "difficulty": "Expert",
                 "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 432,
+                "freezeNotes": 99,
                 "shockNotes": 0,
                 "difficultyRating": 14
             },
@@ -60790,7 +60899,7 @@
         "higherBPM": 140,
         "changingBPM": false,
         "runtime": 100,
-        "game": "DanceDanceRevolution (2010) / DanceDanceRevolution (PS3)",
+        "game": "DanceDanceRevolution (2014)",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -60958,7 +61067,7 @@
         "higherBPM": 135,
         "changingBPM": false,
         "runtime": 119,
-        "game": "DanceDanceRevolution GRAND PRIX",
+        "game": "DanceDanceRevolution WORLD",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -63054,7 +63163,7 @@
         "licensed": true,
         "songName": "PARANOiA (kskst mix)",
         "artist": "180",
-        "game": "DanceDanceRevolution 2ndMIX ORIGINAL SOUNDTRACK (2011)",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "lowerBPM": 190,
         "higherBPM": 190,
         "changingBPM": false,
@@ -63226,7 +63335,7 @@
         "higherBPM": 200,
         "changingBPM": false,
         "runtime": 94,
-        "game": "DanceDanceRevolution Solo BASS MIX",
+        "game": "DanceDanceRevolution 4thMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -63397,52 +63506,76 @@
         "game": "DanceDanceRevolution 2ndMIX",
         "charts": [
             {
-                "difficulty": "Normal",
+                "difficulty": "Beginner",
                 "isDoubles": false,
-                "notes": 150,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Hard",
-                "isDoubles": false,
-                "notes": 150,
+                "notes": 142,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 5
             },
             {
-                "difficulty": "Another",
+                "difficulty": "Basic",
+                "isDoubles": false,
+                "notes": 268,
+                "freezeNotes": 0,
+                "shockNotes": 0,
+                "difficultyRating": 9
+            },
+            {
+                "difficulty": "Difficult",
+                "isDoubles": false,
+                "notes": 288,
+                "freezeNotes": 0,
+                "shockNotes": 0,
+                "difficultyRating": 10
+            },
+            {
+                "difficulty": "Expert",
+                "isDoubles": false,
+                "notes": 340,
+                "freezeNotes": 0,
+                "shockNotes": 0,
+                "difficultyRating": 12
+            },
+            {
+                "difficulty": "Challenge",
                 "isDoubles": false,
                 "notes": null,
                 "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 6
-            },
-            {
-                "difficulty": "Normal",
-                "isDoubles": false,
-                "notes": 200,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 8
-            },
-            {
-                "difficulty": "Hard",
-                "isDoubles": false,
-                "notes": 200,
-                "freezeNotes": 0,
-                "shockNotes": 0,
+                "shockNotes": null,
                 "difficultyRating": null
             },
             {
-                "difficulty": "Another",
-                "isDoubles": false,
-                "notes": null,
+                "difficulty": "Basic",
+                "isDoubles": true,
+                "notes": 274,
                 "freezeNotes": 0,
                 "shockNotes": 0,
-                "difficultyRating": 3
+                "difficultyRating": 7
+            },
+            {
+                "difficulty": "Difficult",
+                "isDoubles": true,
+                "notes": 311,
+                "freezeNotes": 0,
+                "shockNotes": 0,
+                "difficultyRating": 12
+            },
+            {
+                "difficulty": "Expert",
+                "isDoubles": true,
+                "notes": 363,
+                "freezeNotes": 0,
+                "shockNotes": 0,
+                "difficultyRating": 11
+            },
+            {
+                "difficulty": "Challenge",
+                "isDoubles": true,
+                "notes": null,
+                "freezeNotes": 0,
+                "shockNotes": null,
+                "difficultyRating": null
             }
         ]
     },
@@ -63709,76 +63842,76 @@
         "game": "DanceDanceRevolution EXTREME",
         "charts": [
             {
-                "difficulty": "BEGINNER",
+                "difficulty": "Beginner",
                 "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "NORMAL",
-                "isDoubles": false,
-                "notes": 448,
+                "notes": 121,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 5
             },
             {
-                "difficulty": "HYPER",
+                "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 662,
-                "freezeNotes": 0,
+                "notes": 258,
+                "freezeNotes": 2,
                 "shockNotes": 0,
-                "difficultyRating": 8
+                "difficultyRating": 9
             },
             {
-                "difficulty": "ANOTHER",
+                "difficulty": "Difficult",
                 "isDoubles": false,
-                "notes": 754,
-                "freezeNotes": 0,
+                "notes": 377,
+                "freezeNotes": 2,
                 "shockNotes": 0,
-                "difficultyRating": 10
+                "difficultyRating": 11
             },
             {
-                "difficulty": "LEGGENDARIA",
+                "difficulty": "Expert",
                 "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 567,
+                "freezeNotes": 5,
                 "shockNotes": 0,
-                "difficultyRating": null
+                "difficultyRating": 15
             },
             {
-                "difficulty": "NORMAL",
+                "difficulty": "Challenge",
                 "isDoubles": false,
-                "notes": 448,
-                "freezeNotes": 0,
+                "notes": 613,
+                "freezeNotes": 4,
                 "shockNotes": 0,
-                "difficultyRating": 5
+                "difficultyRating": 16
             },
             {
-                "difficulty": "HYPER",
+                "difficulty": "Basic",
                 "isDoubles": true,
-                "notes": 661,
-                "freezeNotes": 0,
+                "notes": 258,
+                "freezeNotes": 2,
                 "shockNotes": 0,
-                "difficultyRating": 8
+                "difficultyRating": 9
             },
             {
-                "difficulty": "ANOTHER",
+                "difficulty": "Difficult",
                 "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 375,
+                "freezeNotes": 3,
                 "shockNotes": 0,
-                "difficultyRating": 10
+                "difficultyRating": 11
             },
             {
-                "difficulty": "LEGGENDARIA",
+                "difficulty": "Expert",
                 "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 533,
+                "freezeNotes": 3,
                 "shockNotes": 0,
-                "difficultyRating": null
+                "difficultyRating": 15
+            },
+            {
+                "difficulty": "Challenge",
+                "isDoubles": true,
+                "notes": 613,
+                "freezeNotes": 4,
+                "shockNotes": 0,
+                "difficultyRating": 16
             }
         ]
     },
@@ -63874,7 +64007,7 @@
         "higherBPM": 301,
         "changingBPM": true,
         "runtime": 102,
-        "game": "DanceDanceRevolution Party Collection",
+        "game": "DanceDanceRevolution Supernova",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -66814,7 +66947,7 @@
         "higherBPM": 160,
         "changingBPM": false,
         "runtime": 106,
-        "game": "DanceDanceRevolution (2010) / DanceDanceRevolution (PS3)",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -67566,7 +67699,7 @@
         "licensed": true,
         "songName": "PUT YOUR FAITH IN ME (DA's Twinkly Disco Remix)",
         "artist": "UZI-LAY",
-        "game": "DanceDanceRevolution 2ndMIX ORIGINAL SOUNDTRACK (2011)",
+        "game": "DanceDanceRevolution 2ndMIX CLUB VERSiON",
         "lowerBPM": 115,
         "higherBPM": 115,
         "changingBPM": false,
@@ -68074,55 +68207,79 @@
         "higherBPM": 150,
         "changingBPM": true,
         "runtime": 105,
-        "game": "MORO (beatmania), VJ YUZ (beatmania IIDX), ? (DanceDanceRevolution)",
+        "game": "DanceDanceRevolution SuperNOVA",
         "charts": [
             {
-                "difficulty": "Normal",
+                "difficulty": "Beginner",
                 "isDoubles": false,
-                "notes": 478,
+                "notes": 111,
                 "freezeNotes": 0,
                 "shockNotes": 0,
+                "difficultyRating": 3
+            },
+            {
+                "difficulty": "Basic",
+                "isDoubles": false,
+                "notes": 161,
+                "freezeNotes": 24,
+                "shockNotes": 0,
+                "difficultyRating": 6
+            },
+            {
+                "difficulty": "Difficult",
+                "isDoubles": false,
+                "notes": 224,
+                "freezeNotes": 25,
+                "shockNotes": 0,
+                "difficultyRating": 7
+            },
+            {
+                "difficulty": "Expert",
+                "isDoubles": false,
+                "notes": 333,
+                "freezeNotes": 13,
+                "shockNotes": 0,
+                "difficultyRating": 11
+            },
+            {
+                "difficulty": "Challenge",
+                "isDoubles": false,
+                "notes": null,
+                "freezeNotes": 0,
+                "shockNotes": null,
                 "difficultyRating": null
             },
             {
-                "difficulty": "Hard",
-                "isDoubles": false,
-                "notes": 651,
-                "freezeNotes": 0,
+                "difficulty": "Basic",
+                "isDoubles": true,
+                "notes": 139,
+                "freezeNotes": 20,
                 "shockNotes": 0,
                 "difficultyRating": 5
             },
             {
-                "difficulty": "Another",
-                "isDoubles": false,
-                "notes": 878,
-                "freezeNotes": 0,
+                "difficulty": "Difficult",
+                "isDoubles": true,
+                "notes": 223,
+                "freezeNotes": 21,
                 "shockNotes": 0,
-                "difficultyRating": 9
+                "difficultyRating": 7
             },
             {
-                "difficulty": "Normal",
-                "isDoubles": false,
-                "notes": 440,
-                "freezeNotes": 0,
+                "difficulty": "Expert",
+                "isDoubles": true,
+                "notes": 265,
+                "freezeNotes": 21,
                 "shockNotes": 0,
-                "difficultyRating": 10
+                "difficultyRating": 8
             },
             {
-                "difficulty": "Hard",
-                "isDoubles": false,
-                "notes": 620,
+                "difficulty": "Challenge",
+                "isDoubles": true,
+                "notes": null,
                 "freezeNotes": 0,
-                "shockNotes": 0,
+                "shockNotes": null,
                 "difficultyRating": null
-            },
-            {
-                "difficulty": "Another",
-                "isDoubles": false,
-                "notes": 1044,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 5
             }
         ]
     },
@@ -68386,7 +68543,7 @@
         "higherBPM": 148,
         "changingBPM": false,
         "runtime": 124,
-        "game": "DanceDanceRevolution ULTRAMIX3",
+        "game": "DanceDanceRevolution SuperNOVA",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -70066,7 +70223,7 @@
         "higherBPM": 145,
         "changingBPM": false,
         "runtime": 98,
-        "game": "DanceDanceRevolution S",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -70570,7 +70727,7 @@
         "higherBPM": 131,
         "changingBPM": false,
         "runtime": 122,
-        "game": "DanceDanceRevolution (2010) / DanceDanceRevolution (PS3)",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -72418,79 +72575,79 @@
         "higherBPM": 444,
         "changingBPM": true,
         "runtime": 107,
-        "game": "F-FLY (18 Resort Anthem→19 Lincle), Unknown (20 tricoro→Present, DanceDanceRevolution)",
+        "game": "DanceDanceRevolution X",
         "charts": [
             {
-                "difficulty": "BEGINNER",
+                "difficulty": "Beginner",
                 "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "NORMAL",
-                "isDoubles": false,
-                "notes": 282,
+                "notes": 162,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 5
             },
             {
-                "difficulty": "HYPER",
+                "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 952,
-                "freezeNotes": 0,
+                "notes": 258,
+                "freezeNotes": 24,
                 "shockNotes": 0,
-                "difficultyRating": 9
+                "difficultyRating": 8
             },
             {
-                "difficulty": "ANOTHER",
+                "difficulty": "Difficult",
                 "isDoubles": false,
-                "notes": 1438,
-                "freezeNotes": 0,
+                "notes": 346,
+                "freezeNotes": 33,
                 "shockNotes": 0,
-                "difficultyRating": 11
+                "difficultyRating": 10
             },
             {
-                "difficulty": "LEGGENDARIA",
+                "difficulty": "Expert",
                 "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 442,
+                "freezeNotes": 24,
                 "shockNotes": 0,
-                "difficultyRating": null
+                "difficultyRating": 13
             },
             {
-                "difficulty": "NORMAL",
+                "difficulty": "Challenge",
                 "isDoubles": false,
-                "notes": 372,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 5
+                "notes": 389,
+                "freezeNotes": 18,
+                "shockNotes": 59,
+                "difficultyRating": 13
             },
             {
-                "difficulty": "HYPER",
+                "difficulty": "Basic",
                 "isDoubles": true,
-                "notes": 928,
-                "freezeNotes": 0,
+                "notes": 271,
+                "freezeNotes": 9,
                 "shockNotes": 0,
-                "difficultyRating": 9
+                "difficultyRating": 8
             },
             {
-                "difficulty": "ANOTHER",
+                "difficulty": "Difficult",
                 "isDoubles": true,
-                "notes": 1549,
-                "freezeNotes": 0,
+                "notes": 330,
+                "freezeNotes": 17,
                 "shockNotes": 0,
                 "difficultyRating": 12
             },
             {
-                "difficulty": "LEGGENDARIA",
+                "difficulty": "Expert",
                 "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 433,
+                "freezeNotes": 13,
                 "shockNotes": 0,
-                "difficultyRating": null
+                "difficultyRating": 13
+            },
+            {
+                "difficulty": "Challenge",
+                "isDoubles": true,
+                "notes": 389,
+                "freezeNotes": 13,
+                "shockNotes": 48,
+                "difficultyRating": 13
             }
         ]
     },
@@ -72754,7 +72911,7 @@
         "higherBPM": 155,
         "changingBPM": true,
         "runtime": 123,
-        "game": "DanceDanceRevolution GRAND PRIX",
+        "game": "DanceDanceRevolution WORLD",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -73765,52 +73922,76 @@
         "game": "DanceDanceRevolution 5thMIX",
         "charts": [
             {
-                "difficulty": "Normal",
+                "difficulty": "Beginner",
                 "isDoubles": false,
-                "notes": 339,
+                "notes": 73,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 3
             },
             {
-                "difficulty": "Hard",
+                "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": null,
+                "notes": 128,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 4
             },
             {
-                "difficulty": "Another",
+                "difficulty": "Difficult",
                 "isDoubles": false,
-                "notes": null,
+                "notes": 190,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 9
             },
             {
-                "difficulty": "Normal",
+                "difficulty": "Expert",
                 "isDoubles": false,
-                "notes": 505,
+                "notes": 294,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 12
             },
             {
-                "difficulty": "Hard",
+                "difficulty": "Challenge",
                 "isDoubles": false,
                 "notes": null,
                 "freezeNotes": 0,
-                "shockNotes": 0,
+                "shockNotes": null,
                 "difficultyRating": null
             },
             {
-                "difficulty": "Another",
-                "isDoubles": false,
-                "notes": null,
+                "difficulty": "Basic",
+                "isDoubles": true,
+                "notes": 128,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 5
+            },
+            {
+                "difficulty": "Difficult",
+                "isDoubles": true,
+                "notes": 255,
+                "freezeNotes": 0,
+                "shockNotes": 0,
+                "difficultyRating": 9
+            },
+            {
+                "difficulty": "Expert",
+                "isDoubles": true,
+                "notes": 269,
+                "freezeNotes": 0,
+                "shockNotes": 0,
+                "difficultyRating": 12
+            },
+            {
+                "difficulty": "Challenge",
+                "isDoubles": true,
+                "notes": null,
+                "freezeNotes": 0,
+                "shockNotes": null,
+                "difficultyRating": null
             }
         ]
     },
@@ -74242,7 +74423,7 @@
         "higherBPM": 111,
         "changingBPM": false,
         "runtime": 125,
-        "game": "DanceDanceRevolution GRAND PRIX",
+        "game": "DanceDanceRevolution A3",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -74830,7 +75011,7 @@
         "higherBPM": 168,
         "changingBPM": false,
         "runtime": 108,
-        "game": "DanceDanceRevolution (2010) / DanceDanceRevolution (PS3)",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -76258,7 +76439,7 @@
         "higherBPM": 180,
         "changingBPM": false,
         "runtime": 83,
-        "game": "Yurina Oguchi (Dancing Stage featuring TRUE KiSS DESTiNATION), ? (DanceDanceRevolution)",
+        "game": "DanceDanceRevolution 4thMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -76331,90 +76512,6 @@
                 "freezeNotes": 0,
                 "shockNotes": null,
                 "difficultyRating": null
-            }
-        ]
-    },
-    {
-        "licensed": true,
-        "songName": "SEXY PLANET(FROM NONSTOP MEGAMIX)",
-        "artist": "Crystal Aliens",
-        "game": "DanceDanceRevolution Solo 2000 ORIGINAL SOUNDTRACK (2000)",
-        "lowerBPM": 180,
-        "higherBPM": 180,
-        "changingBPM": false,
-        "runtime": 100,
-        "charts": [
-            {
-                "difficulty": "Beginner",
-                "isDoubles": false,
-                "notes": 158,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Basic",
-                "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Difficult",
-                "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Expert",
-                "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Challenge",
-                "isDoubles": false,
-                "notes": 291,
-                "freezeNotes": 9,
-                "shockNotes": 0,
-                "difficultyRating": 10
-            },
-            {
-                "difficulty": "Basic",
-                "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Difficult",
-                "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Expert",
-                "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Challenge",
-                "isDoubles": true,
-                "notes": 243,
-                "freezeNotes": 11,
-                "shockNotes": 0,
-                "difficultyRating": 9
             }
         ]
     },
@@ -76762,7 +76859,7 @@
         "higherBPM": 158,
         "changingBPM": false,
         "runtime": 94,
-        "game": "DanceDanceRevolution (2010) / DanceDanceRevolution (PS3)",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -82309,76 +82406,76 @@
         "game": "DanceDanceRevolution (2014)",
         "charts": [
             {
-                "difficulty": "BEGINNER",
+                "difficulty": "Beginner",
                 "isDoubles": false,
-                "notes": 224,
+                "notes": 125,
                 "freezeNotes": 0,
                 "shockNotes": 0,
-                "difficultyRating": 2
+                "difficultyRating": 3
             },
             {
-                "difficulty": "NORMAL",
+                "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 456,
-                "freezeNotes": 0,
+                "notes": 219,
+                "freezeNotes": 18,
                 "shockNotes": 0,
-                "difficultyRating": 5
+                "difficultyRating": 7
             },
             {
-                "difficulty": "HYPER",
+                "difficulty": "Difficult",
                 "isDoubles": false,
-                "notes": 719,
-                "freezeNotes": 0,
+                "notes": 338,
+                "freezeNotes": 15,
                 "shockNotes": 0,
-                "difficultyRating": 8
+                "difficultyRating": 11
             },
             {
-                "difficulty": "ANOTHER",
+                "difficulty": "Expert",
                 "isDoubles": false,
-                "notes": 800,
-                "freezeNotes": 0,
+                "notes": 495,
+                "freezeNotes": 24,
                 "shockNotes": 0,
-                "difficultyRating": 9
+                "difficultyRating": 15
             },
             {
-                "difficulty": "黒ANOTHER",
+                "difficulty": "Challenge",
                 "isDoubles": false,
-                "notes": 1039,
-                "freezeNotes": 0,
+                "notes": 647,
+                "freezeNotes": 21,
                 "shockNotes": 0,
-                "difficultyRating": null
+                "difficultyRating": 17
             },
             {
-                "difficulty": "NORMAL",
-                "isDoubles": false,
-                "notes": 566,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 5
-            },
-            {
-                "difficulty": "HYPER",
+                "difficulty": "Basic",
                 "isDoubles": true,
-                "notes": 796,
-                "freezeNotes": 0,
+                "notes": 222,
+                "freezeNotes": 19,
                 "shockNotes": 0,
-                "difficultyRating": 8
+                "difficultyRating": 7
             },
             {
-                "difficulty": "ANOTHER",
+                "difficulty": "Difficult",
                 "isDoubles": true,
-                "notes": 1098,
-                "freezeNotes": 0,
+                "notes": 330,
+                "freezeNotes": 27,
                 "shockNotes": 0,
-                "difficultyRating": 12
+                "difficultyRating": 11
             },
             {
-                "difficulty": "黒ANOTHER",
+                "difficulty": "Expert",
                 "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 495,
+                "freezeNotes": 5,
                 "shockNotes": 0,
-                "difficultyRating": null
+                "difficultyRating": 14
+            },
+            {
+                "difficulty": "Challenge",
+                "isDoubles": true,
+                "notes": 635,
+                "freezeNotes": 12,
+                "shockNotes": 0,
+                "difficultyRating": 17
             }
         ]
     },
@@ -82558,7 +82655,7 @@
         "higherBPM": 140,
         "changingBPM": false,
         "runtime": 103,
-        "game": "DanceDanceRevolution Party Collection",
+        "game": "DanceDanceRevolution SuperNOVA",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -82816,7 +82913,7 @@
                 "difficulty": "Beginner",
                 "isDoubles": false,
                 "notes": 58,
-                "freezeNotes":1 ,
+                "freezeNotes": 1,
                 "shockNotes": 0,
                 "difficultyRating": 2
             },
@@ -85414,7 +85511,7 @@
         "higherBPM": 128,
         "changingBPM": false,
         "runtime": 85,
-        "game": "DanceDanceRevolution Solo BASS MIX",
+        "game": "DanceDanceRevolution 4thMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -85487,90 +85584,6 @@
                 "freezeNotes": 0,
                 "shockNotes": null,
                 "difficultyRating": null
-            }
-        ]
-    },
-    {
-        "licensed": true,
-        "songName": "SUPER STAR(FROM NONSTOP MEGAMIX)",
-        "artist": "D.J.RICH feat. TAILBROS.",
-        "game": "DanceDanceRevolution Solo 2000 ORIGINAL SOUNDTRACK (2000)",
-        "lowerBPM": 128,
-        "higherBPM": 128,
-        "changingBPM": false,
-        "runtime": 95,
-        "charts": [
-            {
-                "difficulty": "Beginner",
-                "isDoubles": false,
-                "notes": 91,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Basic",
-                "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Difficult",
-                "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Expert",
-                "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Challenge",
-                "isDoubles": false,
-                "notes": 282,
-                "freezeNotes": 8,
-                "shockNotes": 0,
-                "difficultyRating": 10
-            },
-            {
-                "difficulty": "Basic",
-                "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Difficult",
-                "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Expert",
-                "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Challenge",
-                "isDoubles": true,
-                "notes": 281,
-                "freezeNotes": 8,
-                "shockNotes": 0,
-                "difficultyRating": 11
             }
         ]
     },
@@ -86254,78 +86267,78 @@
         "higherBPM": 180,
         "changingBPM": false,
         "runtime": 92,
-        "game": "VJ GYO (9th style→19 Lincle), ? (DanceDanceRevolution, tricoro→Present)",
+        "game": "DDRMAX2 -DanceDanceRevolution 7thMIX-",
         "charts": [
             {
-                "difficulty": "BEGINNER",
+                "difficulty": "Beginner",
                 "isDoubles": false,
-                "notes": 407,
+                "notes": 128,
                 "freezeNotes": 0,
                 "shockNotes": 0,
-                "difficultyRating": null
+                "difficultyRating": 4
             },
             {
-                "difficulty": "NORMAL",
+                "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 509,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 5
-            },
-            {
-                "difficulty": "HYPER",
-                "isDoubles": false,
-                "notes": 784,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 8
-            },
-            {
-                "difficulty": "ANOTHER",
-                "isDoubles": false,
-                "notes": 1032,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": 10
-            },
-            {
-                "difficulty": "LEGGENDARIA",
-                "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "NORMAL",
-                "isDoubles": false,
-                "notes": 519,
-                "freezeNotes": 0,
+                "notes": 139,
+                "freezeNotes": 2,
                 "shockNotes": 0,
                 "difficultyRating": 5
             },
             {
-                "difficulty": "HYPER",
-                "isDoubles": true,
-                "notes": 786,
-                "freezeNotes": 0,
+                "difficulty": "Difficult",
+                "isDoubles": false,
+                "notes": 276,
+                "freezeNotes": 19,
                 "shockNotes": 0,
                 "difficultyRating": 9
             },
             {
-                "difficulty": "ANOTHER",
-                "isDoubles": true,
-                "notes": 1055,
+                "difficulty": "Expert",
+                "isDoubles": false,
+                "notes": 372,
+                "freezeNotes": 33,
+                "shockNotes": 0,
+                "difficultyRating": 13
+            },
+            {
+                "difficulty": "Challenge",
+                "isDoubles": false,
+                "notes": null,
                 "freezeNotes": 0,
+                "shockNotes": null,
+                "difficultyRating": null
+            },
+            {
+                "difficulty": "Basic",
+                "isDoubles": true,
+                "notes": 131,
+                "freezeNotes": 3,
+                "shockNotes": 0,
+                "difficultyRating": 5
+            },
+            {
+                "difficulty": "Difficult",
+                "isDoubles": true,
+                "notes": 235,
+                "freezeNotes": 2,
+                "shockNotes": 0,
+                "difficultyRating": 8
+            },
+            {
+                "difficulty": "Expert",
+                "isDoubles": true,
+                "notes": 330,
+                "freezeNotes": 3,
                 "shockNotes": 0,
                 "difficultyRating": 11
             },
             {
-                "difficulty": "LEGGENDARIA",
+                "difficulty": "Challenge",
                 "isDoubles": true,
                 "notes": null,
                 "freezeNotes": 0,
-                "shockNotes": 0,
+                "shockNotes": null,
                 "difficultyRating": null
             }
         ]
@@ -87178,12 +87191,12 @@
         "higherBPM": 100,
         "changingBPM": false,
         "runtime": 108,
-        "game": "DanceDanceRevolution (2010)",
+        "game": "DanceDanceRevolution A3",
         "charts": [
             {
                 "difficulty": "Beginner",
                 "isDoubles": false,
-                "notes": 85,
+                "notes": 59,
                 "freezeNotes": 0,
                 "shockNotes": 0,
                 "difficultyRating": 2
@@ -87191,15 +87204,15 @@
             {
                 "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 104,
-                "freezeNotes": 37,
+                "notes": 142,
+                "freezeNotes": 7,
                 "shockNotes": 0,
                 "difficultyRating": 5
             },
             {
                 "difficulty": "Difficult",
                 "isDoubles": false,
-                "notes": 214,
+                "notes": 197,
                 "freezeNotes": 7,
                 "shockNotes": 0,
                 "difficultyRating": 7
@@ -87207,8 +87220,8 @@
             {
                 "difficulty": "Expert",
                 "isDoubles": false,
-                "notes": 324,
-                "freezeNotes": 14,
+                "notes": 320,
+                "freezeNotes": 15,
                 "shockNotes": 0,
                 "difficultyRating": 11
             },
@@ -87223,24 +87236,24 @@
             {
                 "difficulty": "Basic",
                 "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 136,
+                "freezeNotes": 1,
                 "shockNotes": 0,
                 "difficultyRating": 5
             },
             {
                 "difficulty": "Difficult",
                 "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 205,
+                "freezeNotes": 3,
                 "shockNotes": 0,
                 "difficultyRating": 7
             },
             {
                 "difficulty": "Expert",
                 "isDoubles": true,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 319,
+                "freezeNotes": 13,
                 "shockNotes": 0,
                 "difficultyRating": 11
             },
@@ -88942,7 +88955,7 @@
         "higherBPM": 85,
         "changingBPM": false,
         "runtime": 94,
-        "game": "DanceDanceRevolution (2010) / DanceDanceRevolution (PS3)",
+        "game": "DanceDanceRevolution (2013)",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -89026,7 +89039,7 @@
         "higherBPM": 263,
         "changingBPM": true,
         "runtime": 102,
-        "game": "770 (GF/DM), moroEX (DanceDanceRevolution)",
+        "game": "DanceDanceRevolution EXTREME",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -89446,7 +89459,7 @@
         "higherBPM": 134,
         "changingBPM": false,
         "runtime": 107,
-        "game": "DanceDanceRevolution GRAND PRIX",
+        "game": "DanceDanceRevolution WORLD",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -89950,31 +89963,79 @@
         "higherBPM": 128,
         "changingBPM": false,
         "runtime": 116,
-        "game": "DanceDanceRevolution A",
+        "game": "DanceDanceRevolution A20",
         "charts": [
             {
-                "difficulty": "Basic",
+                "difficulty": "Beginner",
                 "isDoubles": false,
-                "notes": null,
-                "freezeNotes": 0,
+                "notes": 73,
+                "freezeNotes": 5,
                 "shockNotes": 0,
                 "difficultyRating": 2
             },
             {
-                "difficulty": "Advanced",
+                "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 94,
-                "freezeNotes": 0,
+                "notes": 136,
+                "freezeNotes": 2,
                 "shockNotes": 0,
                 "difficultyRating": 5
             },
             {
-                "difficulty": "Master",
+                "difficulty": "Difficult",
+                "isDoubles": false,
+                "notes": 187,
+                "freezeNotes": 7,
+                "shockNotes": 0,
+                "difficultyRating": 8
+            },
+            {
+                "difficulty": "Expert",
+                "isDoubles": false,
+                "notes": 287,
+                "freezeNotes": 10,
+                "shockNotes": 0,
+                "difficultyRating": 11
+            },
+            {
+                "difficulty": "Challenge",
                 "isDoubles": false,
                 "notes": null,
                 "freezeNotes": 0,
+                "shockNotes": null,
+                "difficultyRating": null
+            },
+            {
+                "difficulty": "Basic",
+                "isDoubles": true,
+                "notes": 132,
+                "freezeNotes": 6,
+                "shockNotes": 0,
+                "difficultyRating": 6
+            },
+            {
+                "difficulty": "Difficult",
+                "isDoubles": true,
+                "notes": 193,
+                "freezeNotes": 7,
                 "shockNotes": 0,
                 "difficultyRating": 8
+            },
+            {
+                "difficulty": "Expert",
+                "isDoubles": true,
+                "notes": 269,
+                "freezeNotes": 14,
+                "shockNotes": 0,
+                "difficultyRating": 10
+            },
+            {
+                "difficulty": "Challenge",
+                "isDoubles": true,
+                "notes": null,
+                "freezeNotes": 0,
+                "shockNotes": null,
+                "difficultyRating": null
             }
         ]
     },
@@ -90490,7 +90551,7 @@
         "higherBPM": 115,
         "changingBPM": false,
         "runtime": 110,
-        "game": "DanceDanceRevolution (2010) / DanceDanceRevolution (PS3)",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -91666,7 +91727,7 @@
         "higherBPM": 160,
         "changingBPM": false,
         "runtime": 98,
-        "game": "DanceDanceRevolution (2010) / DanceDanceRevolution (PS3)",
+        "game": "DanceDanceRevolution (2013)",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -92754,7 +92815,7 @@
         "licensed": true,
         "songName": "TRIP MACHINE (xac nanoglide mix)",
         "artist": "DE-SIRE",
-        "game": "DanceDanceRevolution 2ndMIX ORIGINAL SOUNDTRACK (2011)",
+        "game": "DanceDanceRevolution 2ndMIX",
         "lowerBPM": 170,
         "higherBPM": 170,
         "changingBPM": false,
@@ -94354,7 +94415,7 @@
         "higherBPM": 160,
         "changingBPM": false,
         "runtime": 124,
-        "game": "DanceDanceRevolution GRAND PRIX",
+        "game": "DanceDanceRevolution WORLD",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -94774,39 +94835,79 @@
         "higherBPM": 188,
         "changingBPM": false,
         "runtime": 102,
-        "game": "DanceDanceRevolution A",
+        "game": "DanceDanceRevolution A20 PLUS",
         "charts": [
             {
-                "difficulty": "Light",
+                "difficulty": "Beginner",
                 "isDoubles": false,
-                "notes": 88,
-                "freezeNotes": 0,
+                "notes": 105,
+                "freezeNotes": 12,
                 "shockNotes": 0,
                 "difficultyRating": 3
             },
             {
-                "difficulty": "Medium",
+                "difficulty": "Basic",
                 "isDoubles": false,
-                "notes": 150,
-                "freezeNotes": 0,
+                "notes": 189,
+                "freezeNotes": 40,
                 "shockNotes": 0,
                 "difficultyRating": 7
             },
             {
-                "difficulty": "Beast",
+                "difficulty": "Difficult",
                 "isDoubles": false,
-                "notes": 337,
-                "freezeNotes": 0,
+                "notes": 265,
+                "freezeNotes": 47,
                 "shockNotes": 0,
                 "difficultyRating": 10
             },
             {
-                "difficulty": "Nightmare",
+                "difficulty": "Expert",
+                "isDoubles": false,
+                "notes": 335,
+                "freezeNotes": 44,
+                "shockNotes": 0,
+                "difficultyRating": 13
+            },
+            {
+                "difficulty": "Challenge",
                 "isDoubles": false,
                 "notes": null,
                 "freezeNotes": 0,
+                "shockNotes": null,
+                "difficultyRating": null
+            },
+            {
+                "difficulty": "Basic",
+                "isDoubles": true,
+                "notes": 179,
+                "freezeNotes": 38,
+                "shockNotes": 0,
+                "difficultyRating": 7
+            },
+            {
+                "difficulty": "Difficult",
+                "isDoubles": true,
+                "notes": 265,
+                "freezeNotes": 47,
+                "shockNotes": 0,
+                "difficultyRating": 10
+            },
+            {
+                "difficulty": "Expert",
+                "isDoubles": true,
+                "notes": 335,
+                "freezeNotes": 43,
                 "shockNotes": 0,
                 "difficultyRating": 13
+            },
+            {
+                "difficulty": "Challenge",
+                "isDoubles": true,
+                "notes": null,
+                "freezeNotes": 0,
+                "shockNotes": null,
+                "difficultyRating": null
             }
         ]
     },
@@ -95826,7 +95927,7 @@
         "higherBPM": 172,
         "changingBPM": false,
         "runtime": 109,
-        "game": "DanceDanceRevolution (2010) / DanceDanceRevolution (PS3)",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -98834,7 +98935,7 @@
         "higherBPM": 145,
         "changingBPM": false,
         "runtime": 118,
-        "game": "DanceDanceRevolution (2010) / DanceDanceRevolution (PS3)",
+        "game": "DanceDanceRevolution X3 VS 2ndMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -98918,7 +99019,7 @@
         "higherBPM": 180,
         "changingBPM": true,
         "runtime": 102,
-        "game": "DanceDanceRevolution Solo 2000",
+        "game": "DanceDanceRevolution 4thMIX",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -98991,90 +99092,6 @@
                 "freezeNotes": 0,
                 "shockNotes": null,
                 "difficultyRating": null
-            }
-        ]
-    },
-    {
-        "licensed": true,
-        "songName": "WILD RUSH(FROM NONSTOP MEGAMIX)",
-        "artist": "FACTOR-X",
-        "game": "DanceDanceRevolution Solo 2000 ORIGINAL SOUNDTRACK (2000)",
-        "lowerBPM": 125,
-        "higherBPM": 125,
-        "changingBPM": false,
-        "runtime": 101,
-        "charts": [
-            {
-                "difficulty": "Beginner",
-                "isDoubles": false,
-                "notes": 61,
-                "freezeNotes": 2,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Basic",
-                "isDoubles": false,
-                "notes": 112,
-                "freezeNotes": 10,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Difficult",
-                "isDoubles": false,
-                "notes": 163,
-                "freezeNotes": 11,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Expert",
-                "isDoubles": false,
-                "notes": 290,
-                "freezeNotes": 13,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Challenge",
-                "isDoubles": false,
-                "notes": 207,
-                "freezeNotes": 15,
-                "shockNotes": 0,
-                "difficultyRating": 9
-            },
-            {
-                "difficulty": "Basic",
-                "isDoubles": true,
-                "notes": 102,
-                "freezeNotes": 6,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Difficult",
-                "isDoubles": true,
-                "notes": 157,
-                "freezeNotes": 13,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Expert",
-                "isDoubles": true,
-                "notes": 301,
-                "freezeNotes": 9,
-                "shockNotes": 0,
-                "difficultyRating": null
-            },
-            {
-                "difficulty": "Challenge",
-                "isDoubles": true,
-                "notes": 229,
-                "freezeNotes": 18,
-                "shockNotes": 0,
-                "difficultyRating": 10
             }
         ]
     },
@@ -101102,7 +101119,7 @@
         "higherBPM": 175,
         "changingBPM": false,
         "runtime": 112,
-        "game": "DanceDanceRevolution UNIVERSE3",
+        "game": "DanceDanceRevolution X2",
         "charts": [
             {
                 "difficulty": "Beginner",
@@ -101743,7 +101760,7 @@
             {
                 "difficulty": "difficult",
                 "isDoubles": true,
-                "notes":353,
+                "notes": 353,
                 "freezeNotes": 13,
                 "shockNotes": 0,
                 "difficultyRating": 9

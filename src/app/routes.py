@@ -7,6 +7,11 @@ Description: Project 3 - DDR WebSearch
 
     in progress !!!
 '''
+from app import app, db
+from app.forms import *
+from flask import render_template, redirect, url_for
+from flask_login import login_required, login_user, logout_user
+import bcrypt
 
 @app.route('/')
 @app.route('/index')

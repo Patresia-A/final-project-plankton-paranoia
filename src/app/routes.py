@@ -7,7 +7,7 @@ Description: Project 3 - DDR WebSearch
 
     in progress !!!
 '''
-from app import app, db
+from app import app, db, cache
 from app.forms import *
 from flask import render_template, redirect, url_for
 from flask_login import login_required, login_user, logout_user
@@ -75,23 +75,15 @@ def games():
 def charts():
     return 'Work in progress...'
 
-@app.route ('double_charts')
-def double_charts():
-    return 'Work in progress...'
-
-@app.route('/difficulty_classifications') # + classification code
-def difficulty_classifications():
-    return 'Work in progress...'
-
-@app.route('/delete_favorite') # + favorite id
-def delete_favorite():
+@app.route('/remove_favorite') # + favorite id
+def remove_favorite():
     return 'Work in progress...'
 
 @app.route('/add_favorite') # + song code
 def add_favorite():
     return 'Work in progress...'
 
-@app.route('favorites') 
+@app.route('/favorites') 
 def favorites():
     return 'Work in progress...'
 

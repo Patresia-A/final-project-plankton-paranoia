@@ -1,14 +1,97 @@
 {% extends 'base.html' %}
+<title>{% block title %}Index{% endblock %}</title>
 {% block main %}
-    Welcome! 
-    <p>
-    Please, choose an option below:
-    </p>
-    <button type="button" class="button" onclick=simple_action("{{ url_for('login') }}")>Login</button>
-    <button type="button" class="button" onclick=simple_action("{{ url_for('signup') }}")>Sign Up</button>
-    <script type="text/javascript">
-        function simple_action(target) {
-            window.location = target
-        }
-    </script>
+<h1>List of DDR songs</h1>
+<div id="main">
+    <div id="search">
+        <form action="" method="POST" novalidate>
+            {{form.csrf_token}}
+            <p>
+                {{ form.songName.label }} <br />
+                {{ form.songName }}
+            </p>
+            <p>
+                {{ form.artist.label }} <br />
+                {{ form.artist }}
+            </p>
+            <p>
+                {{ form.game.label }} <br />
+                {{ form.game }}
+            </p>
+            <p>
+                {{ form.higherBPM.label }} <br />
+                {{ form.higherBPM }}
+            </p>
+            <p>
+                {{ form.lowerBPM.label }} <br />
+                {{ form.lowerBPM }}
+            </p>
+            <p>
+                {{ form.runtime.label }} <br />
+                {{ form.runtime }}
+            </p>
+            <p>
+                {{ form.licensed.label }} <br />
+                {{ form.licensed }}
+            </p>
+            <p>
+                {{ form.changingBPM.label }} <br />
+                {{ form.changingBPM }}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
+    <div id="list">
+        <a href="{{ url_for('index', page=page - 1, songName=year, country=country, actor=actor, event=event, motive=motive, industry=industry) }}"
+            {% if not incidents.has_prev %}class="disabled" {% endif %}>Previous</a>
+        <a href="{{ url_for('index', page=page + 1, year=year, country=country, actor=actor, event=event, motive=motive, industry=industry) }}"
+            {% if not incidents.has_next %}class="disabled" {% endif %}>Next</a>
+        <br>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Year</th>
+                <th>Country</th>
+                <th>Actor Type</th>
+                <th>Event Type</th>
+                <th>Motive</th>
+                <th>Industry</th>
+                <th>Actions</th>
+            </tr>
+            {% for incident in incidents %}
+            <tr>
+                <td>
+                    <a href="{{ url_for('update_incident', id=incident.id) }}">{{ incident.id }}</a>
+                </td>
+                <td>{{ incident.date }}</td>
+                <td>{{ incident.country_code }}</td>
+                <td>{{ incident.actor_type.description }}</td>
+                <td>{{ incident.event_type.description }}</td>
+                <td>{{ incident.motive.description }}</td>
+                <td>{{ incident.industry.description }}</td>
+                <td>
+                    <form action="{{ url_for('delete_incident', id=incident.id) }}" method="POST"
+                        style="display: inline">
+                        <input type="submit" value="Delete"
+                            onclick="return confirm('Are you sure you want to delete this incident?');" />
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <br />
+        <form action="{{ url_for('create_incident') }}" method="POST" style="display: inline">
+            <input type="submit" value="Create New Incident" />
+        </form>
+        <form action="{{ url_for('report_incidents') }}" method="POST" style="display: inline">
+            <input type="submit" value="Report Incidents" />
+        </form>
+        <form action="{{ url_for('signout') }}" method="POST" style="display: inline">
+            <input type="submit" value="Sign Out" />
+        </form>
+    </div>
+</div>
+
 {% endblock %}

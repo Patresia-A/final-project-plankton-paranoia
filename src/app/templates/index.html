@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
 <title>{% block title %}Index{% endblock %}</title>
 {% block main %}
-<h1>List of DDR songs</h1>
+<div style="float: right;">
+    <a class="login" href="{{ url_for('login')}}">Login</a>
+    <a class="login" href="{{ url_for('signup') }}">Sign up</a>
+    <a class="login" href="{{ url_for('profile') }}">Profile</a>
+</div>
+<h1 >List of DDR songs</h1>
 <div id="main">
-    <div id="search">
+    <div id="search" style="float: left;">
         <form action="" method="POST" novalidate>
             {{form.csrf_token}}
             <p>
@@ -15,8 +20,8 @@
                 {{ form.artist }}
             </p>
             <p>
-                {{ form.game.label }} <br />
-                {{ form.game }}
+                {{ form.games.label }} <br />
+                {{ form.games }}
             </p>
             <p>
                 {{ form.higherBPM.label }} <br />
@@ -41,40 +46,55 @@
             <p>{{ form.submit() }}</p>
         </form>
     </div>
-    <div id="list">
-        <a href="{{ url_for('index', page=page - 1, songName=year, country=country, actor=actor, event=event, motive=motive, industry=industry) }}"
-            {% if not incidents.has_prev %}class="disabled" {% endif %}>Previous</a>
-        <a href="{{ url_for('index', page=page + 1, year=year, country=country, actor=actor, event=event, motive=motive, industry=industry) }}"
-            {% if not incidents.has_next %}class="disabled" {% endif %}>Next</a>
+    <div id="list" style="float: left;">
+        <a href="{{ url_for('index', page=page - 1, songName=songName, changingBPM=changingBPM, 
+            artist=artist, higherBPM=higherBPM, lowerBPM=lowerBPM, runtime=runtime, 
+            licensed=licensed, games=games,highestDifficulty=highestDifficulty,
+            lowestDifficulty=lowestDifficulty, maxNotes=maxNotes, minNotes=minNotes,
+            difficultyClass=difficultyClass, excludeDoubles=excludeDoubles,
+            shockNotes=shockNotes, songs=songs) }}"
+            {% if not songs.has_prev %}class="disabled" {% endif %}>Previous
+        </a>
+        <a href="{{ url_for('index', page=page + 1, songName=songName, changingBPM=changingBPM, 
+            artist=artist, higherBPM=higherBPM, lowerBPM=lowerBPM, runtime=runtime, 
+            licensed=licensed, games=games,highestDifficulty=highestDifficulty,
+            lowestDifficulty=lowestDifficulty, maxNotes=maxNotes, minNotes=minNotes,
+            difficultyClass=difficultyClass, excludeDoubles=excludeDoubles,
+            shockNotes=shockNotes, songs=songs) }}"
+            {% if not songs.has_next %}class="disabled" {% endif %}>Next
+        </a>
         <br>
 
         <table>
             <tr>
-                <th>ID</th>
-                <th>Year</th>
-                <th>Country</th>
-                <th>Actor Type</th>
-                <th>Event Type</th>
-                <th>Motive</th>
-                <th>Industry</th>
-                <th>Actions</th>
+                <th></th>
+                <th>Song Name</th>
+                <th>Game</th>
+                <th>Artist</th>
+                <th>Highest BPM</th>
+                <th>Lowest BPM</th>
+                <th>Changing BPM?</th>
+                <th>Runtime</th>
+                <th>Licensed?</th>
+                <th>Charts</th>
             </tr>
-            {% for incident in incidents %}
+            {% for song in songs %}
             <tr>
+
+                <td>{{ song.songName }}</td>
+                <td>{{ song.game }}</td>
+                <td>{{ song.artist}}</td>
+                <td>{{ song.higherBPM }}</td>
+                <td>{{ song.lowerBPM }}</td>
+                <td>{{ song.changingBPM }}</td>
+                <td>{{ song.runtime }}</td>
+                <td>{{ song.licensed }}</td>
+                <td>{{ song.charts }}</td>
+
+
                 <td>
-                    <a href="{{ url_for('update_incident', id=incident.id) }}">{{ incident.id }}</a>
-                </td>
-                <td>{{ incident.date }}</td>
-                <td>{{ incident.country_code }}</td>
-                <td>{{ incident.actor_type.description }}</td>
-                <td>{{ incident.event_type.description }}</td>
-                <td>{{ incident.motive.description }}</td>
-                <td>{{ incident.industry.description }}</td>
-                <td>
-                    <form action="{{ url_for('delete_incident', id=incident.id) }}" method="POST"
-                        style="display: inline">
-                        <input type="submit" value="Delete"
-                            onclick="return confirm('Are you sure you want to delete this incident?');" />
+                    <form action="{{ url_for('add_favorite') }}" method="POST" style="display: inline">
+                        <input type="submit" value="Create New Incident" />
                     </form>
                 </td>
             </tr>
@@ -82,15 +102,7 @@
         </table>
 
         <br />
-        <form action="{{ url_for('create_incident') }}" method="POST" style="display: inline">
-            <input type="submit" value="Create New Incident" />
-        </form>
-        <form action="{{ url_for('report_incidents') }}" method="POST" style="display: inline">
-            <input type="submit" value="Report Incidents" />
-        </form>
-        <form action="{{ url_for('signout') }}" method="POST" style="display: inline">
-            <input type="submit" value="Sign Out" />
-        </form>
+        
     </div>
 </div>
 

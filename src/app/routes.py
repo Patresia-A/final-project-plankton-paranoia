@@ -9,15 +9,23 @@ Description: Project 3 - DDR WebSearch
 '''
 from app import app, db, cache
 from app.forms import *
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, request
 from flask_login import login_required, login_user, logout_user
 import bcrypt
 
 @app.route('/')
 @app.route('/index')
-@app.route('/index.html')
+@app.route('/index.html', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    form = SearchChartForm()
+    page = request.args.get('page', default=1, type=int)  
+
+    return render_template(
+        'index.html', 
+        songs=[],
+        form=form,
+        page = page
+    )
 
 @app.route('/users/signup', methods=['GET', 'POST'])
 def signup():

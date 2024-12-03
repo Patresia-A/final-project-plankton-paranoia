@@ -54,7 +54,7 @@ class LoginForm(FlaskForm):
 
 #TODO: test this form
 class SearchChartForm(FlaskForm):
-    name = StringField("Song name", default=None)
+    songName = StringField("Song name", default=None)
     changingBPM = SelectField("Changing bpm?", choices=["Yes", "No", "Don't care"], default="Don't care")
     artist = StringField("Artist name", default=None)
     # There will likely never be a song added with more than 2000bpm
@@ -69,14 +69,16 @@ class SearchChartForm(FlaskForm):
     games = SelectMultipleField("Games", choices=games, default=None)
     highestDifficulty = IntegerField("Highest difficulty rating", default=None, validators=[NumberRange(min=1, max=20)]) 
     lowestDifficulty = IntegerField("Highest difficulty rating", default=None, validators=[NumberRange(min=1, max=20)]) 
-    notes = IntegerField("Note count", default=None, validators=[NumberRange(min=1, max=2000)]) 
-    difficultyClass = IntegerField("Difficulty class", default=None, 
+    maxNotes = IntegerField("Max note count", default=None, validators=[NumberRange(min=1, max=2000)]) 
+    minNotes = IntegerField("Min note count", default=None, validators=[NumberRange(min=1, max=2000)]) 
+
+    difficultyClass = SelectMultipleField("Difficulty class", default=None, 
         choices=["Beginner","Basic", "Difficult", "Expert", "Challenge"])
-    excludeDoubles = SelectMultipleField("Exclude doubles?", default="Include doubles charts", 
+    excludeDoubles = SelectField("Exclude doubles?", default="Include doubles charts", 
         choices=["Exclude doubles charts", "Include doubles charts","Include only doubles charts"])
-    shockNotes = SelectMultipleField("Exclude songs with shocks?", default="Include shock charts", 
+    shockNotes = SelectField("Exclude songs with shocks?", default="Include shock charts", 
         choices=["Exclude shock charts", "Include shock charts","Include only shock charts"])
-    
+    submit = SubmitField('Search Songs')
 
 
 
@@ -88,6 +90,7 @@ class AddChartForm(FlaskForm):
     freezeNotes = IntegerField("Freeze Notes", validators=[DataRequired()])
     shockNotes = IntegerField("Shock Notes", default=None)
     difficultyRating = IntegerField("Difficulty Rating", validators=[DataRequired()])
+    submit = SubmitField('Add chart')
     
 #TODO: test this form
 class AddSongForm(FlaskForm):
@@ -129,6 +132,7 @@ class EditChartForm(FlaskForm):
             self.freezeNotes.data = chart.freeze_notes
             self.shockNotes.data = chart.shock_notes if chart.shock_notes is not None else ''
             self.difficultyRating.data = chart.difficulty_rating
+    submit = SubmitField('Edit Chart')
 
 #TODO: test this form
 class EditSongForm(FlaskForm):
@@ -173,3 +177,4 @@ class EditSongForm(FlaskForm):
                     'shockNotes': chart.shock_notes if chart.shock_notes is not None else '',
                     'difficultyRating': chart.difficulty_rating
                 })
+    submit = SubmitField('Edit Song')

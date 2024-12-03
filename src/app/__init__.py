@@ -17,7 +17,7 @@ from flask_login import LoginManager
 from flask_caching import Cache
 from flask_migrate import Migrate
 
-app = Flask('DDR DATABASE', template_folder="app/templates") # feel free to change this! 
+app = Flask('DDR DATABASE', template_folder="app/templates", static_folder="app/static") # feel free to change this! 
 app.secret_key = os.environ.get('SECRET_KEY', '  ') # change this to a more secure secret key
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/postgres'

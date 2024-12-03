@@ -115,7 +115,7 @@ if __name__ == '__main__':
                     """, (
                         song_id, chart["isDoubles"], chart["notes"],
                         chart["freezeNotes"], chart["shockNotes"],
-                        chart["difficulty"], chart["difficultyRating"]
+                        chart["difficulty"].lower(), chart["difficultyRating"]
                     ))
                     
         print("Data inserted successfully.")

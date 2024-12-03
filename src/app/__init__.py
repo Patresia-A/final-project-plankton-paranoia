@@ -17,14 +17,14 @@ from flask_login import LoginManager
 from flask_caching import Cache
 from flask_migrate import Migrate
 
-app = Flask('DDR DATABASE') # feel free to change this! 
+app = Flask('DDR DATABASE', template_folder="app/templates") # feel free to change this! 
 app.secret_key = os.environ.get('SECRET_KEY', '  ') # change this to a more secure secret key
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/postgres'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)  # initialize db here
-
+print("searchpath:", app.jinja_loader.searchpath)
 # create database tables if they don't exist
 # with app.app_context(): 
 #     db.create_all()

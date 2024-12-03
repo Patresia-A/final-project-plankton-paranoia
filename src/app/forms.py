@@ -8,7 +8,7 @@ Description: Project 3 - DDR WebSearch
     in progress !!!
 '''
 from flask_wtf import FlaskForm
-from wtforms import DateField, StringField, PasswordField, TextAreaField, SelectField, IntegerField, SubmitField, BooleanField, FieldList, FormField
+from wtforms import *
 from wtforms.validators import DataRequired, EqualTo, NumberRange, Optional, ReadOnly
 
 games = [
@@ -41,7 +41,6 @@ games = [
 ]
 charts = []
 class SignUpForm(FlaskForm):
-    id = StringField('Id', validators=[DataRequired()])
     name = StringField('Name', validators=[DataRequired()])
     about = TextAreaField('About', validators=[Optional()])
     password = PasswordField('Password', validators=[DataRequired()])
@@ -49,9 +48,37 @@ class SignUpForm(FlaskForm):
     submit = SubmitField('Sign up')
 
 class LoginForm(FlaskForm):
-    id = StringField('Id', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Login')
+
+#TODO: test this form
+class SearchChartForm(FlaskForm):
+    name = StringField("Song name", default=None)
+    changingBPM = SelectField("Changing bpm?", choices=["Yes", "No", "Don't care"], default="Don't care")
+    artist = StringField("Artist name", default=None)
+    # There will likely never be a song added with more than 2000bpm
+    # To the best of my knowledge the highest currently in game is Hou with a bpm of 912 
+    higherBPM = IntegerField("Highest bpm", default=None, validators=[NumberRange(min=1, max=2000)])
+    lowerBPM = IntegerField("Lowest BPM", default=None, validators=[NumberRange(min=1, max=2000)])
+    #There is no song currently in the game with a runtime greater than 3 minutes (180 seconds)
+    runtime = IntegerField("Song runtime (seconds)", default=None, validators=[NumberRange(min=1, max=180)])
+    # There is no song currently with more than 1000 notes, there will never be a song with more than 2000
+    licensed = SelectField("Licensed?", choices=["Yes", "No", "Don't care"], default="Don't care")
+    # Max difficulty for ddr chart is 19, it is speculated that level 20 charts will be added in the future so we set max to 20
+    games = SelectMultipleField("Games", choices=games, default=None)
+    highestDifficulty = IntegerField("Highest difficulty rating", default=None, validators=[NumberRange(min=1, max=20)]) 
+    lowestDifficulty = IntegerField("Highest difficulty rating", default=None, validators=[NumberRange(min=1, max=20)]) 
+    notes = IntegerField("Note count", default=None, validators=[NumberRange(min=1, max=2000)]) 
+    difficultyClass = IntegerField("Difficulty class", default=None, 
+        choices=["Beginner","Basic", "Difficult", "Expert", "Challenge"])
+    excludeDoubles = SelectMultipleField("Exclude doubles?", default="Include doubles charts", 
+        choices=["Exclude doubles charts", "Include doubles charts","Include only doubles charts"])
+    shockNotes = SelectMultipleField("Exclude songs with shocks?", default="Include shock charts", 
+        choices=["Exclude shock charts", "Include shock charts","Include only shock charts"])
+    
+
+
 
 #TODO: test this form
 class AddChartForm(FlaskForm):
@@ -64,17 +91,23 @@ class AddChartForm(FlaskForm):
     
 #TODO: test this form
 class AddSongForm(FlaskForm):
-    songName = StringField("Song Name", validators=[DataRequired])
-    artist = StringField("Artist Name", validators=[DataRequired])
-    higherBPM = IntegerField("Highest bpm", validators=[DataRequired])
-    lowerBPM = IntegerField("Lowest bpm", validators=[DataRequired])
-    changingBPM = higherBPM.data == lowerBPM.data
-    runtime = IntegerField("Song runtime (seconds)", validators=[DataRequired])
+    songName = StringField("Song Name", validators=[DataRequired()])
+    artist = StringField("Artist Name", validators=[DataRequired()])
+    higherBPM = IntegerField("Highest bpm", validators=[DataRequired()])
+    lowerBPM = IntegerField("Lowest bpm", validators=[DataRequired()])
+    runtime = IntegerField("Song runtime (seconds)", validators=[DataRequired()])
     licensed = BooleanField("Song is licensed?", default=False)
     #default value for game field is the most recent game, DDR world, as we'll most likely only be adding new charts
     game = SelectField("Game", choices=games, default="DanceDanceRevolution WORLD")
     charts = FieldList(FormField(AddChartForm), min_entries=1)
     submit = SubmitField('Add Song')
+    
+    @property
+    def changingBPM(self):
+        # Return True if higherBPM and lowerBPM are different, otherwise False
+        if self.higherBPM.data is not None and self.lowerBPM.data is not None:
+            return self.higherBPM.data != self.lowerBPM.data
+        return False
 
 #TODO: test this form
 class EditChartForm(FlaskForm):
@@ -96,7 +129,7 @@ class EditChartForm(FlaskForm):
             self.freezeNotes.data = chart.freeze_notes
             self.shockNotes.data = chart.shock_notes if chart.shock_notes is not None else ''
             self.difficultyRating.data = chart.difficulty_rating
-            
+
 #TODO: test this form
 class EditSongForm(FlaskForm):
     songName = StringField("Song Name")
@@ -111,6 +144,12 @@ class EditSongForm(FlaskForm):
     #each chart is an instance of EditChartForm
     charts = FieldList(FormField(EditChartForm))
 
+    @property
+    def changingBPM(self):
+        # Return True if higherBPM and lowerBPM are different, otherwise False
+        if self.higherBPM.data is not None and self.lowerBPM.data is not None:
+            return self.higherBPM.data != self.lowerBPM.data
+        return False
     def __init__(self, *args, **kwargs):
         song = kwargs.pop('song', None)
         super().__init__(*args, **kwargs)

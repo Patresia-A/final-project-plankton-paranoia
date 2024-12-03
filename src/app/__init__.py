@@ -52,7 +52,7 @@ from app.models import User
 def create_admin_command(username, password, name):
     """Create a new admin user"""
     try:
-        if User.query.get(username):  # Cceck if the username already exists
+        if User.query.get(username):  # Check if the username already exists
             click.echo('Error: Username already exists')
             return
 

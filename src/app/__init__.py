@@ -12,7 +12,6 @@ from flask import Flask
 import os
 import click
 from flask.cli import with_appcontext
-import bcrypt
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_caching import Cache
@@ -21,15 +20,14 @@ from flask_migrate import Migrate
 app = Flask('DDR DATABASE') # feel free to change this! 
 app.secret_key = os.environ.get('SECRET_KEY', '  ') # change this to a more secure secret key
 
-# database initialization
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///incidents.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/postgres'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)  # initialize db here
 
 # create database tables if they don't exist
-with app.app_context(): 
-    db.create_all()
+# with app.app_context(): 
+#     db.create_all()
 
 # login manager
 login_manager = LoginManager()

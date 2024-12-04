@@ -9,9 +9,10 @@ Description: Project 3 - DDR WebSearch
 
 from flask_sqlalchemy import SQLAlchemy
 from app import db
+from flask_login import UserMixin
 
-class User(db.Model):
-    __tablename__ = 'Users'
+class User(UserMixin, db.Model):
+    __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
@@ -20,19 +21,24 @@ class User(db.Model):
     role = db.Column(db.String(50), default='regular', nullable=False)
 
     # Relationship to FavoritesLists
-    favorites_lists = db.relationship('FavoritesList', backref='user', lazy=True)
+    favorites_lists = db.relationship('FavoritesList', back_populates='user', lazy=True)
+
 
 class FavoritesList(db.Model):
-    __tablename__ = 'FavoritesLists'
+    __tablename__ = 'favoriteslists'
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('Users.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+
+    # Relationship back to User
+    user = db.relationship('User', back_populates='favorites_lists')
 
     # Relationship to Songs through the many-to-many table
-    songs = db.relationship('Song', secondary='FavoritesListSongs', backref='favorites_lists', lazy='dynamic')
+    songs = db.relationship('Song', secondary='favoriteslistsongs', back_populates='favorites_lists', lazy='dynamic')
+
 
 class Song(db.Model):
-    __tablename__ = 'Songs'
+    __tablename__ = 'songs'
 
     id = db.Column(db.Integer, primary_key=True)
     song_name = db.Column(db.String(200), nullable=False)
@@ -48,13 +54,13 @@ class Song(db.Model):
     charts = db.relationship('Chart', backref='song', lazy=True)
 
     # Many-to-many relationship with FavoritesList
-    favorites_lists = db.relationship('FavoritesList', secondary='FavoritesListSongs', backref='songs', lazy='dynamic')
+    favorites_lists = db.relationship('FavoritesList', secondary='favoriteslistsongs', back_populates='songs', lazy='dynamic')
 
 class Chart(db.Model):
-    __tablename__ = 'Charts'
+    __tablename__ = 'charts'
 
     id = db.Column(db.Integer, primary_key=True)
-    song_id = db.Column(db.Integer, db.ForeignKey('Songs.id'), nullable=False)
+    song_id = db.Column(db.Integer, db.ForeignKey('songs.id'), nullable=False)
     is_doubles = db.Column(db.Boolean, nullable=False)
     notes = db.Column(db.Integer, nullable=False)
     freeze_notes = db.Column(db.Integer, nullable=False)
@@ -63,7 +69,7 @@ class Chart(db.Model):
     difficulty_rating = db.Column(db.Integer, nullable=False)
 
 class FavoritesListSong(db.Model):
-    __tablename__ = 'FavoritesListSongs'
+    __tablename__ = 'favoriteslistsongs'
 
-    favorites_list_id = db.Column(db.Integer, db.ForeignKey('FavoritesLists.id'), primary_key=True)
-    song_id = db.Column(db.Integer, db.ForeignKey('Songs.id'), primary_key=True)
+    favorites_list_id = db.Column(db.Integer, db.ForeignKey('favoriteslists.id'), primary_key=True)
+    song_id = db.Column(db.Integer, db.ForeignKey('songs.id'), primary_key=True)

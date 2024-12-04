@@ -20,7 +20,7 @@ from flask_migrate import Migrate
 app = Flask('DDR DATABASE', template_folder="app/templates", static_folder="app/static") # feel free to change this! 
 app.secret_key = os.environ.get('SECRET_KEY', '  ') # change this to a more secure secret key
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/postgres'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/project3_test'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)  # initialize db here

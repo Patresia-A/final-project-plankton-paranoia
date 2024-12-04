@@ -10,8 +10,39 @@ DB_HOST = "localhost"
 DB_PORT = "5432"
 
 JSON_FILE = "../scraper/clean.json"
+
+def create_database_if_not_exists(): 
+    try:
+        conn = psycopg2.connect(
+            dbname="postgres",
+            user=DB_USER,
+            password=DB_PASSWORD,
+            host=DB_HOST,
+            port=DB_PORT
+        )
+        conn.autocommit = True
+        cursor = conn.cursor()
+
+        # Check if the target database exists
+        cursor.execute("SELECT 1 FROM pg_database WHERE datname = %s", (DB_NAME,))
+        exists = cursor.fetchone()
+
+        if not exists:
+            # Create the database if it doesn't exist
+            cursor.execute(sql.SQL("CREATE DATABASE {}").format(sql.Identifier(DB_NAME)))
+            print(f"Database {DB_NAME} created successfully.")
+        else:
+            print(f"Database {DB_NAME} already exists.")
+
+        cursor.close()
+        conn.close()
+    except Exception as e:
+        print(f"Error creating database: {e}")
+
+
 if __name__ == '__main__':
 
+    create_database_if_not_exists()
 
     try:
         conn = psycopg2.connect(
@@ -80,13 +111,16 @@ if __name__ == '__main__':
         with open(JSON_FILE, "r") as file:
             songs_data = json.load(file)
 
+        import bcrypt
+        hashed_password = bcrypt.hashpw('password'.encode('utf-8'), bcrypt.gensalt())
+
         cursor.execute("""
             INSERT INTO Users (name, email, password, role)
             VALUES (%s, %s, %s, %s)
             RETURNING id;
-        """, ('Admin', 'admin@example.com', 'password', 'admin'))
+        """, ('Admin', 'admin@example.com', hashed_password.decode('utf-8'), 'admin'))
         user_id = cursor.fetchone()[0]
-
+        
         cursor.execute("""
             INSERT INTO FavoritesLists (user_id)
             VALUES (%s)

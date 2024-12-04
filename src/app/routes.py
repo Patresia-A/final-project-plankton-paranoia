@@ -9,7 +9,8 @@ Description: Project 3 - DDR WebSearch
 '''
 from app import app, db, cache
 from app.forms import *
-from flask import render_template, redirect, url_for, request
+from app.models import User
+from flask import render_template, redirect, url_for, request, flash
 from flask_login import login_required, login_user, logout_user
 import bcrypt
 
@@ -40,7 +41,7 @@ def signup():
                 db.session.add(new_user)
                 db.session.commit()
                 login_user(new_user)
-                return redirect(url_for('search_list_incidents')) 
+                return redirect(url_for('index')) 
             else:
                 flash("user ID already taken! please choose a different one.")
         else:
@@ -51,13 +52,13 @@ def signup():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(id=form.id.data).first()
-        if user and bcrypt.checkpw(form.password.data.encode("utf-8"), user.passwd):
+        user = User.query.filter_by(email=form.email.data).first()
+        if user and bcrypt.checkpw(form.password.data.encode("utf-8"), user.password.encode("utf-8")):
             login_user(user)
-            flash('login successful!')
-            return redirect(url_for('search_list_incidents')) 
+            flash('Login successful!')
+            return redirect(url_for('index'))
         else:
-            flash('incorrect username or password. please try again.')
+            flash('Incorrect email or password. Please try again.')
     return render_template('login.html', form=form)
 
 @login_required

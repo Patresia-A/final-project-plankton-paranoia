@@ -19,30 +19,78 @@
                 {{ form.artist.label }} <br />
                 {{ form.artist }}
             </p>
-            <p>
+            <p id="search-games">
                 {{ form.games.label }} <br />
-                {{ form.games }}
+                <select multiple class="form-control" size="26">
+                    {% for option in form.games %}s
+                    <option value="{{ option.data }}">{{ option.label.text }}</option>
+                    {% endfor %}
+                </select>
+            </p>
+            <p id="search-difficulty">
+                {{ form.difficultyClass.label }} <br />
+                <select multiple class="form-control" size="5">
+                    {% for option in form.difficultyClass %}s
+                    <option value="{{ option.data }}">{{ option.label.text }}</option>
+                    {% endfor %}
+                </select>
             </p>
             <p>
-                {{ form.higherBPM.label }} <br />
-                {{ form.higherBPM }}
+                {{ form.highestDifficulty.label }} <br />
+                {{ form.highestDifficulty }}
             </p>
             <p>
-                {{ form.lowerBPM.label }} <br />
-                {{ form.lowerBPM }}
+                {{ form.lowestDifficulty.label }} <br />
+                {{ form.lowestDifficulty }}
             </p>
-            <p>
-                {{ form.runtime.label }} <br />
-                {{ form.runtime }}
-            </p>
-            <p>
-                {{ form.licensed.label }} <br />
-                {{ form.licensed }}
-            </p>
-            <p>
-                {{ form.changingBPM.label }} <br />
-                {{ form.changingBPM }}
-            </p>
+            <button type="button" class="search-advanced-toggle" data-toggle="collapse" data-target=".search-dropdown">
+                More Filters
+            </button>
+            <div class="search-dropdown collapse">
+                <p>
+                    {{ form.higherBPM.label }} <br />
+                    {{ form.higherBPM }}
+                </p>
+                <p>
+                    {{ form.lowerBPM.label }} <br />
+                    {{ form.lowerBPM }}
+                </p>
+                <p>
+                    {{ form.runtime.label }} <br />
+                    {{ form.runtime }}
+                </p>
+                <p>
+                    {{ form.licensed.label }} <br />
+                    {{ form.licensed }}
+                </p>
+                <p>
+                    {{ form.changingBPM.label }} <br />
+                    {{ form.changingBPM }}
+                </p>
+                <p>
+                    {{ form.maxNotes.label }} <br />
+                    {{ form.maxNotes }}
+                </p>
+                <p>
+                    {{ form.minNotes.label }} <br />
+                    {{ form.minNotes }}
+                </p>
+                <p>
+                    {{ form.excludeDoubles.label }} <br />
+                    {{ form.excludeDoubles }}
+                </p>
+                <p>
+                    {{ form.shockNotes.label }} <br />
+                    {{ form.shockNotes }}
+                </p>
+            </div>
+            <script>
+                document.querySelector('.search-advanced-toggle').addEventListener('click', function() {
+                    // Toggle the 'show' class on the dropdown-group element
+                    document.querySelector('.search-dropdown').classList.toggle('show');
+                });
+            </script>
+                
             <p>{{ form.submit() }}</p>
         </form>
     </div>
@@ -64,10 +112,9 @@
             {% if not songs.has_next %}class="disabled" {% endif %}>Next
         </a>
         <br>
-
+        <br>
         <table>
             <tr>
-                <th></th>
                 <th>Song Name</th>
                 <th>Game</th>
                 <th>Artist</th>

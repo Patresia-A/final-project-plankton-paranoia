@@ -70,7 +70,21 @@ input[type=submit], .button {
 .close-btn:hover {
   color: black;
 }
+.search-dropdown {
+  margin-top: 1rem;
+}
 
+.search-dropdown p {
+  margin-bottom: 0.5rem;
+}
+
+.search-dropdown.show {
+  display: block;
+}
+
+.search-dropdown:not(.show) {
+  display: none;
+}
 #confirm-modal .flash-content {
   text-align: center;
 }
@@ -98,4 +112,8 @@ input[type=submit], .button {
 #list {
   float:left;
   flex: 1;
+}
+#search-games {
+  overflow-y:auto;
+  width: 250px;  
 }

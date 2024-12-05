@@ -39,6 +39,7 @@ games = [
     "DanceDanceRevolution A3",
     "DanceDanceRevolution WORLD"
 ]
+reversedGames = []
 charts = []
 class SignUpForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
@@ -69,6 +70,7 @@ class SearchChartForm(FlaskForm):
     games = SelectMultipleField("Games", choices=games, default=None)
     highestDifficulty = IntegerField("Highest difficulty rating", default=None, validators=[NumberRange(min=1, max=20)]) 
     lowestDifficulty = IntegerField("Highest difficulty rating", default=None, validators=[NumberRange(min=1, max=20)]) 
+
     maxNotes = IntegerField("Max note count", default=None, validators=[NumberRange(min=1, max=2000)]) 
     minNotes = IntegerField("Min note count", default=None, validators=[NumberRange(min=1, max=2000)]) 
 

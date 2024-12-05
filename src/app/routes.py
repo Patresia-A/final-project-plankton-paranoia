@@ -20,6 +20,17 @@ import bcrypt
 def index():
     form = SearchChartForm()
     page = request.args.get('page', default=1, type=int)  
+    songName = request.args.get('songName', None)  
+    artist = request.args.get('artist', None)
+    games = request.args.get('games', None)
+    higherBPM = request.args.get('higherBPM', None)
+    lowerBPM = request.args.get('lowerBPM', None)
+    runtime = request.args.get("runtime", None)
+    licensed = request.args.get("licensed", None),
+    changingBPM = request.args.get('changingBPM', None)
+    if form.validate_on_submit():
+        page = 1
+    
 
     return render_template(
         'index.html', 

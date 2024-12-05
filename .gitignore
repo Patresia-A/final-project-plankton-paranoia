@@ -1,2 +1,4 @@
 /scraper/node_modules
 .venv/
+/src/app/__pycache__/
+**/__pycache__/

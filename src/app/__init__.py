@@ -24,10 +24,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhos
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)  # initialize db here
-print("searchpath:", app.jinja_loader.searchpath)
 # create database tables if they don't exist
-# with app.app_context(): 
-#     db.create_all()
+with app.app_context(): 
+    db.create_all()
 
 # login manager
 login_manager = LoginManager()

@@ -9,8 +9,9 @@
 <h1 >List of DDR songs</h1>
 <div id="main">
     <div id="search" style="float: left;">
-        <form action="" method="POST" novalidate>
+        <form action="/index.html" method="POST" novalidate>
             {{form.csrf_token}}
+            {{ form.hidden_tag() }}
             <p>
                 {{ form.songName.label }} <br />
                 {{ form.songName }}
@@ -56,8 +57,8 @@
                     {{ form.lowerBPM }}
                 </p>
                 <p>
-                    {{ form.runtime.label }} <br />
-                    {{ form.runtime }}
+                    {{ form.maxRuntime.label }} <br />
+                    {{ form.maxRuntime }}
                 </p>
                 <p>
                     {{ form.licensed.label }} <br />
@@ -96,7 +97,7 @@
     </div>
     <div id="list" style="float: left;">
         <a href="{{ url_for('index', page=page - 1, songName=songName, changingBPM=changingBPM, 
-            artist=artist, higherBPM=higherBPM, lowerBPM=lowerBPM, runtime=runtime, 
+            artist=artist, higherBPM=higherBPM, lowerBPM=lowerBPM, maxRuntime=maxRuntime, 
             licensed=licensed, games=games,highestDifficulty=highestDifficulty,
             lowestDifficulty=lowestDifficulty, maxNotes=maxNotes, minNotes=minNotes,
             difficultyClass=difficultyClass, excludeDoubles=excludeDoubles,
@@ -104,7 +105,7 @@
             {% if not songs.has_prev %}class="disabled" {% endif %}>Previous
         </a>
         <a href="{{ url_for('index', page=page + 1, songName=songName, changingBPM=changingBPM, 
-            artist=artist, higherBPM=higherBPM, lowerBPM=lowerBPM, runtime=runtime, 
+            artist=artist, higherBPM=higherBPM, lowerBPM=lowerBPM, maxRuntime=maxRuntime, 
             licensed=licensed, games=games,highestDifficulty=highestDifficulty,
             lowestDifficulty=lowestDifficulty, maxNotes=maxNotes, minNotes=minNotes,
             difficultyClass=difficultyClass, excludeDoubles=excludeDoubles,

@@ -78,12 +78,12 @@ if __name__ == '__main__':
 
             CREATE TABLE IF NOT EXISTS Songs (
                 id SERIAL PRIMARY KEY,
-                songName VARCHAR(200) NOT NULL,
+                song_name VARCHAR(200) NOT NULL,
                 game VARCHAR(200) NOT NULL,
-                higherBPM INT NOT NULL,
-                lowerBPM INT NOT NULL,
+                higher_bpm INT NOT NULL,
+                lower_bpm INT NOT NULL,
                 licensed BOOLEAN NOT NULL,
-                changingBPM BOOLEAN NOT NULL,
+                changing_bpm BOOLEAN NOT NULL,
                 runtime INT NOT NULL,
                 artist VARCHAR(200) NOT NULL
             );
@@ -91,18 +91,18 @@ if __name__ == '__main__':
             CREATE TABLE IF NOT EXISTS Charts (
                 id SERIAL PRIMARY KEY,
                 song_id INT NOT NULL REFERENCES Songs(id) ON DELETE CASCADE,
-                isDoubles BOOLEAN NOT NULL,
+                is_doubles BOOLEAN NOT NULL,
                 notes INT NOT NULL,
-                freezeNotes INT NOT NULL,
-                shockNotes INT,
+                freeze_notes INT NOT NULL,
+                shock_notes INT,
                 difficulty VARCHAR(50) NOT NULL,
-                difficultyRating INT NOT NULL
+                difficulty_rating INT NOT NULL
             );
 
             CREATE TABLE IF NOT EXISTS FavoritesListSongs (
-                favoritesList_id INT NOT NULL REFERENCES FavoritesLists(id) ON DELETE CASCADE,
+                favorites_list_id INT NOT NULL REFERENCES FavoritesLists(id) ON DELETE CASCADE,
                 song_id INT NOT NULL REFERENCES Songs(id) ON DELETE CASCADE,
-                PRIMARY KEY (favoritesList_id, song_id)
+                PRIMARY KEY (favorites_list_id, song_id)
             );
         """)
 
@@ -131,7 +131,7 @@ if __name__ == '__main__':
 
         for song in songs_data:
             cursor.execute("""
-                INSERT INTO Songs (songName, game, higherBPM, lowerBPM, licensed, changingBPM, runtime, artist)
+                INSERT INTO Songs (song_name, game, higher_BPM, lower_BPM, licensed, changing_BPM, runtime, artist)
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s) RETURNING id;
             """, (
                 song["songName"], song["game"], song["higherBPM"],
@@ -144,7 +144,7 @@ if __name__ == '__main__':
                 # chart is null if there are no notes or difficulty rating
                 if chart["notes"] is not None and chart["difficultyRating"] is not None:
                     cursor.execute("""
-                        INSERT INTO Charts (song_id, isDoubles, notes, freezeNotes, shockNotes, difficulty, difficultyRating)
+                        INSERT INTO Charts (song_id, is_doubles, notes, freeze_Notes, shock_Notes, difficulty, difficulty_Rating)
                         VALUES (%s, %s, %s, %s, %s, %s, %s);
                     """, (
                         song_id, chart["isDoubles"], chart["notes"],

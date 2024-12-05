@@ -63,7 +63,7 @@ class SearchChartForm(FlaskForm):
     higherBPM = IntegerField("Highest bpm", default=None, validators=[NumberRange(min=1, max=2000)])
     lowerBPM = IntegerField("Lowest BPM", default=None, validators=[NumberRange(min=1, max=2000)])
     #There is no song currently in the game with a runtime greater than 3 minutes (180 seconds)
-    runtime = IntegerField("Song runtime (seconds)", default=None, validators=[NumberRange(min=1, max=180)])
+    maxRuntime = IntegerField("Max song runtime (seconds)", default=None, validators=[NumberRange(min=1, max=180)])
     # There is no song currently with more than 1000 notes, there will never be a song with more than 2000
     licensed = SelectField("Licensed?", choices=["Yes", "No", "Don't care"], default="Don't care")
     # Max difficulty for ddr chart is 19, it is speculated that level 20 charts will be added in the future so we set max to 20

@@ -7,36 +7,76 @@ Description: Project 3 - DDR WebSearch
 
     in progress !!!
 '''
+from sqlalchemy.sql.expression import func
 from app import app, db, cache
 from app.forms import *
-from app.models import User
+from app.models import User, Song, Chart
 from flask import render_template, redirect, url_for, request, flash
 from flask_login import login_required, login_user, logout_user
 import bcrypt
+from misc import needs_chart
 
 @app.route('/')
 @app.route('/index')
-@app.route('/index.html', methods=['GET', 'POST'])
+@app.route('/index.html', methods=['GET'])
 def index():
     form = SearchChartForm()
     page = request.args.get('page', default=1, type=int)  
-    songName = request.args.get('songName', None)  
-    artist = request.args.get('artist', None)
+    songName = request.args.get('songName', None, type=str)  
+    artist = request.args.get('artist', None, type=str)
     games = request.args.get('games', None)
-    higherBPM = request.args.get('higherBPM', None)
-    lowerBPM = request.args.get('lowerBPM', None)
-    runtime = request.args.get("runtime", None)
-    licensed = request.args.get("licensed", None),
-    changingBPM = request.args.get('changingBPM', None)
+    difficultyClass = request.args.get("difficultyClass", None)
+    higherBPM = request.args.get('higherBPM', None, type=int)
+    lowerBPM = request.args.get('lowerBPM', None, type=int)
+    maxRuntime = request.args.get("maxRuntime", None, type=int)
+    licensed = request.args.get("licensed", default="Don't care")
+    changingBPM = request.args.get('changingBPM', default="Don't care")
+    maxNotes = request.args.get("maxNotes", None, type=int)
+    minNotes = request.args.get("minNotes", None, type=int)
+    excludeDoubles = request.args.get("excludeDoubles", default="Include doubles charts")
+    shockNotes = request.args.get("shockNotes", default="Include shock charts")
+    page_size = 20
     if form.validate_on_submit():
         page = 1
-    
-
+        filters = []
+        # First filter by properties innate to the songs
+        if form.songName.data :
+            filters.append(Song.song_name.like(form.songName.data))
+        if form.artist.data : 
+            filters.append(Song.artist.like(form.artist.data))
+        if form.licensed.data != "Don't care": 
+            filters.append(Song.licensed == (form.licensed.data == "Yes"))
+        if form.changingBPM.data != "Don't care": 
+            filters.append(Song.changing_bpm == (form.changingBPM.data == "Yes"))
+        if form.maxRuntime.data :
+            filters.append(Song.maxRuntime <= form.maxRuntime.data)
+        if form.games.data :
+            filters.append(Song.game.any(in_(form.games.data)))
+        # Now we query charts, if we have to. 
+        if needs_chart(form) :
+            pass
+    # if filters :
+    #     songs = Song.query.filter(and_(*filters)).paginate(page=page, per_page=page_size, error_out=False)
+    # else :
+    songs = Song.query.paginate(page=page, per_page=page_size, error_out=False)
     return render_template(
         'index.html', 
-        songs=[],
+        songs=songs,
         form=form,
-        page = page
+        page=page,
+        songName=songName,
+        artist=artist,
+        game=games, 
+        difficultyClass=difficultyClass,
+        higherBPM=higherBPM, 
+        lowerBPM=lowerBPM,
+        maxRuntime=maxRuntime,
+        licensed=licensed,
+        changingBPM=changingBPM,
+        maxNotes=maxNotes,
+        minNotes=minNotes,
+        excludeDoubles=excludeDoubles,
+        shockNotes=shockNotes
     )
 
 @app.route('/users/signup', methods=['GET', 'POST'])

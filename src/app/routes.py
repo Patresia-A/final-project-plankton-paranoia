@@ -127,6 +127,13 @@ def profile():
 def songs():
     return 'Work in progress...'
 
+@app.route('/songs/<int:id>/delete')
+def delete_song(id):
+    song = db.session.query(Song).get(id)
+    db.session.delete(song)
+    db.session.commit()
+    return redirect(url_for('songs'))
+
 @app.route('/games') # + game code 
 def games():
     return 'Work in progress...'

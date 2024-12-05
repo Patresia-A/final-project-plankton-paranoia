@@ -10,19 +10,24 @@ Description: Project 3 - DDR WebSearch
 from sqlalchemy.sql.expression import func
 from app import app, db, cache
 from app.forms import *
-from app.models import User, Song, Chart
+from app.models import User, Song, FavoritesList, Chart
 from flask import render_template, redirect, url_for, request, flash
-from flask_login import login_required, login_user, logout_user
+from flask_login import login_required, login_user, logout_user, current_user
 import bcrypt
 from misc import needs_chart
+from functools import wraps
 
 @app.route('/')
 @app.route('/index')
 @app.route('/index.html', methods=['GET'])
 def index():
+    return render_template('index.html')
+
+@app.route('/search')
+def search():
     form = SearchChartForm()
     page = request.args.get('page', default=1, type=int)  
-    songName = request.args.get('songName', None, type=str)  
+    songName = request.args.get('songName', None, type=str)
     artist = request.args.get('artist', None, type=str)
     games = request.args.get('games', None)
     difficultyClass = request.args.get("difficultyClass", None)
@@ -60,7 +65,7 @@ def index():
     # else :
     songs = Song.query.paginate(page=page, per_page=page_size, error_out=False)
     return render_template(
-        'index.html', 
+        'search.html', 
         songs=songs,
         form=form,
         page=page,
@@ -84,19 +89,19 @@ def signup():
     form = SignUpForm()
     if form.validate_on_submit():
         if form.password.data == form.confirm_password.data:
-            user_id = form.id.data.strip()
-            existing_user = User.query.filter_by(id=user_id).first()
-            if existing_user is None:
-                hashed_passwd = bcrypt.hashpw(form.password.data.encode('utf-8'), bcrypt.gensalt())
-                new_user = User(id=user_id, name=form.name.data, about=form.about.data, admin=False, passwd=hashed_passwd)
+            user_email = form.email.data.strip()
+            existing_email = User.query.filter_by(email=user_email).first()
+            if existing_email is None:
+                hashed_password = bcrypt.hashpw(form.password.data.encode('utf-8'), bcrypt.gensalt())
+                new_user = User(name=form.name.data, email=form.email.data, password=hashed_password.decode('utf-8'), role=False)
                 db.session.add(new_user)
                 db.session.commit()
                 login_user(new_user)
-                return redirect(url_for('index')) 
+                return redirect(url_for('login')) 
             else:
-                flash("user ID already taken! please choose a different one.")
+                flash("Email is already in use! Please provide a different one.")
         else:
-            flash("passwords do not match! please try again.")
+            flash("Passwords do not match! Please try again.")
     return render_template('signup.html', form=form)
 
 @app.route('/users/login', methods=['GET', 'POST'])
@@ -113,21 +118,92 @@ def login():
     return render_template('login.html', form=form)
 
 @login_required
-@app.route('/users/signout', methods=['GET', 'POST'])
-def signout():
+@app.route('/users/logout', methods=['GET', 'POST'])
+def logout():
     logout_user()
     flash('you have been logged out.')
-    return redirect(url_for('login'))
+    return redirect(url_for('index'))
 
-@app.route('/users/profile')
+@app.route('/profile', methods=['GET', 'POST'])
+@login_required
 def profile():
-    return 'Work in progress...'
+    update_name_form = UpdateNameForm()
+    update_password_form = UpdatePasswordForm()
+    update_email_form = UpdateEmailForm()
+    playlist_form = CreatePlaylistForm()
+
+    if request.method == 'POST':
+        if update_name_form.submit_name.data and update_name_form.validate_on_submit():
+            current_user.name = update_name_form.name.data
+            db.session.commit()
+            flash("Name updated successfully!", "success")
+            return redirect(url_for('profile'))
+
+    if update_password_form.submit_password.data and update_password_form.validate_on_submit():
+        if bcrypt.checkpw(
+            update_password_form.current_password.data.encode('utf-8'),
+            current_user.password.encode('utf-8')
+        ):
+            hashed_password = bcrypt.hashpw(
+                update_password_form.new_password.data.encode('utf-8'), bcrypt.gensalt()
+            ).decode('utf-8')
+            current_user.password = hashed_password
+            db.session.commit()
+            flash("Password updated successfully!", "success")
+            return redirect(url_for('profile'))
+        else:
+            flash("Current password is incorrect. Please try again.", "danger")
+
+    if update_email_form.submit_email.data and update_email_form.validate_on_submit():
+        existing_user = User.query.filter_by(email=update_email_form.new_email.data).first()
+        if existing_user:
+            flash("This email is already in use. Please choose a different email.", "danger")
+        else:
+            current_user.email = update_email_form.new_email.data
+            try:
+                db.session.commit()
+                flash("Email updated successfully!", "success")
+            except Exception as e:
+                db.session.rollback()
+                flash(f"An error occurred while updating the email: {str(e)}", "danger")
+            return redirect(url_for('profile'))
+
+    if playlist_form.submit_playlist.data and playlist_form.validate_on_submit():
+        new_playlist = FavoritesList(
+            name=playlist_form.name.data,
+            user_id=current_user.id
+        )
+        db.session.add(new_playlist)
+        db.session.commit()
+        flash("Playlist created successfully!", "success")
+        return redirect(url_for('profile'))
+
+    playlists = FavoritesList.query.filter_by(user_id=current_user.id).all()
+    return render_template(
+        'profile.html',
+        update_name_form=update_name_form,
+        update_password_form=update_password_form,
+        update_email_form=update_email_form,
+        playlist_form=playlist_form,
+        playlists=playlists
+    )
 
 @app.route('/songs') # + song code
 def songs():
     return 'Work in progress...'
 
+def admin_required(f):
+    @wraps(f)
+    def wrap_decorator_function_admin(*args, **kwargs):
+        if not current_user.is_authenticated or not current_user.admin:
+            flash('You do not have permission to access this page', 'Error!')
+            return redirect(url_for('admin_error'))
+        return f(*args, **kwargs)
+    return wrap_decorator_function_admin
+
 @app.route('/songs/<int:id>/delete')
+@admin_required
+@login_required
 def delete_song(id):
     song = db.session.query(Song).get(id)
     db.session.delete(song)
@@ -152,8 +228,4 @@ def add_favorite():
 
 @app.route('/favorites') 
 def favorites():
-    return 'Work in progress...'
-
-@app.route('/search')
-def search():
     return 'Work in progress...'

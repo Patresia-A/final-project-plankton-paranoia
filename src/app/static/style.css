@@ -117,3 +117,14 @@ input[type=submit], .button {
   overflow-y:auto;
   width: 250px;  
 }
+
+.button {
+  display: inline-block;
+  background-color: darkblue;
+  color: white;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: darkblue;
+}

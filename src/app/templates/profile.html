@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% block main %}
+
+<div class="container">
+
+    <div class="menu">
+        <button onclick="showSection('view-playlists')">View Playlists</button>
+        <button onclick="showSection('create-playlist')">Create Playlist</button>
+        <button onclick="showSection('change-name')">Change Name</button>
+        <button onclick="showSection('change-password')">Change Password</button>
+        <button onclick="showSection('update-email')">Update Email</button>
+        <button type="button" class="button" onclick=simple_action("{{ url_for('index') }}")>Index</button>
+        <button type="button" class="button" onclick=simple_action("{{ url_for('logout') }}")>Log Out</button>
+    </div>
+
+    <div class="main-content">
+
+        <div id="default-message">
+            <h2>Welcome, {{ current_user.name }}!</h2>
+            <p>On this page, you can:</p>
+            <ul>
+                <li>View and create playlists</li>
+                <li>Update your name, password, and email</li>
+                <li>Log out of your account</li>
+            </ul>
+        </div>
+
+        <div id="change-name" class="hidden">
+            <h2>Change Name</h2>
+            <form method="POST" novalidate>
+                {{ update_name_form.hidden_tag() }}
+                <p>{{ update_name_form.name.label }}<br>{{ update_name_form.name(size=30) }}</p>
+                <p>{{ update_name_form.submit_name() }}</p>
+            </form>
+        </div>
+
+        <div id="change-password" class="hidden">
+            <h2>Change Password</h2>
+            <form method="POST" novalidate>
+                {{ update_password_form.hidden_tag() }}
+                <p>{{ update_password_form.current_password.label }}<br>{{ update_password_form.current_password(size=30) }}</p>
+                <p>{{ update_password_form.new_password.label }}<br>{{ update_password_form.new_password(size=30) }}</p>
+                <p>{{ update_password_form.confirm_password.label }}<br>{{ update_password_form.confirm_password(size=30) }}</p>
+                <p>{{ update_password_form.submit_password() }}</p>
+            </form>
+        </div>
+
+        <div id="update-email" class="hidden">
+            <h2>Update Email</h2>
+            <form method="POST" novalidate>
+                {{ update_email_form.hidden_tag() }}
+                <p>{{ update_email_form.new_email.label }}<br>{{ update_email_form.new_email(size=30) }}</p>
+                <p>{{ update_email_form.confirm_email.label }}<br>{{ update_email_form.confirm_email(size=30) }}</p>
+                <p>{{ update_email_form.submit_email() }}</p>
+            </form>
+        </div>
+
+
+        <div id="create-playlist" class="hidden">
+            <h2>Create a Playlist</h2>
+            <form method="POST" novalidate>
+                {{ playlist_form.hidden_tag() }}
+                <p>{{ playlist_form.name.label }}<br>{{ playlist_form.name(size=30) }}</p>
+                <p>{{ playlist_form.submit_playlist() }}</p>
+            </form>
+        </div>
+
+        <div id="view-playlists" class="hidden">
+            <h2>Your Playlists</h2>
+            {% if playlists %}
+                <ul>
+                {% for playlist in playlists %}
+                    <li>{{ playlist.name }}</li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p>You have no playlists yet.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<style>
+    .container {
+        display: flex;
+        height: 100vh;
+    }
+
+    .menu {
+        width: 15%;
+        background-color: #f4f4f4;
+        padding: 20px;
+        border-left: 1px solid #ccc;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: darkblue;
+        color: white;
+        border: none;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    .menu button:hover {
+        background-color: #0056b3;
+    }
+
+    .main-content {
+        flex-grow: 1;
+        padding: 20px; 
+        margin-left: 10px; 
+    }
+
+    .content {
+        flex-grow: 1;
+        padding: 20px;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .active {
+        display: block;
+    }
+</style>
+
+<script type="text/javascript">
+    function simple_action(target) {
+        window.location = target
+    }
+</script>
+
+<script>
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll('.main-content > div');
+        sections.forEach(section => {
+            section.classList.add('hidden');
+        });
+        document.getElementById(sectionId).classList.remove('hidden');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        showSection('default-message');
+    });
+</script>
+{% endblock %}

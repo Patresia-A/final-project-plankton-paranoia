@@ -9,7 +9,7 @@ Description: Project 3 - DDR WebSearch
 '''
 from flask_wtf import FlaskForm
 from wtforms import *
-from wtforms.validators import DataRequired, EqualTo, NumberRange, Optional, ReadOnly
+from wtforms.validators import DataRequired, EqualTo, NumberRange, Email, Optional, ReadOnly
 
 games = [
     "DanceDanceRevolution",
@@ -43,7 +43,7 @@ reversedGames = []
 charts = []
 class SignUpForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
-    about = TextAreaField('About', validators=[Optional()])
+    email = EmailField('Email', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Sign up')
@@ -180,3 +180,22 @@ class EditSongForm(FlaskForm):
                     'difficultyRating': chart.difficulty_rating
                 })
     submit = SubmitField('Edit Song')
+
+class UpdateNameForm(FlaskForm):
+    name = StringField("New Name", validators=[DataRequired()])
+    submit_name = SubmitField("Change Name")
+
+class UpdatePasswordForm(FlaskForm):
+    current_password = PasswordField('Current Password', validators=[DataRequired()])
+    new_password = PasswordField('New Password', validators=[DataRequired()])
+    confirm_password = PasswordField('Confirm New Password', validators=[DataRequired(), EqualTo('new_password')])
+    submit_password = SubmitField('Change Password')
+
+class CreatePlaylistForm(FlaskForm):
+    name = StringField("Playlist Name", validators=[DataRequired()])
+    submit_playlist = SubmitField("Create Playlist")
+
+class UpdateEmailForm(FlaskForm):
+    new_email = StringField('New Email', validators=[DataRequired(), Email()])
+    confirm_email = StringField('Confirm New Email', validators=[DataRequired(), EqualTo('new_email')])
+    submit_email = SubmitField('Update Email')

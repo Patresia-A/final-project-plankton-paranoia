@@ -1,179 +1,36 @@
 {% extends 'base.html' %}
-<title>{% block title %}Index{% endblock %}</title>
 {% block main %}
-<div style="float: right;">
-    <a class="login" href="{{ url_for('login')}}">Login</a>
-    <a class="login" href="{{ url_for('signup') }}">Sign up</a>
-    <a class="login" href="{{ url_for('profile') }}">Profile</a>
-</div>
-<h1 >List of DDR songs</h1>
-<div id="main">
-    <div id="search" style="float: left;">
-        <form action="/index.html" method="POST" novalidate>
-            {{form.csrf_token}}
-            {{ form.hidden_tag() }}
-            <p>
-                {{ form.songName.label }} <br />
-                {{ form.songName }}
-            </p>
-            <p>
-                {{ form.artist.label }} <br />
-                {{ form.artist }}
-            </p>
-            <p id="search-games">
-                {{ form.games.label }} <br />
-                <select multiple class="form-control" size="26">
-                    {% for option in form.games %}s
-                    <option value="{{ option.data }}">{{ option.label.text }}</option>
-                    {% endfor %}
-                </select>
-            </p>
-            <p id="search-difficulty">
-                {{ form.difficultyClass.label }} <br />
-                <select multiple class="form-control" size="5">
-                    {% for option in form.difficultyClass %}s
-                    <option value="{{ option.data }}">{{ option.label.text }}</option>
-                    {% endfor %}
-                </select>
-            </p>
-            <p>
-                {{ form.highestDifficulty.label }} <br />
-                {{ form.highestDifficulty }}
-            </p>
-            <p>
-                {{ form.lowestDifficulty.label }} <br />
-                {{ form.lowestDifficulty }}
-            </p>
-            <button type="button" class="search-advanced-toggle" data-toggle="collapse" data-target=".search-dropdown">
-                More Filters
-            </button>
-            <div class="search-dropdown collapse">
-                <p>
-                    {{ form.higherBPM.label }} <br />
-                    {{ form.higherBPM }}
-                </p>
-                <p>
-                    {{ form.lowerBPM.label }} <br />
-                    {{ form.lowerBPM }}
-                </p>
-                <p>
-                    {{ form.maxRuntime.label }} <br />
-                    {{ form.maxRuntime }}
-                </p>
-                <p>
-                    {{ form.licensed.label }} <br />
-                    {{ form.licensed }}
-                </p>
-                <p>
-                    {{ form.changingBPM.label }} <br />
-                    {{ form.changingBPM }}
-                </p>
-                <p>
-                    {{ form.maxNotes.label }} <br />
-                    {{ form.maxNotes }}
-                </p>
-                <p>
-                    {{ form.minNotes.label }} <br />
-                    {{ form.minNotes }}
-                </p>
-                <p>
-                    {{ form.excludeDoubles.label }} <br />
-                    {{ form.excludeDoubles }}
-                </p>
-                <p>
-                    {{ form.shockNotes.label }} <br />
-                    {{ form.shockNotes }}
-                </p>
-            </div>
-            <script>
-                document.querySelector('.search-advanced-toggle').addEventListener('click', function() {
-                    // Toggle the 'show' class on the dropdown-group element
-                    document.querySelector('.search-dropdown').classList.toggle('show');
-                });
-            </script>
-                
-            <p>{{ form.submit() }}</p>
-        </form>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .center-container {
+            text-align: center;
+        }
+    </style>
+
+    <div class="center-container">
+        <h1>Project 3: DDR - All Songs DB!</h1>
+        <h3>plankton-PARANOiA!</h3>
+        <button type="button" class="button" onclick=simple_action("{{ url_for('search') }}")>Search</button>
+        {% if current_user.is_authenticated %}
+            <button type="button" class="button" onclick=simple_action("{{ url_for('logout') }}")>Log Out</button>
+            <button type="button" class="button" onclick=simple_action("{{ url_for('profile') }}")>Profile</button>
+        {% else %}
+            <button type="button" class="button" onclick=simple_action("{{ url_for('login') }}")>Login</button>
+            <button type="button" class="button" onclick=simple_action("{{ url_for('signup') }}")>Sign Up</button>
+        {% endif %}
     </div>
-    <div id="list" style="float: left;">
-        <a href="{{ url_for('index', page=page - 1, songName=songName, changingBPM=changingBPM, 
-            artist=artist, higherBPM=higherBPM, lowerBPM=lowerBPM, maxRuntime=maxRuntime, 
-            licensed=licensed, games=games,highestDifficulty=highestDifficulty,
-            lowestDifficulty=lowestDifficulty, maxNotes=maxNotes, minNotes=minNotes,
-            difficultyClass=difficultyClass, excludeDoubles=excludeDoubles,
-            shockNotes=shockNotes, songs=songs) }}"
-            {% if not songs.has_prev %}class="disabled" {% endif %}>Previous 
-        </a>
-        <a hidden>dd</a>
-        <a href="{{ url_for('index', page=page + 1, songName=songName, changingBPM=changingBPM, 
-            artist=artist, higherBPM=higherBPM, lowerBPM=lowerBPM, maxRuntime=maxRuntime, 
-            licensed=licensed, games=games,highestDifficulty=highestDifficulty,
-            lowestDifficulty=lowestDifficulty, maxNotes=maxNotes, minNotes=minNotes,
-            difficultyClass=difficultyClass, excludeDoubles=excludeDoubles,
-            shockNotes=shockNotes, songs=songs) }}"
-            {% if not songs.has_next %}class="disabled" {% endif %}> Next
-        </a>
-        <br>
-        <br>
-        <table>
-            <tr>
-                <th>Song Name</th>
-                <th>Game</th>
-                <th>Artist</th>
-                <th>BPM</th>
-                <th>Runtime</th>
-                <th>Licensed?</th>
-                <th>Charts</th>
-                <th>Options</th>
-            </tr>
-            {% for song in songs %}
-            <tr>
 
-                <td>{{ song.song_name }}</td>
-                <td>{{ song.game.replace("DanceDanceRevolution", "DDR") }}</td>
-                <td>{{ song.artist}}</td>
-                {% if song.changing_bpm %}
-                <td>{{ song.lower_bpm }} - {{song.higher_bpm}}</td>
-                {% else %}
-                <td>{{ song.lower_bpm }}</td>
-                {% endif %}
-                <td>{{ song.runtime }}</td>
-                {% if song.licensed %}
-                <td>✅</td>
-                {% else %}
-                <td>❌</td>
-                {% endif %}
-                <td>{{ song.charts }}</td>
-
-
-                <td>
-                    <form action="{{ url_for('add_favorite') }}" method="POST" style="display: inline">
-                        <input type="submit" value="Add to favorites" />
-                    </form>
-                </td>
-            </tr>
-            {% endfor %}
-        </table>
-
-        <br />
-        <a href="{{ url_for('index', page=page - 1, songName=songName, changingBPM=changingBPM, 
-            artist=artist, higherBPM=higherBPM, lowerBPM=lowerBPM, maxRuntime=maxRuntime, 
-            licensed=licensed, games=games,highestDifficulty=highestDifficulty,
-            lowestDifficulty=lowestDifficulty, maxNotes=maxNotes, minNotes=minNotes,
-            difficultyClass=difficultyClass, excludeDoubles=excludeDoubles,
-            shockNotes=shockNotes, songs=songs) }}"
-            {% if not songs.has_prev %}class="disabled" {% endif %}>Previous 
-        </a>
-        <a hidden>dd</a>
-        <a href="{{ url_for('index', page=page + 1, songName=songName, changingBPM=changingBPM, 
-            artist=artist, higherBPM=higherBPM, lowerBPM=lowerBPM, maxRuntime=maxRuntime, 
-            licensed=licensed, games=games,highestDifficulty=highestDifficulty,
-            lowestDifficulty=lowestDifficulty, maxNotes=maxNotes, minNotes=minNotes,
-            difficultyClass=difficultyClass, excludeDoubles=excludeDoubles,
-            shockNotes=shockNotes, songs=songs) }}"
-            {% if not songs.has_next %}class="disabled" {% endif %}> Next
-        </a>
-    </div>
-</div>
-
+    <script type="text/javascript">
+        function simple_action(target) {
+            window.location = target
+        }
+    </script>
 {% endblock %}

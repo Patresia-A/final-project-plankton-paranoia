@@ -1,14 +1,38 @@
 {% extends 'base.html' %}
 {% block main %}
-        <form action="" method="POST" novalidate>
-            {{ form.hidden_tag() }}
-            <p>{{ form.name.label }} <br> {{ form.name(size=30) }}</p>
-            <p>{{ form.about.label }} <br> {{ form.about(rows=5, cols=30) }}</p>
-            <p>{{ form.password.label }} <br> {{ form.password(size=30) }}</p>
-            <p>{{ form.confirm_password.label }} <br> {{ form.confirm_password(size=30) }}</p>
-            {% if error %}
-                <p>Passwords do not match</p>
-            {% endif %}
-            <p>{{ form.submit() }}</p>
-        </form>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .center-container {
+            text-align: center;
+        }
+    </style>
+
+    <form action="" method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        <p>{{ form.name.label }} <br> {{ form.name(size=30) }}</p>
+        <p>{{ form.email.label }} <br> {{ form.email(size=50) }}</p>
+        <p>{{ form.password.label }} <br> {{ form.password(size=30) }}</p>
+        <p>{{ form.confirm_password.label }} <br> {{ form.confirm_password(size=30) }}</p>
+        {% if error %}
+            <p>Passwords do not match</p>
+        {% endif %}
+        <div class="button-container">
+            <button type="submit" class="button">{{ form.submit.label}}</button>
+            <button type="button" class="button" onclick=simple_action("{{ url_for('index') }}")>Cancel</button>
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        function simple_action(target) {
+            window.location = target
+        }
+    </script>
 {% endblock %}

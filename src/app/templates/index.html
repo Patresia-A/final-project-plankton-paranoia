@@ -102,15 +102,16 @@
             lowestDifficulty=lowestDifficulty, maxNotes=maxNotes, minNotes=minNotes,
             difficultyClass=difficultyClass, excludeDoubles=excludeDoubles,
             shockNotes=shockNotes, songs=songs) }}"
-            {% if not songs.has_prev %}class="disabled" {% endif %}>Previous
+            {% if not songs.has_prev %}class="disabled" {% endif %}>Previous 
         </a>
+        <a hidden>dd</a>
         <a href="{{ url_for('index', page=page + 1, songName=songName, changingBPM=changingBPM, 
             artist=artist, higherBPM=higherBPM, lowerBPM=lowerBPM, maxRuntime=maxRuntime, 
             licensed=licensed, games=games,highestDifficulty=highestDifficulty,
             lowestDifficulty=lowestDifficulty, maxNotes=maxNotes, minNotes=minNotes,
             difficultyClass=difficultyClass, excludeDoubles=excludeDoubles,
             shockNotes=shockNotes, songs=songs) }}"
-            {% if not songs.has_next %}class="disabled" {% endif %}>Next
+            {% if not songs.has_next %}class="disabled" {% endif %}> Next
         </a>
         <br>
         <br>
@@ -119,30 +120,35 @@
                 <th>Song Name</th>
                 <th>Game</th>
                 <th>Artist</th>
-                <th>Highest BPM</th>
-                <th>Lowest BPM</th>
-                <th>Changing BPM?</th>
+                <th>BPM</th>
                 <th>Runtime</th>
                 <th>Licensed?</th>
                 <th>Charts</th>
+                <th>Options</th>
             </tr>
             {% for song in songs %}
             <tr>
 
-                <td>{{ song.songName }}</td>
-                <td>{{ song.game }}</td>
+                <td>{{ song.song_name }}</td>
+                <td>{{ song.game.replace("DanceDanceRevolution", "DDR") }}</td>
                 <td>{{ song.artist}}</td>
-                <td>{{ song.higherBPM }}</td>
-                <td>{{ song.lowerBPM }}</td>
-                <td>{{ song.changingBPM }}</td>
+                {% if song.changing_bpm %}
+                <td>{{ song.lower_bpm }} - {{song.higher_bpm}}</td>
+                {% else %}
+                <td>{{ song.lower_bpm }}</td>
+                {% endif %}
                 <td>{{ song.runtime }}</td>
-                <td>{{ song.licensed }}</td>
+                {% if song.licensed %}
+                <td>✅</td>
+                {% else %}
+                <td>❌</td>
+                {% endif %}
                 <td>{{ song.charts }}</td>
 
 
                 <td>
                     <form action="{{ url_for('add_favorite') }}" method="POST" style="display: inline">
-                        <input type="submit" value="Create New Incident" />
+                        <input type="submit" value="Add to favorites" />
                     </form>
                 </td>
             </tr>
@@ -150,7 +156,23 @@
         </table>
 
         <br />
-        
+        <a href="{{ url_for('index', page=page - 1, songName=songName, changingBPM=changingBPM, 
+            artist=artist, higherBPM=higherBPM, lowerBPM=lowerBPM, maxRuntime=maxRuntime, 
+            licensed=licensed, games=games,highestDifficulty=highestDifficulty,
+            lowestDifficulty=lowestDifficulty, maxNotes=maxNotes, minNotes=minNotes,
+            difficultyClass=difficultyClass, excludeDoubles=excludeDoubles,
+            shockNotes=shockNotes, songs=songs) }}"
+            {% if not songs.has_prev %}class="disabled" {% endif %}>Previous 
+        </a>
+        <a hidden>dd</a>
+        <a href="{{ url_for('index', page=page + 1, songName=songName, changingBPM=changingBPM, 
+            artist=artist, higherBPM=higherBPM, lowerBPM=lowerBPM, maxRuntime=maxRuntime, 
+            licensed=licensed, games=games,highestDifficulty=highestDifficulty,
+            lowestDifficulty=lowestDifficulty, maxNotes=maxNotes, minNotes=minNotes,
+            difficultyClass=difficultyClass, excludeDoubles=excludeDoubles,
+            shockNotes=shockNotes, songs=songs) }}"
+            {% if not songs.has_next %}class="disabled" {% endif %}> Next
+        </a>
     </div>
 </div>
 

@@ -85,6 +85,40 @@ input[type=submit], .button {
 .search-dropdown:not(.show) {
   display: none;
 }
+.chart-thumbnail {
+  display: inline-block;
+  padding-bottom: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  border-width: 0;
+}
+.chart-td {
+  padding: 0px;
+}
+.chart-table {
+  table-layout: fixed;
+  width: 510px;
+  border:hidden;
+  padding: 0px;
+}
+.chart-table-td {
+  padding-left: 1px;
+  padding-right: 1px;
+  font-size: 15px;
+}
+.chart-popup {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+.list-action-form form input{
+  margin: 2px;
+}
 #confirm-modal .flash-content {
   text-align: center;
 }
@@ -117,6 +151,21 @@ input[type=submit], .button {
   overflow-y:auto;
   width: 250px;  
 }
+
+#charts-display {
+  width: 500px;
+}
+
+#list-licensed {
+  width: 40px;
+}
+#list-song-name {
+  width: 240px;
+}
+#list-artist {
+  width: 150px;
+}
+
 
 .button {
   display: inline-block;

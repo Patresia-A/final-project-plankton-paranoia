@@ -1,11 +1,15 @@
-# Daily Scrums (In Progress..)
+# Daily Scrums
 
-Date/Time: Nov 12, 2024. 5:25pm 
+Date/Time: Nov 12, 2024. 5:25pm - Nov 18th, 2024 10:00pm
 Participants: Lala, Hannah, Patty Logan
 
 # What was accomplished yesterday?
 
-The Discord channel was incredibly communicative, jumping right into planning and brainstorming ways to make the web application more user friendly and enjoyable. We concentrated on DDR, adding our own twists and amusing concepts. coding in a language that is unfamiliar to us and researching how to do so. The repository was created, and the uml was completed.
+The Discord channel was super active, immediately diving into brainstorming and planning ways to make the web app more user friendly and fun. We focused on DDR, adding our own twists and ideas while working with a programming language we’re not familiar with and researching as we go. The repository was set up by all of us and organized by Amina, and the UML diagram was finalized.  
+
+Alex: Created the README template and the requirements.txt file, installed Flask, and started working on the user interface, including a simple login page and a dashboard.  
+
+Hannah: Made progress on the scraper, successfully scraping webpages and generating a CSV file. Also created the JSON file, cleaned.json, in the scraper folder.  
 
 # What is planned for today?
 
@@ -18,3 +22,5 @@ CASE #2 Web scraping translation (from Japanese to English) and csv file product
 CASE #3 Verifying credentials. If they match the records in the database, granted access to navigate the app.
 
 # Are there any blockers?
+
+Yes, there are blockers. The team is still working on the repository and the csv file. 

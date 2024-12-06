@@ -210,6 +210,12 @@ def delete_song(id):
     db.session.commit()
     return redirect(url_for('songs'))
 
+@app.route('/add_song') # + song code
+def add_song():
+    return 'Work in progress...'
+
+
+
 @app.route('/games') # + game code 
 def games():
     return 'Work in progress...'

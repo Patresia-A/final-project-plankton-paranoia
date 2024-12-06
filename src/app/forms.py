@@ -93,6 +93,9 @@ class AddChartForm(FlaskForm):
     shockNotes = IntegerField("Shock Notes", default=None)
     difficultyRating = IntegerField("Difficulty Rating", validators=[DataRequired()])
     submit = SubmitField('Add chart')
+
+#class DeleteSongForm(FlaskForm):
+    
     
 #TODO: test this form
 class AddSongForm(FlaskForm):

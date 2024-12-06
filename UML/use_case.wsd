@@ -1,0 +1,21 @@
+@startuml
+actor User
+actor Admin
+actor Guest
+
+User --> (Sign Up)
+User --> (Login)
+User --> (Search Songs)
+User --> (View Songs)
+User --> (Add to Favorites)
+User --> (View Favorites)
+
+Admin --> (Login)
+Admin --> (Search Songs)
+Admin --> (Delete Song)
+Admin --> (Manage Users)
+
+Guest --> (Search Songs)
+Guest --> (View Songs)
+
+@enduml

@@ -99,7 +99,7 @@ def signup():
                 db.session.add(new_user)
                 db.session.commit()
                 login_user(new_user)
-                return redirect(url_for('login')) 
+                return redirect(url_for('index')) 
             else:
                 flash("Email is already in use! Please provide a different one.")
         else:

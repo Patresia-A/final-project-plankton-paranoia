@@ -117,7 +117,7 @@ input[type=submit], .button {
   z-index: 100;
 }
 .list-action-form form input{
-  margin: 2px;
+  margin-bottom: 4px;
 }
 #confirm-modal .flash-content {
   text-align: center;

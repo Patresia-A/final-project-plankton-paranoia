@@ -1,0 +1,34 @@
+@startuml
+actor User
+actor Admin
+participant System
+database Database
+
+== Sign Up ==
+User -> System : Enter details (Sign Up)
+System -> System : Validate data
+System -> Database : Store user details
+System -> User : Success message
+User -> System : Redirect to login page
+
+== Login ==
+User -> System : Enter email and password
+System -> Database : Validate credentials
+System -> User : Credentials valid
+System -> User : Redirect to song search page
+
+== Search Song ==
+User -> System : Enter search criteria
+System -> Database : Query songs
+System -> User : Display search results
+
+== Admin Delete Song ==
+Admin -> System : Enter search criteria (Delete)
+System -> Database : Query songs
+System -> Admin : Display search results
+Admin -> System : Select song to delete
+System -> System : Confirm deletion
+System -> Database : Delete song
+System -> Admin : Display success message
+
+@enduml

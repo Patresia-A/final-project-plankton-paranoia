@@ -145,12 +145,11 @@ class EditSongForm(FlaskForm):
     artist = StringField("Artist Name")
     higherBPM = IntegerField("Highest BPM")
     lowerBPM = IntegerField("Lowest BPM")
-    changingBPM = BooleanField("Changing BPM")
     runtime = IntegerField("Song Runtime (seconds)")
     licensed = BooleanField("Song is licensed?")
     game = SelectField("Game", choices=games)
     
-    #each chart is an instance of EditChartForm
+    # Each chart is an instance of EditChartForm
     charts = FieldList(FormField(EditChartForm))
 
     @property
@@ -159,6 +158,7 @@ class EditSongForm(FlaskForm):
         if self.higherBPM.data is not None and self.lowerBPM.data is not None:
             return self.higherBPM.data != self.lowerBPM.data
         return False
+
     def __init__(self, *args, **kwargs):
         song = kwargs.pop('song', None)
         super().__init__(*args, **kwargs)
@@ -168,11 +168,11 @@ class EditSongForm(FlaskForm):
             self.artist.data = song.artist
             self.higherBPM.data = song.higher_bpm
             self.lowerBPM.data = song.lower_bpm
-            self.changingBPM.data = song.higher_bpm == song.lower_bpm
             self.runtime.data = song.runtime
             self.licensed.data = song.licensed
             self.game.data = song.game
 
+            # Populate the charts field
             for chart in song.charts:
                 self.charts.append_entry({
                     'difficulty': chart.difficulty,
@@ -180,9 +180,8 @@ class EditSongForm(FlaskForm):
                     'notes': chart.notes,
                     'freezeNotes': chart.freeze_notes,
                     'shockNotes': chart.shock_notes if chart.shock_notes is not None else '',
-                    'difficultyRating': chart.difficulty_rating
+                    'difficultyRating': chart.difficulty_rating,
                 })
-    submit = SubmitField('Edit Song')
 
 class UpdateNameForm(FlaskForm):
     name = StringField("New Name", validators=[DataRequired()])

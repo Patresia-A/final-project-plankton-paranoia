@@ -75,6 +75,12 @@ if __name__ == '__main__':
                 id SERIAL PRIMARY KEY,
                 user_id INT NOT NULL REFERENCES Users(id) ON DELETE CASCADE
             );
+                       
+            CREATE TABLE IF NOT EXISTS Playlists (
+                id SERIAL PRIMARY KEY,
+                name VARCHAR(100) NOT NULL,
+                user_id INT NOT NULL REFERENCES Users(id) ON DELETE CASCADE
+            );
 
             CREATE TABLE IF NOT EXISTS Songs (
                 id SERIAL PRIMARY KEY,

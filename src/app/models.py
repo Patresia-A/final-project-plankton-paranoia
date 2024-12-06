@@ -19,10 +19,10 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(100), nullable=False, unique=True)
     password = db.Column(db.String(100), nullable=False)
     role = db.Column(db.String(50), default='regular', nullable=False)
+    playlists = db.relationship('Playlist', back_populates='user', lazy=True)
 
     # Relationship to FavoritesLists
-    favorites_lists = db.relationship('FavoritesList', back_populates='user', lazy=True)
-
+    favorites_lists = db.relationship('FavoritesList', back_populates='user', lazy='dynamic', cascade="all, delete-orphan") 
 
 class FavoritesList(db.Model):
     __tablename__ = 'favoriteslists'
@@ -35,7 +35,6 @@ class FavoritesList(db.Model):
 
     # Relationship to Songs through the many-to-many table
     songs = db.relationship('Song', secondary='favoriteslistsongs', back_populates='favorites_lists', lazy='dynamic')
-
 
 class Song(db.Model):
     __tablename__ = 'songs'
@@ -73,3 +72,14 @@ class FavoritesListSong(db.Model):
 
     favorites_list_id = db.Column(db.Integer, db.ForeignKey('favoriteslists.id'), primary_key=True)
     song_id = db.Column(db.Integer, db.ForeignKey('songs.id'), primary_key=True)
+
+class Playlist(db.Model):
+    __tablename__ = 'playlists'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    user = db.relationship('User', back_populates='playlists')
+
+    def __repr__(self):
+        return f"<Playlist {self.name}>"

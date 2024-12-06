@@ -4,7 +4,8 @@
 <div class="container">
 
     <div class="menu">
-        <button onclick="showSection('view-playlists')">View Playlists</button>
+        <button onclick="showSection('my-playlists')">My Playlists</button>
+        <button type="button" class="button" onclick=simple_action("{{ url_for('search') }}")>Search</button>
         <button onclick="showSection('create-playlist')">Create Playlist</button>
         <button onclick="showSection('change-name')">Change Name</button>
         <button onclick="showSection('change-password')">Change Password</button>
@@ -65,13 +66,37 @@
             </form>
         </div>
 
-        <div id="view-playlists" class="hidden">
+        <div id="my-playlists" class="hidden">
+            <h2>Your Favorite Songs</h2>
+            {% if favorites %}
+                <ul>
+                    {% for favorite in favorites %}
+                        <li>{{ favorite.song_name }} by {{ favorite.artist }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>You have no favorite songs yet.</p>
+            {% endif %}
+
+            <hr>
+
             <h2>Your Playlists</h2>
             {% if playlists %}
                 <ul>
-                {% for playlist in playlists %}
-                    <li>{{ playlist.name }}</li>
-                {% endfor %}
+                    {% for playlist in playlists %}
+                        <li>
+                            <strong>{{ playlist.name }}</strong>
+                            {% if playlist.songs %}
+                                <ul>
+                                    {% for song in playlist.songs %}
+                                        <li>{{ song.song_name }} by {{ song.artist }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <p>No songs in this playlist yet.</p> 
+                            {% endif %}
+                        </li>
+                    {% endfor %}
                 </ul>
             {% else %}
                 <p>You have no playlists yet.</p>
@@ -130,20 +155,36 @@
     }
 </style>
 
-<script type="text/javascript">
+<script>
     function simple_action(target) {
         window.location = target
     }
-</script>
 
-<script>
     function showSection(sectionId) {
+        console.log('Attempting to show section:', sectionId);
+        const sections = document.querySelectorAll('.main-content > div');
+        console.log('Sections found:', sections);
+        sections.forEach(section => {
+            section.classList.add('hidden');
+        });
+
+        const targetSection = document.getElementById(sectionId);
+        if (targetSection) {
+            console.log('Showing section:', targetSection);
+            targetSection.classList.remove('hidden');
+        } else {
+            console.error('No section found with ID:', sectionId);
+        }
+    }
+
+    function showSection(sectionId) {
+        console.log('Showing section:', sectionId);
         const sections = document.querySelectorAll('.main-content > div');
         sections.forEach(section => {
             section.classList.add('hidden');
         });
         document.getElementById(sectionId).classList.remove('hidden');
-    }
+        }
 
     document.addEventListener('DOMContentLoaded', () => {
         showSection('default-message');

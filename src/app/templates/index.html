@@ -20,8 +20,11 @@
         <h3>plankton-PARANOiA!</h3>
         <button type="button" class="button" onclick=simple_action("{{ url_for('search') }}")>Search</button>
         {% if current_user.is_authenticated %}
-            <button type="button" class="button" onclick=simple_action("{{ url_for('logout') }}")>Log Out</button>
+            {% if current_user.role == 'admin' %}
+                <button type="button" class="button" onclick=simple_action("{{ url_for('add_song') }}")>Add Song</button>
+            {% endif %}
             <button type="button" class="button" onclick=simple_action("{{ url_for('profile') }}")>Profile</button>
+            <button type="button" class="button" onclick=simple_action("{{ url_for('logout') }}")>Log Out</button>
         {% else %}
             <button type="button" class="button" onclick=simple_action("{{ url_for('login') }}")>Login</button>
             <button type="button" class="button" onclick=simple_action("{{ url_for('signup') }}")>Sign Up</button>

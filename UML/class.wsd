@@ -1,0 +1,38 @@
+@startuml
+
+class Song{
+    - songName: string
+    - artist: string
+    - higherBPM: int
+    - lowerBPM: int
+    - id(PK): int
+'runtime is in seconds
+    - runtime: int
+    - licensed: bool
+    - changingBPM: bool
+    - game: string
+}
+
+class Chart{
+    - id(PK): int
+    - difficultyRating: int
+    - notes: int
+    - freezeNotes: int
+    - shockNotes: int
+    - difficultyClassification: string
+}
+
+class User{
+    - id(PK) : int
+    - name: string
+    - email: string
+    - password: string
+    - role: string
+}
+class FavoritesList{
+    -id(PK) : int
+}
+User "each" --o "1" FavoritesList : has
+FavoritesList "each" --o "many" Song: has
+Song "each" --o  "many" Chart : has
+@enduml

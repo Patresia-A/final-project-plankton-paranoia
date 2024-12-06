@@ -160,6 +160,8 @@
 
                 <td>
                     <form action="{{ url_for('add_favorite') }}" method="POST" style="display: inline">
+                        {{ form.csrf_token }}
+                        <input type="hidden" name="song_id" value="{{ song.id }}" />
                         <input type="submit" value="Add to favorites" />
                     </form>
                 </td>

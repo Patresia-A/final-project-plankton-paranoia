@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block main %}
+
+<script type="text/javascript">
+    function simple_action(target) {
+        window.location = target;
+    }
+</script>
+
+<div class="container">
+    <h1>Add a New Song</h1>
+    <form method="POST">
+        {{ song_form.hidden_tag() }}
+        <h2>Song Details</h2>
+        <p>
+            <label for="{{ song_form.songName.id }}">{{ song_form.songName.label }}</label>
+            <br>
+            <input id="{{ song_form.songName.id }}" name="{{ song_form.songName.name }}" value="{{ song_form.songName.data if song_form.songName.data else '' }}" size="50">
+        </p>
+        <p>
+            <label for="{{ song_form.artist.id }}">{{ song_form.artist.label }}</label>
+            <br>
+            <input id="{{ song_form.artist.id }}" name="{{ song_form.artist.name }}" value="{{ song_form.artist.data if song_form.artist.data else '' }}" size="50">
+        </p>
+        <p>
+            <label for="{{ song_form.higherBPM.id }}">{{ song_form.higherBPM.label }}</label>
+            <br>
+            <input id="{{ song_form.higherBPM.id }}" name="{{ song_form.higherBPM.name }}" value="{{ song_form.higherBPM.data if song_form.higherBPM.data else '' }}" size="10">
+        </p>
+        <p>
+            <label for="{{ song_form.lowerBPM.id }}">{{ song_form.lowerBPM.label }}</label>
+            <br>
+            <input id="{{ song_form.lowerBPM.id }}" name="{{ song_form.lowerBPM.name }}" value="{{ song_form.lowerBPM.data if song_form.lowerBPM.data else '' }}" size="10">
+        </p>
+        <p>
+            <label for="{{ song_form.runtime.id }}">{{ song_form.runtime.label }}</label>
+            <br>
+            <input id="{{ song_form.runtime.id }}" name="{{ song_form.runtime.name }}" value="{{ song_form.runtime.data if song_form.runtime.data else '' }}" size="10">
+        </p>
+        <p>
+            <label for="{{ song_form.licensed.id }}">{{ song_form.licensed.label }}</label>
+            <input id="{{ song_form.licensed.id }}" name="{{ song_form.licensed.name }}" type="checkbox" {% if song_form.licensed.data %}checked{% endif %}>
+        </p>
+        <p>
+            <label for="{{ song_form.game.id }}">{{ song_form.game.label }}</label>
+            <br>
+            <select id="{{ song_form.game.id }}" name="{{ song_form.game.name }}">
+                {% for option in song_form.game %}
+                    <option value="{{ option.data }}" {% if option.checked %}selected{% endif %}>{{ option.label.text }}</option>
+                {% endfor %}
+            </select>
+        </p>
+
+        <h2>Charts</h2>
+        {% for chart_form in song_form.charts %}
+            <fieldset>
+                <legend>Chart {{ loop.index }}</legend>
+                {{ chart_form.csrf_token }}
+                <p>
+                    <label for="{{ chart_form.difficulty.id }}">{{ chart_form.difficulty.label }}</label>
+                    <br>
+                    <input id="{{ chart_form.difficulty.id }}" name="{{ chart_form.difficulty.name }}" value="{{ chart_form.difficulty.data if chart_form.difficulty.data else '' }}" size="20">
+                </p>
+                <p>
+                    <label for="{{ chart_form.isDoubles.id }}">{{ chart_form.isDoubles.label }}</label>
+                    <input id="{{ chart_form.isDoubles.id }}" name="{{ chart_form.isDoubles.name }}" type="checkbox" {% if chart_form.isDoubles.data %}checked{% endif %}>
+                </p>
+                <p>
+                    <label for="{{ chart_form.notes.id }}">{{ chart_form.notes.label }}</label>
+                    <br>
+                    <input id="{{ chart_form.notes.id }}" name="{{ chart_form.notes.name }}" value="{{ chart_form.notes.data if chart_form.notes.data else '' }}" size="10">
+                </p>
+                <p>
+                    <label for="{{ chart_form.freezeNotes.id }}">{{ chart_form.freezeNotes.label }}</label>
+                    <br>
+                    <input id="{{ chart_form.freezeNotes.id }}" name="{{ chart_form.freezeNotes.name }}" value="{{ chart_form.freezeNotes.data if chart_form.freezeNotes.data else '' }}" size="10">
+                </p>
+                <p>
+                    <label for="{{ chart_form.shockNotes.id }}">{{ chart_form.shockNotes.label }}</label>
+                    <br>
+                    <input id="{{ chart_form.shockNotes.id }}" name="{{ chart_form.shockNotes.name }}" value="{{ chart_form.shockNotes.data if chart_form.shockNotes.data else '' }}" size="10">
+                </p>
+                <p>
+                    <label for="{{ chart_form.difficultyRating.id }}">{{ chart_form.difficultyRating.label }}</label>
+                    <br>
+                    <input id="{{ chart_form.difficultyRating.id }}" name="{{ chart_form.difficultyRating.name }}" value="{{ chart_form.difficultyRating.data if chart_form.difficultyRating.data else '' }}" size="10">
+                </p>
+            </fieldset>
+        {% endfor %}
+        <br>
+        <div>
+            <button type="submit" class="button">{{ song_form.submit.label }}</button>
+            <button type="button" class="button" onclick=simple_action("{{ url_for('index') }}")>Cancel</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

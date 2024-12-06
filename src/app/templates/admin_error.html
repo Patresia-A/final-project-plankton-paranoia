@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block main %}
+    <h2>You do not have permission</h2>
+    <p>You do not have permission to access this page</p>
+    <form action="{{ url_for('search') }}">
+        <button type="submit" class="button">Go Back to Search</button>
+    </form>
+{% endblock %}

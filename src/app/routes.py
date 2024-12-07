@@ -28,49 +28,131 @@ def index():
 
 @app.route('/search', methods=["GET", "POST"])
 def search():
+    def array_to_comma_string(strings):
+        print("strings: ", strings)
+        if strings:
+            return ",".join(strings)
+        return None
     form = SearchChartForm()
     page = request.args.get('page', default=1, type=int)  
-    songName = request.args.get('songName', None, type=str)
-    artist = request.args.get('artist', None, type=str)
-    games = request.args.get('games', None)
-    difficultyClass = request.args.get("difficultyClass", None)
-    higherBPM = request.args.get('higherBPM', None, type=int)
-    lowerBPM = request.args.get('lowerBPM', None, type=int)
-    maxRuntime = request.args.get("maxRuntime", None, type=int)
+    songName = request.args.get('songName', default=None, type=str)
+    artist = request.args.get('artist', default=None, type=str)
+    highestDifficulty = request.args.get("highestDifficulty", default=None, type = str)
+    lowestDifficulty = request.args.get("lowestDifficulty", default=None, type = str)
+    games = request.args.get('games', default=None)
+    games_arr = games.split(",") if games else None
+    difficultyClass = request.args.get("difficultyClass", default=None)
+    difficultyClass_arr = difficultyClass.split(",") if difficultyClass else None
+    higherBPM = request.args.get('higherBPM', default=None, type=int)
+    lowerBPM = request.args.get('lowerBPM', default=None, type=int)
+    maxRuntime = request.args.get("maxRuntime", default=None, type=int)
     licensed = request.args.get("licensed", default="Don't care")
     changingBPM = request.args.get('changingBPM', default="Don't care")
-    maxNotes = request.args.get("maxNotes", None, type=int)
-    minNotes = request.args.get("minNotes", None, type=int)
+    maxNotes = request.args.get("maxNotes", default=None, type=int)
+    minNotes = request.args.get("minNotes", default=None, type=int)
     excludeDoubles = request.args.get("excludeDoubles", default="Include doubles charts")
     shockNotes = request.args.get("shockNotes", default="Include shock charts")
     page_size = 20
     filters = []
+    chartFilters = []
+    #case where we are making a new query
     if form.validate_on_submit():
-        # print("i validated")
         page = 1
         # First filter by properties innate to the songs
         if form.songName.data :
-            # print(str(form.songName))
-            filters.append(Song.song_name.ilike(f"%{form.songName.data}%"))
+            songName = form.songName.data
+            filters.append(Song.song_name.ilike(f"%{songName}%"))
         if form.artist.data : 
-            filters.append(Song.artist.ilike(f"%{form.artist.data}%"))
-        if form.licensed.data != "Don't care": 
-            filters.append(Song.licensed == (form.licensed.data == "Yes"))
+            artist = form.artist.data
+            filters.append(Song.artist.ilike(f"%{artist}%"))
+        if form.licensed.data != "Don't care":
+            licensed = form.licensed.data
+            filters.append(Song.licensed == (licensed == "Yes"))
         if form.changingBPM.data != "Don't care": 
-            filters.append(Song.changing_bpm == (form.changingBPM.data == "Yes"))
+            changingBPM = form.changingBPM.data
+            filters.append(Song.changing_bpm == (changingBPM == "Yes"))
         if form.maxRuntime.data :
-            filters.append(Song.runtime <= form.maxRuntime.data)
+            maxRuntime = form.maxRuntime.data
+            filters.append(Song.runtime <= maxRuntime)
         if form.games.data :
-            filters.append(Song.game.in_(form.games.data))
+            games_arr = form.games.data
+            games = array_to_comma_string(games_arr)
+            filters.append(Song.game.in_(games_arr))
+        if form.higherBPM.data :
+            higherBPM = form.higherBPM.data
+            filters.append(Song.higher_bpm <= higherBPM)
+        if form.lowerBPM.data :
+            lowerBPM = form.lowerBPM.data
+            filters.append(Song.lower_bpm >= lowerBPM)
+        #now for all the chart filters...
         if form.highestDifficulty.data :
-            filters.append(Song.charts.any(Chart.difficulty_rating <= form.highestDifficulty.data))
+            highestDifficulty = form.highestDifficulty.data
+            chartFilters.append(Chart.difficulty_rating <= highestDifficulty)
         if form.lowestDifficulty.data :
-            filters.append(Song.charts.any(Chart.difficulty_rating >= form.lowestDifficulty.data))\
-        
+            lowestDifficulty = form.lowestDifficulty.data 
+            chartFilters.append(Chart.difficulty_rating >= lowestDifficulty)
+        if form.difficultyClass.data:
+            difficultyClass_arr = form.difficultyClass.data
+            print(form.difficultyClass.data)
+            difficultyClass = array_to_comma_string(difficultyClass_arr)
+            chartFilters.append(Chart.difficulty.in_(difficultyClass_arr))
+        if form.maxNotes.data :
+            maxNotes = form.maxNotes.data
+            chartFilters.append(Chart.notes <= maxNotes)
+        if form.minNotes.data:
+            minNotes = form.minNotes.data
+            chartFilters.append(Chart.notes >= minNotes)
+        if form.excludeDoubles.data != "Include doubles charts":
+            excludeDoubles = form.excludeDoubles.data
+            chartFilters.append(Chart.is_doubles == (excludeDoubles == "Include only doubles charts")) #otherwise we only want singles charts
+        if form.shockNotes.data != "Include shock charts":
+            shockNotes = form.shockNotes.data
+            if shockNotes == "Exclude shock charts" :
+                chartFilters.append(Chart.shock_notes == 0)
+            else : #case where we want only shock charts
+                chartFilters.append(Chart.shock_notes != 0)
+    #redirected or paginated case...
     else : 
-        print("form.errors", form.errors)
+        print("dclass", difficultyClass)
+        if songName :
+            filters.append(Song.song_name.ilike(f"%{songName}%"))
+        if artist :
+            filters.append(Song.song_name.ilike(f"%{artist}%"))
+        if licensed :
+            filters.append(Song.licensed == (licensed == "Yes"))
+        if changingBPM != "Don't care": 
+            filters.append(Song.changing_bpm == (changingBPM == "Yes"))
+        if maxRuntime :
+            filters.append(Song.runtime <= maxRuntime)
+        if games :
+            print("games!")
+            filters.append(Song.game.in_(games_arr))    
+        if higherBPM :
+            filters.append(Song.higher_bpm <= higherBPM)
+        if lowerBPM :
+            filters.append(Song.lower_bpm >= lowerBPM)
+        #Now for chart filters
+        if highestDifficulty :
+            chartFilters.append(Chart.difficulty_rating <= highestDifficulty)
+        if lowestDifficulty:
+            chartFilters.append(Chart.difficulty_rating >= lowestDifficulty)
+        if difficultyClass :
+            print("Difficulty:",difficultyClass_arr)
+            chartFilters.append(Chart.difficulty.in_(difficultyClass_arr))
+        if maxNotes :
+            chartFilters.append(Chart.notes <= maxNotes)
+        if minNotes :
+            chartFilters.append(Chart.notes >= minNotes)
+        if excludeDoubles != "Include doubles charts": 
+            chartFilters.append(Chart.is_doubles == (excludeDoubles == "Include only doubles charts")) #otherwise we only want singles charts
+        if shockNotes != "Include shock charts":
+            if shockNotes == "Exclude shock charts" :
+                chartFilters.append(Chart.shock_notes == 0)
+            else : #case where we want only shock charts
+                chartFilters.append(Chart.shock_notes != 0)
+
     songs = []
-    print("filters:",filters)
+    
     try: 
         if filters :
             songs = Song.query.filter(and_(*filters)).paginate(page=page, per_page=page_size, error_out=False)
@@ -88,7 +170,7 @@ def search():
         page=page,
         songName=songName,
         artist=artist,
-        game=games, 
+        games= games,
         difficultyClass=difficultyClass,
         higherBPM=higherBPM, 
         lowerBPM=lowerBPM,

@@ -206,7 +206,7 @@
                 <td>{{ song.song_name }}</td>
                 <td>{{ song.game.replace("DanceDanceRevolution", "DDR") }}</td>
                 <td>{{ song.artist}}</td>
-                {% if song.changing_bpm %}
+                {% if song.lower_bpm != song.higher_bpm%}
                 <td>{{ song.lower_bpm }}-{{song.higher_bpm}}</td>
                 {% else %}
                 <td>{{ song.lower_bpm }}</td>
@@ -293,7 +293,6 @@
             lowestDifficulty=lowestDifficulty, maxNotes=maxNotes, minNotes=minNotes,
             difficultyClass=difficultyClass, excludeDoubles=excludeDoubles,
             shockNotes=shockNotes, songs=songs) }}" {% if not songs.has_next %}class="disabled" {% endif %}> Next
-        </a>
     </div>
 </div>
 

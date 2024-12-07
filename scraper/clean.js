@@ -79,29 +79,29 @@ function verify(songs){
 }
 
 
-const filePath = './clean.json';
+const filePath = './songs.json';
 
 const songs = readJsonFile(filePath);
 
 verify(songs)
 
 
-// if (songs) {
-//     for (let i = 0; i < songs.length; i++) {
-//         for (let j = 1; j < chronoGames.length; j++) {
-//             if (songs[i].game === chronoGames[j])
-//                 break;
-//             if (songs[i].game.includes(chronoGames[j])) {
-//                 songs[i].game = chronoGames[j]
-//                 break
-//             }
-//             if (j === chronoGames.length && !songs[i].game.includes(chronoGames[j]))
-//                 songs[i].game = ""
-//         }
-//     }
+if (songs) {
+    for (let i = 0; i < songs.length; i++) {
+        for (let j = 1; j < chronoGames.length; j++) {
+            if (songs[i].game === chronoGames[j])
+                break;
+            if (songs[i].game === (chronoGames[j])) {
+                songs[i].game = chronoGames[j]
+                break
+            }
+            if (j === chronoGames.length && !songs[i].game.includes(chronoGames[j]))
+                songs[i].game = ""
+        }
+    }
 
-//     const fs = require("fs")
-//     fs.writeFile("clean.json", JSON.stringify(songs), (e) => {
-//         if (e) throw e
-//     })
-// }
+    const fs = require("fs")
+    fs.writeFile("frog.json", JSON.stringify(songs), (e) => {
+        if (e) throw e
+    })
+}

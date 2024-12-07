@@ -74,7 +74,7 @@ class SearchChartForm(FlaskForm):
     minNotes = IntegerField("Min note count", default=None, validators=[Optional(), NumberRange(min=1, max=2000)]) 
 
     difficultyClass = SelectMultipleField("Difficulty class", default=None, 
-        choices=["Beginner","Basic", "Difficult", "Expert", "Challenge"])
+        choices=["beginner","basic", "difficult", "expert", "challenge"])
     excludeDoubles = SelectField("Exclude doubles?", default="Include doubles charts", 
         choices=["Exclude doubles charts", "Include doubles charts","Include only doubles charts"])
     shockNotes = SelectField("Exclude songs with shocks?", default="Include shock charts", 

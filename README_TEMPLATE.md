@@ -81,47 +81,17 @@ Point Estimate: 1
 
 ## Sequence Diagram
 
-@startuml
+![alt text](image.png)
 
-actor User
-participant "Web Application" as WebApp
-database "Song Database" as DB
+## USE CASE
 
-User -> WebApp: Enter search query
-WebApp -> DB: Send search query
-DB -> DB: Search for matching songs
-DB --> WebApp: Return search results
-WebApp --> User: Display search results
-User -> WebApp: Click on a song
-WebApp -> WebApp: Display song details
-
-@enduml
-
-# need to upload a photo of BOTH sequence diagram
-
-@startuml
-
-actor User
-participant "Web Application" as WebApp
-database "Playlist Database" as PlaylistDB
-
-User -> WebApp: Click "Create Playlist"
-WebApp -> User: Prompt for playlist name
-User -> WebApp: Enter playlist name and click "Create"
-WebApp -> PlaylistDB: Send playlist name
-PlaylistDB -> PlaylistDB: Store playlist data
-PlaylistDB --> WebApp: Return success confirmation
-WebApp --> User: Display success message
-User -> WebApp: Redirect to playlist page
-
-@enduml
-
+![alt text](image-1.png)
 
 ## Model 
 
-Include a class diagram that clearly describes the model classes used in the project and their associations.
 
-![pics/class_diagram.png](pics/class_diagram.png)
+
+![alt text](image-2.png)
 
 # Development Process 
 
@@ -145,6 +115,7 @@ This section should describe, in general terms, how Scrum was used in this proje
 
 
 Sprint Observations:
+
 Sprint 1: The first sprint was focused on setting up the foundational elements of the project, such as user account creation and updating. While user registration was completed, the playlist creation feature required more attention in the following sprint.
 Sprint 2: In this sprint, the focus shifted to implementing song search functionality and admin features, such as the ability to delete and edit songs. Some minor issues arose with user authentication, but they were resolved in the next sprint.
 Sprint 3: This sprint focused on the user experience, including managing and interacting with playlists. The playlist management was successfully implemented, as well as the ability to search for songs using different filters.
@@ -177,7 +148,7 @@ Explanation of Status:
  
  White-Box Testing:
 
- 
+
 
  Black-Box Testing:
 

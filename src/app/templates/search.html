@@ -18,7 +18,6 @@
         const popup = document.createElement("div");
         popup.className = "chart-popup";
         document.body.appendChild(popup);
-
         chartCells.forEach((cell) => {
             cell.addEventListener("mouseover", (event) => {
                 const info = cell.getAttribute("data-info");
@@ -36,7 +35,33 @@
         });
     });
 </script>
-
+<script>
+    const resetForm = () => {
+        const form = document.querySelector('form');
+        console.log(form)
+        
+        const inputFields = form.querySelectorAll("input");
+        inputFields.forEach((input)=> {
+            if (input.type === "number" || input.type === "text"){
+                input.value = null;
+            }
+        })
+        
+        const selectFields = form.querySelectorAll('select');
+        selectFields.forEach((select) => {
+            if (select.multiple) {
+                select.selectedIndex = 0;
+                for (let option of select.options) {
+                    option.selected = null;
+                }
+            }
+        });
+        form.licensed.value = "Don't care";
+        form.changingBPM.value = "Don't care";
+        form.excludeDoubles.value = "Include doubles charts";
+        form.shockNotes.value = "Include shock charts";
+    }
+</script>
 <script type="text/javascript">
     function simple_action(target) {
         window.location = target
@@ -48,6 +73,16 @@
         <form action="" method="POST" novalidate>
             {{form.csrf_token}}
             {{ form.hidden_tag() }}
+            <button type="button" onclick="resetForm()">Reset form</button>
+            {% if form.errors %}
+            <ul class="form-errors">
+                {% for field, errors in form.errors.items() %}
+                {% for error in errors %}
+                <li style="background-color: red;">{{ error }}</li> <!-- Display each error message -->
+                {% endfor %}
+                {% endfor %}
+            </ul>
+            {% endif %}
             <p>
                 {{ form.songName.label }} <br />
                 {{ form.songName }}
@@ -58,11 +93,7 @@
             </p>
             <p id="search-games">
                 {{ form.games.label }} <br />
-                <select 
-                    name="{{ form.games.name }}" 
-                    multiple 
-                    class="form-control" 
-                    size="26">
+                <select name="{{ form.games.name }}" multiple class="form-control" size="26">
                     {% for option in form.games %}
                     <option value="{{ option.data }}" {% if option.checked %}selected{% endif %}>
                         {{ option.label.text }}
@@ -72,11 +103,7 @@
             </p>
             <p id="search-difficulty">
                 {{ form.difficultyClass.label }} <br />
-                <select 
-                    name="{{ form.difficultyClass.name }}" 
-                    multiple 
-                    class="form-control" 
-                    size="5">
+                <select name="{{ form.difficultyClass.name }}" multiple class="form-control" size="5">
                     {% for option in form.difficultyClass %}
                     <option value="{{ option.data }}" {% if option.checked %}selected{% endif %}>
                         {{ option.label.text }}
@@ -84,7 +111,7 @@
                     {% endfor %}
                 </select>
             </p>
-            
+
             <p>
                 {{ form.highestDifficulty.label }} <br />
                 {{ form.highestDifficulty }}
@@ -217,9 +244,9 @@
                         <tr>
                             <td style="border: hidden;">Doubles: </td>
                             {% endif %}
-                            <td class="chart-table-td" 
-                            data-info = "Notes: {{chart.notes}}, Freezes: {{chart.freeze_notes}}, Shocks: {{chart.shock_notes}}"
-                            style="background-color: {{chartColor}};">
+                            <td class="chart-table-td"
+                                data-info="Notes: {{chart.notes}}, Freezes: {{chart.freeze_notes}}, Shocks: {{chart.shock_notes}}"
+                                style="background-color: {{chartColor}};">
                                 {{chart.difficulty.title()}}({{chart.difficulty_rating}})</td>
                             {% endfor %}
                         </tr>

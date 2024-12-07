@@ -64,7 +64,7 @@ def search():
         if form.highestDifficulty.data :
             filters.append(Song.charts.any(Chart.difficulty_rating <= form.highestDifficulty.data))
         if form.lowestDifficulty.data :
-            filters.append(Song.charts.any(Chart.difficulty_rating >= form.lowestDifficulty.data))
+            filters.append(Song.charts.any(Chart.difficulty_rating >= form.lowestDifficulty.data))\
         
     else : 
         print("form.errors", form.errors)

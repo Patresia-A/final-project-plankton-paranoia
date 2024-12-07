@@ -76,7 +76,10 @@ async function parse_page(page) {
 
             else if (!song.runtime && element.includes("Length")) song.runtime = parseRuntime(element);
             else if (!song.game && element.includes("DanceDanceRevolution"))
-                song.game = element.split(": ")[1];
+                chronoGames.forEach((game) => {
+                    if (element === game)
+                        song.game = element.split(": ")[1];
+                })
 
         });
         //case where game is contained in a <li>

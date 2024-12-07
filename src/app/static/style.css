@@ -25,6 +25,11 @@ input[type=submit], .button {
   border: none;
   cursor: pointer;
 }
+a.disabled {
+  pointer-events: none;
+  color: gray;
+  text-decoration: none;
+}
 
 .login{
   font-size: larger;

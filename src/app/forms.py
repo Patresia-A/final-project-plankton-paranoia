@@ -120,10 +120,10 @@ class AddSongForm(FlaskForm):
 class EditChartForm(FlaskForm):
     difficulty = StringField("Difficulty")
     isDoubles = BooleanField("Is Doubles")
-    notes = IntegerField("Notes")
-    freezeNotes = IntegerField("Freeze Notes")
-    shockNotes = IntegerField("Shock Notes")
-    difficultyRating = IntegerField("Difficulty Rating")
+    notes = IntegerField("Notes", validators=[Optional()])
+    freezeNotes = IntegerField("Freeze Notes", validators=[Optional()], default=0)
+    shockNotes = IntegerField("Shock Notes", validators=[Optional()], default=0)
+    difficultyRating = IntegerField("Difficulty Rating", validators=[Optional()])
 
     def __init__(self, *args, **kwargs):
         chart = kwargs.pop('chart', None) 

@@ -23,6 +23,8 @@ app.secret_key = os.environ.get('SECRET_KEY', '  ') # change this to a more secu
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/project3_test'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+app.config['WTF_CSRF_ENABLED'] = False
+
 db = SQLAlchemy(app)  # initialize db here
 # create database tables if they don't exist
 with app.app_context(): 

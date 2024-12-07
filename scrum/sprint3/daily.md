@@ -1,24 +1,37 @@
-# Daily Scrums (In Progress..)
+## Daily Scrum (In Progress)  
 
-Date/Time: Dec 3rd, 2024. 9:00am - Dec 6th, 2024 11:59am
-Participants: Lala, Hannah, Patty Logan
+Date/Time: Dec 3, 2024, 9:00 AM - Dec 6, 2024, 11:59 AM  
+Participants: Lala, Hannah, Patty, Logan  
 
-# What was accomplished yesterday?
+## What Was Accomplished Yesterday?
 
-Alex: Redesigned the homepage to create a more user-friendly and visually appealing layout, centering the content and ensuring an intuitive menu that updates dynamically after users sign in. The updated homepage allows non-registered users to search DDR songs, while providing clear options to log in or sign up if interested. Alex also reorganized the search functionality, revamped the login page, and completely rebuilt the profile section. Currently, they are working on implementing playlists, including the ability to view and add songs to them.  
+Alex:
+- Redesigned the homepage to improve usability and visual appeal, ensuring content is centered and menus update dynamically post-login.  
+- Enabled non-registered users to search DDR songs while providing clear login and signup options.  
+- Reorganized the search functionality, revamped the login page, and completely rebuilt the profile section.  
+- Began working on playlist functionality, including viewing and adding songs to playlists.  
 
-Hannah: Plans to implement a CSS framework to enhance the overall website design, making it cleaner and more professional. Hannah also aims to develop a new page where users can view their playlists, providing better functionality and accessibility.  
+Hannah: 
+- Plans to implement a CSS framework to create a cleaner, more professional website design.  
+- Aims to develop a new page for users to view their playlists, improving functionality and accessibility.  
 
 Team Collaboration:
-- The group reviewed the rubric and discussed the next steps to ensure the project aligns with the required criteria. Roles were clarified and better distributed to maximize efficiency.  
-- A full-day work session is planned on call tomorrow to finalize the majority of the project by Friday, with additional details and refinements scheduled for Saturday.  
+- Reviewed the project rubric to ensure alignment with required criteria.  
+- Clarified roles and distributed tasks for better efficiency.  
+- Scheduled a full-day work session on a call to finalize most of the project by Friday, with additional refinements planned for Saturday.  
 
-Admin Functionality: Deletion capabilities will be restricted to admins for managing playlists in chart form, ensuring proper control over the data.  
+Admin Functionality:
+- Defined that only admins will have deletion privileges for managing playlists in chart form, ensuring data control.  
 
-Documentation: Amina aims to complete all documentation tonight, including user stories, case sequences, and diagrams, to ensure the project is well-documented and ready for review.  
+Documentation:
+- Amina is focused on completing all project documentation, including user stories, case sequences, and diagrams, by tonight.  
 
-# What is planned for today?
+## What Is Planned for Today? 
 
+Finalize tasks related to charts, favorites playlists, and testing.  
+Focus on implementing admin specific functionality and enhancing user benefits.  
+Collaborate on finishing the project while incorporating Hannah’s planned design and layout updates.  
 
-# Are there any blockers?
+## Are There Any Blockers?
 
+No specific blockers were mentioned, but continued coordination and efficient task management will be essential to meeting deadlines.  

@@ -81,47 +81,17 @@ Point Estimate: 1
 
 ## Sequence Diagram
 
-@startuml
+![alt text](image.png)
 
-actor User
-participant "Web Application" as WebApp
-database "Song Database" as DB
+## USE CASE
 
-User -> WebApp: Enter search query
-WebApp -> DB: Send search query
-DB -> DB: Search for matching songs
-DB --> WebApp: Return search results
-WebApp --> User: Display search results
-User -> WebApp: Click on a song
-WebApp -> WebApp: Display song details
-
-@enduml
-
-# need to upload a photo of BOTH sequence diagram
-
-@startuml
-
-actor User
-participant "Web Application" as WebApp
-database "Playlist Database" as PlaylistDB
-
-User -> WebApp: Click "Create Playlist"
-WebApp -> User: Prompt for playlist name
-User -> WebApp: Enter playlist name and click "Create"
-WebApp -> PlaylistDB: Send playlist name
-PlaylistDB -> PlaylistDB: Store playlist data
-PlaylistDB --> WebApp: Return success confirmation
-WebApp --> User: Display success message
-User -> WebApp: Redirect to playlist page
-
-@enduml
-
+![alt text](image-1.png)
 
 ## Model 
 
-Include a class diagram that clearly describes the model classes used in the project and their associations.
 
-![pics/class_diagram.png](pics/class_diagram.png)
+
+![alt text](image-2.png)
 
 # Development Process 
 
@@ -145,12 +115,43 @@ This section should describe, in general terms, how Scrum was used in this proje
 
 
 Sprint Observations:
+
 Sprint 1: The first sprint was focused on setting up the foundational elements of the project, such as user account creation and updating. While user registration was completed, the playlist creation feature required more attention in the following sprint.
 Sprint 2: In this sprint, the focus shifted to implementing song search functionality and admin features, such as the ability to delete and edit songs. Some minor issues arose with user authentication, but they were resolved in the next sprint.
 Sprint 3: This sprint focused on the user experience, including managing and interacting with playlists. The playlist management was successfully implemented, as well as the ability to search for songs using different filters.
 Sprint 4: The final sprint is dedicated to finalizing the features, conducting user acceptance testing, fixing bugs, and ensuring that all documentation is completed. The goal is to polish the application, fix edge cases, and make it ready for deployment.
 
 # Testing 
+
+
+| Test Case No. | Description                          | Test Data                                   | Expected Result                                    | Actual Result | Status         |
+|---------------|--------------------------------------|---------------------------------------------|----------------------------------------------------|----------------|----------------|
+| #1            | Sign up with valid email and password | Email: testuser10, Password: test123        | User account created successfully without duplicate email | Pass         |
+| #2            | Login with valid credentials         | Email: testuser10, Password: test123        | User logged in successfully                        | Pass          |
+| #3            | Search Chart by song name            | Song name: NAOKI                            | Chart with Happy song displayed                    | INC           |
+| #4            | Add Chart to Playlist                | Playlist name: MyPlaylist, Chart name: Happy | Chart added to Playlist successfully               | INC           |
+| #5            | Add Song to Playlist                 | Playlist name: MyPlaylist, Song name: Happy  | Song added to Playlist successfully                | INC           |
+| #6            | Edit Chart details                   | Chart name: Happy, New name: NewHappy       | Chart details updated successfully                 | INC           |
+| #7            | Edit Song details                    | Song name: Happy, New name: NewHappy        | Song details updated successfully                  | INC           |
+| #8            | Update Name and Password             | Email: testuser1, New name: NewUser, New password: test456 | User details updated successfully         | INC           |
+| #9            | Update Password only                 | Email: testuser1, New password: test456     | Password updated successfully                      | INC           |
+| #10           | Create Playlist with duplicate name  | Playlist name: MyPlaylist                   | Error message displayed                            | INC           |
+| #11           | Update email with invalid email      | Email: testuser1, New email: invalidemail   | Error message displayed                            | INC           |
+| #12           | Delete Chart                         | Chart name: Happy                           | Chart deleted successfully                         | INC           |
+| #13           | Delete Song                          | Song name: Happy                            | Song deleted successfully                          | INC           |
+| #14           | Delete Playlist                      | Playlist name: MyPlaylist                   | Playlist deleted successfully                      | INC           |
+| #15           | Search Song by invalid filter        | Filter: invalid                             | Error message displayed                            | INC           |
+
+Explanation of Status:
+- **Pass**: Test case passed successfully.
+- **INC**: Test case is incomplete or not executed.
+ 
+ White-Box Testing:
+
+
+
+ Black-Box Testing:
+
 
 In this section, share the results of the tests performed to verify the quality of the developed product, including the test coverage in relation to the written code. There is no minimum code coverage requirement, but ensure there is at least some coverage through one white-box test and one black-box test.
 

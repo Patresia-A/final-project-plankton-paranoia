@@ -44,6 +44,7 @@ def search():
     shockNotes = request.args.get("shockNotes", default="Include shock charts")
     page_size = 20
     filters = []
+    chartFilters = []
     if form.validate_on_submit():
         # print("i validated")
         page = 1
@@ -61,21 +62,39 @@ def search():
             filters.append(Song.runtime <= form.maxRuntime.data)
         if form.games.data :
             filters.append(Song.game.in_(form.games.data))
+        #now for all the chart filters...
         if form.highestDifficulty.data :
-            filters.append(Song.charts.any(Chart.difficulty_rating <= form.highestDifficulty.data))
+            chartFilters.append(Chart.difficulty_rating <= form.highestDifficulty.data)
         if form.lowestDifficulty.data :
-            filters.append(Song.charts.any(Chart.difficulty_rating >= form.lowestDifficulty.data))\
+            chartFilters.append(Chart.difficulty_rating >= form.lowestDifficulty.data)
+        if form.difficultyClass.data :
+            chartFilters.append(Chart.difficulty.in_(form.difficultyClass.data))
+        if form.maxNotes.data :
+            chartFilters.append(Chart.notes <= form.maxNotes.data)
+        if form.minNotes.data:
+
+            chartFilters.append(Chart.notes >= form.minNotes.data)
+        if form.excludeDoubles.data != "Include doubles charts": 
+            chartFilters.append(Chart.is_doubles == (form.excludeDoubles == "Include only doubles charts")) #otherwise we only want singles charts
+        if form.shockNotes.data != "Include shock charts":
+            if form.shockNotes.data == "Exclude shock charts" :
+                chartFilters.append(Chart.shock_notes == 0)
+            else : #case where we want only shock charts
+                chartFilters.append(Chart.shock_notes != 0)
         
     else : 
         print("form.errors", form.errors)
     songs = []
-    print("filters:",filters)
+    print("filters:", str(filters))
+    print("chartfilters", str(chartFilters))
     try: 
-        if filters :
-            songs = Song.query.filter(and_(*filters)).paginate(page=page, per_page=page_size, error_out=False)
-            print("songs:", str(songs.items))
-        else :
-            songs = Song.query.paginate(page=page, per_page=page_size, error_out=False)
+        songs = Song.query.join(Chart).filter(
+            and_(
+                *filters,  
+                Chart.id.isnot(None),
+                *chartFilters
+            )
+        ).distinct(Song.id).paginate(page=page, per_page=page_size, error_out=False)
     except Exception as e:
         print(f"Something went wrong querying the database {e}")
     return render_template(

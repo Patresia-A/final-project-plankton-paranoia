@@ -17,7 +17,7 @@ from flask import render_template, redirect, url_for, request, flash
 from flask_login import login_required, login_user, logout_user, current_user
 from functools import wraps
 from sqlalchemy.sql.expression import func
-from sqlalchemy import Table, Column, Integer, String, ForeignKey
+from sqlalchemy import Table, Column, Integer, String, ForeignKey, and_
 
 @app.route('/')
 @app.route('/index')
@@ -25,7 +25,7 @@ from sqlalchemy import Table, Column, Integer, String, ForeignKey
 def index():
     return render_template('index.html')
 
-@app.route('/search')
+@app.route('/search', methods=["GET", "POST"])
 def search():
     form = SearchChartForm()
     page = request.args.get('page', default=1, type=int)  
@@ -43,29 +43,41 @@ def search():
     excludeDoubles = request.args.get("excludeDoubles", default="Include doubles charts")
     shockNotes = request.args.get("shockNotes", default="Include shock charts")
     page_size = 20
+    filters = []
     if form.validate_on_submit():
+        # print("i validated")
         page = 1
-        filters = []
         # First filter by properties innate to the songs
         if form.songName.data :
-            filters.append(Song.song_name.like(form.songName.data))
+            # print(str(form.songName))
+            filters.append(Song.song_name.ilike(f"%{form.songName.data}%"))
         if form.artist.data : 
-            filters.append(Song.artist.like(form.artist.data))
+            filters.append(Song.artist.ilike(f"%{form.artist.data}%"))
         if form.licensed.data != "Don't care": 
             filters.append(Song.licensed == (form.licensed.data == "Yes"))
         if form.changingBPM.data != "Don't care": 
             filters.append(Song.changing_bpm == (form.changingBPM.data == "Yes"))
         if form.maxRuntime.data :
-            filters.append(Song.maxRuntime <= form.maxRuntime.data)
+            filters.append(Song.runtime <= form.maxRuntime.data)
         if form.games.data :
-            filters.append(Song.game.any(in_(form.games.data)))
-        # Now we query charts, if we have to. 
-        if needs_chart(form) :
-            pass
-    # if filters :
-    #     songs = Song.query.filter(and_(*filters)).paginate(page=page, per_page=page_size, error_out=False)
-    # else :
-    songs = Song.query.paginate(page=page, per_page=page_size, error_out=False)
+            filters.append(Song.game.in_(form.games.data))
+        if form.highestDifficulty.data :
+            filters.append(Song.charts.any(Chart.difficulty_rating <= form.highestDifficulty.data))
+        if form.lowestDifficulty.data :
+            filters.append(Song.charts.any(Chart.difficulty_rating >= form.lowestDifficulty.data))
+        
+    else : 
+        print("form.errors", form.errors)
+    songs = []
+    print("filters:",filters)
+    try: 
+        if filters :
+            songs = Song.query.filter(and_(*filters)).paginate(page=page, per_page=page_size, error_out=False)
+            print("songs:", str(songs.items))
+        else :
+            songs = Song.query.paginate(page=page, per_page=page_size, error_out=False)
+    except Exception as e:
+        print(f"Something went wrong querying the database {e}")
     return render_template(
         'search.html', 
         songs=songs,

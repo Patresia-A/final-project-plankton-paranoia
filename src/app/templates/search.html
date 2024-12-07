@@ -58,20 +58,33 @@
             </p>
             <p id="search-games">
                 {{ form.games.label }} <br />
-                <select multiple class="form-control" size="26">
-                    {% for option in form.games %}s
-                    <option value="{{ option.data }}">{{ option.label.text }}</option>
+                <select 
+                    name="{{ form.games.name }}" 
+                    multiple 
+                    class="form-control" 
+                    size="26">
+                    {% for option in form.games %}
+                    <option value="{{ option.data }}" {% if option.checked %}selected{% endif %}>
+                        {{ option.label.text }}
+                    </option>
                     {% endfor %}
                 </select>
             </p>
             <p id="search-difficulty">
                 {{ form.difficultyClass.label }} <br />
-                <select multiple class="form-control" size="5">
-                    {% for option in form.difficultyClass %}s
-                    <option value="{{ option.data }}">{{ option.label.text }}</option>
+                <select 
+                    name="{{ form.difficultyClass.name }}" 
+                    multiple 
+                    class="form-control" 
+                    size="5">
+                    {% for option in form.difficultyClass %}
+                    <option value="{{ option.data }}" {% if option.checked %}selected{% endif %}>
+                        {{ option.label.text }}
+                    </option>
                     {% endfor %}
                 </select>
             </p>
+            
             <p>
                 {{ form.highestDifficulty.label }} <br />
                 {{ form.highestDifficulty }}
@@ -214,7 +227,6 @@
                 </td>
                 <td class="list-action-form">
                     <form action="{{ url_for('add_favorite') }}" method="POST" style="display: inline">
-                        {{ form.csrf_token }}
                         <input type="hidden" name="song_id" value="{{ song.id }}" />
                         <input type="submit" value="Add to playlist" />
                     </form>
@@ -222,7 +234,6 @@
                     <form action="{{ url_for('edit_song', song_name=song.id) }}" method="POST" style="display: inline">
                         <input type="hidden" name="song_id" value="{{ song.id }}" />
                         <input type="submit" value="Admin: Edit song" />
-                        {{ form.csrf_token }}
                     </form>
                     {% endif %}
                 </td>

@@ -17,7 +17,7 @@
 
     <div class="center-container">
         <h1>Project 3: DDR - All Songs DB!</h1>
-        <h3>plankton-PARANOiA!</h3>
+        <!-- <h3>plankton-PARANOiA!</h3> -->
         <button type="button" class="button" onclick=simple_action("{{ url_for('search') }}")>Search</button>
         {% if current_user.is_authenticated %}
             {% if current_user.role == 'admin' %}

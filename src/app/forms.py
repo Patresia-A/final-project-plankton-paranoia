@@ -60,19 +60,18 @@ class SearchChartForm(FlaskForm):
     artist = StringField("Artist name", default=None)
     # There will likely never be a song added with more than 2000bpm
     # To the best of my knowledge the highest currently in game is Hou with a bpm of 912 
-    higherBPM = IntegerField("Highest bpm", default=None, validators=[NumberRange(min=1, max=2000)])
-    lowerBPM = IntegerField("Lowest BPM", default=None, validators=[NumberRange(min=1, max=2000)])
+    higherBPM = IntegerField("Highest bpm", default=None, validators=[Optional(), NumberRange(min=1, max=2000) ])
+    lowerBPM = IntegerField("Lowest BPM", default=None, validators=[Optional(), NumberRange(min=1, max=2000)])
     #There is no song currently in the game with a runtime greater than 3 minutes (180 seconds)
-    maxRuntime = IntegerField("Max song runtime (seconds)", default=None, validators=[NumberRange(min=1, max=180)])
-    # There is no song currently with more than 1000 notes, there will never be a song with more than 2000
+    maxRuntime = IntegerField("Max song runtime (seconds)", default=None, validators=[Optional(), NumberRange(min=1, max=180)])
     licensed = SelectField("Licensed?", choices=["Yes", "No", "Don't care"], default="Don't care")
     # Max difficulty for ddr chart is 19, it is speculated that level 20 charts will be added in the future so we set max to 20
     games = SelectMultipleField("Games", choices=games, default=None)
-    highestDifficulty = IntegerField("Highest difficulty rating", default=None, validators=[NumberRange(min=1, max=20)]) 
-    lowestDifficulty = IntegerField("Highest difficulty rating", default=None, validators=[NumberRange(min=1, max=20)]) 
+    highestDifficulty = IntegerField("Highest difficulty rating", default=None, validators=[Optional(), NumberRange(min=1, max=20)]) 
+    lowestDifficulty = IntegerField("Lowest difficulty rating", default=None, validators=[Optional(), NumberRange(min=1, max=20)]) 
 
-    maxNotes = IntegerField("Max note count", default=None, validators=[NumberRange(min=1, max=2000)]) 
-    minNotes = IntegerField("Min note count", default=None, validators=[NumberRange(min=1, max=2000)]) 
+    maxNotes = IntegerField("Max note count", default=None, validators=[Optional(), NumberRange(min=1, max=2000)]) 
+    minNotes = IntegerField("Min note count", default=None, validators=[Optional(), NumberRange(min=1, max=2000)]) 
 
     difficultyClass = SelectMultipleField("Difficulty class", default=None, 
         choices=["Beginner","Basic", "Difficult", "Expert", "Challenge"])

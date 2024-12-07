@@ -152,6 +152,36 @@ Sprint 4: The final sprint is dedicated to finalizing the features, conducting u
 
 # Testing 
 
+
+| Test Case No. | Description                          | Test Data                                   | Expected Result                                    | Actual Result | Status         |
+|---------------|--------------------------------------|---------------------------------------------|----------------------------------------------------|----------------|----------------|
+| #1            | Sign up with valid email and password | Email: testuser10, Password: test123        | User account created successfully without duplicate email | Pass         |
+| #2            | Login with valid credentials         | Email: testuser10, Password: test123        | User logged in successfully                        | Pass          |
+| #3            | Search Chart by song name            | Song name: NAOKI                            | Chart with Happy song displayed                    | INC           |
+| #4            | Add Chart to Playlist                | Playlist name: MyPlaylist, Chart name: Happy | Chart added to Playlist successfully               | INC           |
+| #5            | Add Song to Playlist                 | Playlist name: MyPlaylist, Song name: Happy  | Song added to Playlist successfully                | INC           |
+| #6            | Edit Chart details                   | Chart name: Happy, New name: NewHappy       | Chart details updated successfully                 | INC           |
+| #7            | Edit Song details                    | Song name: Happy, New name: NewHappy        | Song details updated successfully                  | INC           |
+| #8            | Update Name and Password             | Email: testuser1, New name: NewUser, New password: test456 | User details updated successfully         | INC           |
+| #9            | Update Password only                 | Email: testuser1, New password: test456     | Password updated successfully                      | INC           |
+| #10           | Create Playlist with duplicate name  | Playlist name: MyPlaylist                   | Error message displayed                            | INC           |
+| #11           | Update email with invalid email      | Email: testuser1, New email: invalidemail   | Error message displayed                            | INC           |
+| #12           | Delete Chart                         | Chart name: Happy                           | Chart deleted successfully                         | INC           |
+| #13           | Delete Song                          | Song name: Happy                            | Song deleted successfully                          | INC           |
+| #14           | Delete Playlist                      | Playlist name: MyPlaylist                   | Playlist deleted successfully                      | INC           |
+| #15           | Search Song by invalid filter        | Filter: invalid                             | Error message displayed                            | INC           |
+
+Explanation of Status:
+- **Pass**: Test case passed successfully.
+- **INC**: Test case is incomplete or not executed.
+ 
+ White-Box Testing:
+
+ 
+
+ Black-Box Testing:
+
+
 In this section, share the results of the tests performed to verify the quality of the developed product, including the test coverage in relation to the written code. There is no minimum code coverage requirement, but ensure there is at least some coverage through one white-box test and one black-box test.
 
 # Deployment 

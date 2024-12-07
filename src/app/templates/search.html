@@ -4,26 +4,85 @@
 <div style="float: right;">
     <button type="button" class="button" onclick=simple_action("{{ url_for('index') }}")>Index</button>
     {% if current_user.is_authenticated %}
-        <button type="button" class="button" onclick=simple_action("{{ url_for('profile') }}")>Profile</button>
-        <button type="button" class="button" onclick=simple_action("{{ url_for('logout') }}")>Log Out</button>
+    <button type="button" class="button" onclick=simple_action("{{ url_for('profile') }}")>Profile</button>
+    <button type="button" class="button" onclick=simple_action("{{ url_for('logout') }}")>Log Out</button>
     {% else %}
-        <button type="button" class="button" onclick=simple_action("{{ url_for('login') }}")>Login</button>
-        <button type="button" class="button" onclick=simple_action("{{ url_for('signup') }}")>Sign Up</button>
+    <button type="button" class="button" onclick=simple_action("{{ url_for('login') }}")>Login</button>
+    <button type="button" class="button" onclick=simple_action("{{ url_for('signup') }}")>Sign Up</button>
     {% endif %}
 </div>
+<!-- script that handles displaying the popup of each chart -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const chartCells = document.querySelectorAll(".chart-table-td");
+        const popup = document.createElement("div");
+        popup.className = "chart-popup";
+        document.body.appendChild(popup);
+        chartCells.forEach((cell) => {
+            cell.addEventListener("mouseover", (event) => {
+                const info = cell.getAttribute("data-info");
+                const rect = cell.getBoundingClientRect();
 
+                popup.textContent = info; // Set popup content
+                popup.style.left = `${rect.left}px`;
+                popup.style.top = `${rect.bottom + window.scrollY}px`;
+                popup.style.display = "block";
+            });
+
+            cell.addEventListener("mouseout", () => {
+                popup.style.display = "none";
+            });
+        });
+    });
+</script>
+<script>
+    const resetForm = () => {
+        const form = document.querySelector('form');
+        console.log(form)
+        
+        const inputFields = form.querySelectorAll("input");
+        inputFields.forEach((input)=> {
+            if (input.type === "number" || input.type === "text"){
+                input.value = null;
+            }
+        })
+        
+        const selectFields = form.querySelectorAll('select');
+        selectFields.forEach((select) => {
+            if (select.multiple) {
+                select.selectedIndex = 0;
+                for (let option of select.options) {
+                    option.selected = null;
+                }
+            }
+        });
+        form.licensed.value = "Don't care";
+        form.changingBPM.value = "Don't care";
+        form.excludeDoubles.value = "Include doubles charts";
+        form.shockNotes.value = "Include shock charts";
+    }
+</script>
 <script type="text/javascript">
     function simple_action(target) {
         window.location = target
     }
 </script>
-
-<h1 >List of DDR songs</h1>
+<h1>List of DDR songs</h1>
 <div id="main">
     <div id="search" style="float: left;">
         <form action="" method="POST" novalidate>
             {{form.csrf_token}}
             {{ form.hidden_tag() }}
+            <button type="button" onclick="resetForm()">Reset form</button>
+            {% if form.errors %}
+            <ul class="form-errors">
+                {% for field, errors in form.errors.items() %}
+                {% for error in errors %}
+                <li style="background-color: red;">{{ error }}</li> <!-- Display each error message -->
+                {% endfor %}
+                {% endfor %}
+            </ul>
+            {% endif %}
             <p>
                 {{ form.songName.label }} <br />
                 {{ form.songName }}
@@ -34,20 +93,25 @@
             </p>
             <p id="search-games">
                 {{ form.games.label }} <br />
-                <select multiple class="form-control" size="26">
-                    {% for option in form.games %}s
-                    <option value="{{ option.data }}">{{ option.label.text }}</option>
+                <select name="{{ form.games.name }}" multiple class="form-control" size="26">
+                    {% for option in form.games %}
+                    <option value="{{ option.data }}" {% if option.checked %}selected{% endif %}>
+                        {{ option.label.text }}
+                    </option>
                     {% endfor %}
                 </select>
             </p>
             <p id="search-difficulty">
                 {{ form.difficultyClass.label }} <br />
-                <select multiple class="form-control" size="5">
-                    {% for option in form.difficultyClass %}s
-                    <option value="{{ option.data }}">{{ option.label.text }}</option>
+                <select name="{{ form.difficultyClass.name }}" multiple class="form-control" size="5">
+                    {% for option in form.difficultyClass %}
+                    <option value="{{ option.data }}" {% if option.checked %}selected{% endif %}>
+                        {{ option.label.text }}
+                    </option>
                     {% endfor %}
                 </select>
             </p>
+
             <p>
                 {{ form.highestDifficulty.label }} <br />
                 {{ form.highestDifficulty }}
@@ -98,44 +162,42 @@
                 </p>
             </div>
             <script>
-                document.querySelector('.search-advanced-toggle').addEventListener('click', function() {
+                document.querySelector('.search-advanced-toggle').addEventListener('click', function () {
                     // Toggle the 'show' class on the dropdown-group element
                     document.querySelector('.search-dropdown').classList.toggle('show');
                 });
             </script>
-                
+
             <p>{{ form.submit() }}</p>
         </form>
     </div>
     <div id="list" style="float: left;">
-        <a href="{{ url_for('index', page=page - 1, songName=songName, changingBPM=changingBPM, 
+        <a href="{{ url_for('search', page=page - 1, songName=songName, changingBPM=changingBPM, 
             artist=artist, higherBPM=higherBPM, lowerBPM=lowerBPM, maxRuntime=maxRuntime, 
             licensed=licensed, games=games,highestDifficulty=highestDifficulty,
             lowestDifficulty=lowestDifficulty, maxNotes=maxNotes, minNotes=minNotes,
             difficultyClass=difficultyClass, excludeDoubles=excludeDoubles,
-            shockNotes=shockNotes, songs=songs) }}"
-            {% if not songs.has_prev %}class="disabled" {% endif %}>Previous 
+            shockNotes=shockNotes, songs=songs) }}" {% if not songs.has_prev %}class="disabled" {% endif %}>Previous
         </a>
         <a hidden>dd</a>
-        <a href="{{ url_for('index', page=page + 1, songName=songName, changingBPM=changingBPM, 
+        <a href="{{ url_for('search', page=page + 1, songName=songName, changingBPM=changingBPM, 
             artist=artist, higherBPM=higherBPM, lowerBPM=lowerBPM, maxRuntime=maxRuntime, 
             licensed=licensed, games=games,highestDifficulty=highestDifficulty,
             lowestDifficulty=lowestDifficulty, maxNotes=maxNotes, minNotes=minNotes,
             difficultyClass=difficultyClass, excludeDoubles=excludeDoubles,
-            shockNotes=shockNotes, songs=songs) }}"
-            {% if not songs.has_next %}class="disabled" {% endif %}> Next
+            shockNotes=shockNotes, songs=songs) }}" {% if not songs.has_next %}class="disabled" {% endif %}> Next
         </a>
         <br>
         <br>
-        <table>
+        <table id="song-table">
             <tr>
-                <th>Song Name</th>
+                <th id="list-song-name">Song Name</th>
                 <th>Game</th>
-                <th>Artist</th>
+                <th id="list-artist">Artist</th>
                 <th>BPM</th>
                 <th>Runtime</th>
-                <th>Licensed?</th>
-                <th>Charts</th>
+                <th id="list-licensed">License?</th>
+                <th id="charts-display">Charts</th>
                 <th>Options</th>
             </tr>
             {% for song in songs %}
@@ -145,47 +207,82 @@
                 <td>{{ song.game.replace("DanceDanceRevolution", "DDR") }}</td>
                 <td>{{ song.artist}}</td>
                 {% if song.changing_bpm %}
-                <td>{{ song.lower_bpm }} - {{song.higher_bpm}}</td>
+                <td>{{ song.lower_bpm }}-{{song.higher_bpm}}</td>
                 {% else %}
                 <td>{{ song.lower_bpm }}</td>
                 {% endif %}
-                <td>{{ song.runtime }}</td>
+                {% macro format_duration(duration_seconds) %}
+                {% set minutes, seconds = (duration_seconds // 60, duration_seconds % 60) %}
+                {{ "%d:%02d" % (minutes, seconds) }}
+                {% endmacro %}
+
+                <td>{{ format_duration(song.runtime) }}</td>
                 {% if song.licensed %}
                 <td>✅</td>
                 {% else %}
                 <td>❌</td>
                 {% endif %}
-                <td>{{ song.charts }}</td>
-
-
-                <td>
+                {% set width = 100 / (song.charts|length + 1) * 2 %}
+                <td class="chart-td">
+                    <table class="chart-table">
+                        <tr>
+                            {% for chart in song.charts %}
+                            {% if chart.difficulty == "beginner" %}
+                            {% set chartColor = "#81E9FF" %}
+                            {% elif chart.difficulty == "basic" %}
+                            {% set chartColor = "#ffffaa" %}
+                            {% elif chart.difficulty == "difficult" %}
+                            {% set chartColor = "#ffaaaa" %}
+                            {% elif chart.difficulty == "expert" %}
+                            {% set chartColor = "#00FF7F" %}
+                            {% else %}
+                            {% set chartColor = "#ddaaff"%}
+                            {% endif %}
+                            <!-- handling the end of the first table row when we encounter a song's last singles chart -->
+                            {% if chart.is_doubles and chart.difficulty == "basic" %}
+                        </tr>
+                        <tr>
+                            <td style="border: hidden;">Doubles: </td>
+                            {% endif %}
+                            <td class="chart-table-td"
+                                data-info="Notes: {{chart.notes}}, Freezes: {{chart.freeze_notes}}, Shocks: {{chart.shock_notes}}"
+                                style="background-color: {{chartColor}};">
+                                {{chart.difficulty.title()}}({{chart.difficulty_rating}})</td>
+                            {% endfor %}
+                        </tr>
+                    </table>
+                </td>
+                <td class="list-action-form">
                     <form action="{{ url_for('add_favorite') }}" method="POST" style="display: inline">
-                        {{ form.csrf_token }}
                         <input type="hidden" name="song_id" value="{{ song.id }}" />
-                        <input type="submit" value="Add to favorites" />
+                        <input type="submit" value="Add to playlist" />
                     </form>
+                    {% if current_user.role == "admin" %}
+                    <form action="{{ url_for('edit_song', song_name=song.id) }}" method="POST" style="display: inline">
+                        <input type="hidden" name="song_id" value="{{ song.id }}" />
+                        <input type="submit" value="Admin: Edit song" />
+                    </form>
+                    {% endif %}
                 </td>
             </tr>
             {% endfor %}
         </table>
 
         <br />
-        <a href="{{ url_for('index', page=page - 1, songName=songName, changingBPM=changingBPM, 
+        <a href="{{ url_for('search', page=page - 1, songName=songName, changingBPM=changingBPM, 
             artist=artist, higherBPM=higherBPM, lowerBPM=lowerBPM, maxRuntime=maxRuntime, 
             licensed=licensed, games=games,highestDifficulty=highestDifficulty,
             lowestDifficulty=lowestDifficulty, maxNotes=maxNotes, minNotes=minNotes,
             difficultyClass=difficultyClass, excludeDoubles=excludeDoubles,
-            shockNotes=shockNotes, songs=songs) }}"
-            {% if not songs.has_prev %}class="disabled" {% endif %}>Previous 
+            shockNotes=shockNotes, songs=songs) }}" {% if not songs.has_prev %}class="disabled" {% endif %}>Previous
         </a>
         <a hidden>dd</a>
-        <a href="{{ url_for('index', page=page + 1, songName=songName, changingBPM=changingBPM, 
+        <a href="{{ url_for('search', page=page + 1, songName=songName, changingBPM=changingBPM, 
             artist=artist, higherBPM=higherBPM, lowerBPM=lowerBPM, maxRuntime=maxRuntime, 
             licensed=licensed, games=games,highestDifficulty=highestDifficulty,
             lowestDifficulty=lowestDifficulty, maxNotes=maxNotes, minNotes=minNotes,
             difficultyClass=difficultyClass, excludeDoubles=excludeDoubles,
-            shockNotes=shockNotes, songs=songs) }}"
-            {% if not songs.has_next %}class="disabled" {% endif %}> Next
+            shockNotes=shockNotes, songs=songs) }}" {% if not songs.has_next %}class="disabled" {% endif %}> Next
         </a>
     </div>
 </div>

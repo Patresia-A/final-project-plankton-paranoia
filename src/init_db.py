@@ -9,7 +9,7 @@ DB_PASSWORD = "password"
 DB_HOST = "localhost"
 DB_PORT = "5432"
 
-JSON_FILE = "../scraper/clean.json"
+JSON_FILE = "clean.json"
 
 def create_database_if_not_exists(): 
     try:

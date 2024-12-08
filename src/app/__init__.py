@@ -22,7 +22,7 @@ app = Flask('DDR DATABASE') # feel free to change this!
 app.secret_key = os.environ.get('SECRET_KEY', '  ') # change this to a more secure secret key
 
 # database initialization
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///incidents.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/project3_test'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 app.config['WTF_CSRF_ENABLED'] = False

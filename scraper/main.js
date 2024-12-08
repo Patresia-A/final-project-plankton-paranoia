@@ -214,7 +214,6 @@ async function getPageURLs(page) {
     else
         return "ok!"
 }
-csvRows = []
 async function getSongs(firstPage) {
     songs = []
     await getPageURLs(firstPage)

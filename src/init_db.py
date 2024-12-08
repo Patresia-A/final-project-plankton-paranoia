@@ -9,7 +9,7 @@ DB_PASSWORD = "password"
 DB_HOST = "localhost"
 DB_PORT = "5432"
 
-JSON_FILE = "../scraper/clean.json"
+JSON_FILE = "clean.json"
 
 def create_database_if_not_exists(): 
     try:
@@ -75,7 +75,6 @@ if __name__ == '__main__':
                 id SERIAL PRIMARY KEY,
                 user_id INT NOT NULL REFERENCES Users(id) ON DELETE CASCADE
             );
-                       
             CREATE TABLE IF NOT EXISTS Playlists (
                 id SERIAL PRIMARY KEY,
                 name VARCHAR(100) NOT NULL,

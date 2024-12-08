@@ -11,7 +11,8 @@ DB_PORT = "5432"
 
 JSON_FILE = "../scraper/clean.json"
 
-def create_database_if_not_exists(): 
+
+def create_database_if_not_exists():
     try:
         conn = psycopg2.connect(
             dbname="postgres",
@@ -24,12 +25,17 @@ def create_database_if_not_exists():
         cursor = conn.cursor()
 
         # Check if the target database exists
-        cursor.execute("SELECT 1 FROM pg_database WHERE datname = %s", (DB_NAME,))
+        cursor.execute(
+            "SELECT 1 FROM pg_database WHERE datname = %s",
+            (DB_NAME,)
+        )
         exists = cursor.fetchone()
 
         if not exists:
             # Create the database if it doesn't exist
-            cursor.execute(sql.SQL("CREATE DATABASE {}").format(sql.Identifier(DB_NAME)))
+            cursor.execute(
+                sql.SQL("CREATE DATABASE {}").format(sql.Identifier(DB_NAME))
+            )
             print(f"Database {DB_NAME} created successfully.")
         else:
             print(f"Database {DB_NAME} already exists.")
@@ -56,10 +62,10 @@ if __name__ == '__main__':
         cursor = conn.cursor()
         cursor.execute("""
         DROP TABLE IF EXISTS Users CASCADE;
-            DROP TABLE IF EXISTS FavoritesLists CASCADE;
-            DROP TABLE IF EXISTS FavoritesListsSongs CASCADE;
-            DROP TABLE IF EXISTS Songs CASCADE;
-            DROP TABLE IF EXISTS Charts CASCADE;
+        DROP TABLE IF EXISTS FavoritesLists CASCADE;
+        DROP TABLE IF EXISTS FavoritesListsSongs CASCADE;
+        DROP TABLE IF EXISTS Songs CASCADE;
+        DROP TABLE IF EXISTS Charts CASCADE;
         """)
         print("Dropped tables successfully")
         cursor.execute("""
@@ -75,7 +81,7 @@ if __name__ == '__main__':
                 id SERIAL PRIMARY KEY,
                 user_id INT NOT NULL REFERENCES Users(id) ON DELETE CASCADE
             );
-                       
+
             CREATE TABLE IF NOT EXISTS Playlists (
                 id SERIAL PRIMARY KEY,
                 name VARCHAR(100) NOT NULL,
@@ -106,13 +112,15 @@ if __name__ == '__main__':
             );
 
             CREATE TABLE IF NOT EXISTS FavoritesListSongs (
-                favorites_list_id INT NOT NULL REFERENCES FavoritesLists(id) ON DELETE CASCADE,
+                favorites_list_id INT NOT NULL REFERENCES FavoritesLists(id)
+                    ON DELETE CASCADE,
                 song_id INT NOT NULL REFERENCES Songs(id) ON DELETE CASCADE,
                 PRIMARY KEY (favorites_list_id, song_id)
             );
-            
+
             CREATE TABLE IF NOT EXISTS playlist_songs (
-                playlist_id INT NOT NULL REFERENCES playlists(id) ON DELETE CASCADE,
+                playlist_id INT NOT NULL REFERENCES playlists(id)
+                    ON DELETE CASCADE,
                 song_id INT NOT NULL REFERENCES songs(id) ON DELETE CASCADE,
                 added_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
                 PRIMARY KEY (playlist_id, song_id)
@@ -125,15 +133,25 @@ if __name__ == '__main__':
             songs_data = json.load(file)
 
         import bcrypt
-        hashed_password = bcrypt.hashpw('password'.encode('utf-8'), bcrypt.gensalt())
+        hashed_password = bcrypt.hashpw(
+            'password'.encode('utf-8'),
+            bcrypt.gensalt()
+        )
 
-        cursor.execute("""
+        cursor.execute(
+            """
             INSERT INTO Users (name, email, password, role)
             VALUES (%s, %s, %s, %s)
             RETURNING id;
-        """, ('Admin', 'admin@example.com', hashed_password.decode('utf-8'), 'admin'))
+            """,
+            (
+                'Admin', 'admin@example.com',
+                hashed_password.decode('utf-8'),
+                'admin'
+            )
+        )
         user_id = cursor.fetchone()[0]
-        
+
         cursor.execute("""
             INSERT INTO FavoritesLists (user_id)
             VALUES (%s)
@@ -144,7 +162,8 @@ if __name__ == '__main__':
 
         for song in songs_data:
             cursor.execute("""
-                INSERT INTO Songs (song_name, game, higher_BPM, lower_BPM, licensed, changing_BPM, runtime, artist)
+                INSERT INTO Songs (song_name, game, higher_BPM, lower_BPM,
+                    licensed, changing_BPM, runtime, artist)
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s) RETURNING id;
             """, (
                 song["songName"], song["game"], song["higherBPM"],
@@ -154,17 +173,21 @@ if __name__ == '__main__':
             song_id = cursor.fetchone()[0]
 
             for chart in song["charts"]:
-                # chart is null if there are no notes or difficulty rating
-                if chart["notes"] is not None and chart["difficultyRating"] is not None:
+                if (
+                    chart["notes"] is not None and
+                    chart["difficultyRating"] is not None
+                        ):
                     cursor.execute("""
-                        INSERT INTO Charts (song_id, is_doubles, notes, freeze_Notes, shock_Notes, difficulty, difficulty_Rating)
+                        INSERT INTO Charts (song_id, is_doubles, notes,
+                            freeze_Notes, shock_Notes,
+                            difficulty, difficulty_Rating)
                         VALUES (%s, %s, %s, %s, %s, %s, %s);
                     """, (
                         song_id, chart["isDoubles"], chart["notes"],
                         chart["freezeNotes"], chart["shockNotes"],
                         chart["difficulty"].lower(), chart["difficultyRating"]
                     ))
-                    
+
         print("Data inserted successfully.")
         cursor.close()
         conn.close()

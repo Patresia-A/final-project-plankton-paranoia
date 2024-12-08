@@ -11,7 +11,8 @@ DB_PORT = "5432"
 
 JSON_FILE = "clean.json"
 
-def create_database_if_not_exists(): 
+
+def create_database_if_not_exists():
     try:
         conn = psycopg2.connect(
             dbname="postgres",
@@ -24,12 +25,15 @@ def create_database_if_not_exists():
         cursor = conn.cursor()
 
         # Check if the target database exists
-        cursor.execute("SELECT 1 FROM pg_database WHERE datname = %s", (DB_NAME,))
+        cursor.execute(
+            "SELECT 1 FROM pg_database WHERE datname = %s", (DB_NAME,))
         exists = cursor.fetchone()
 
         if not exists:
             # Create the database if it doesn't exist
-            cursor.execute(sql.SQL("CREATE DATABASE {}").format(sql.Identifier(DB_NAME)))
+            cursor.execute(sql.SQL(
+                "CREATE DATABASE {}").format(sql.Identifier(DB_NAME))
+            )
             print(f"Database {DB_NAME} created successfully.")
         else:
             print(f"Database {DB_NAME} already exists.")
@@ -109,7 +113,7 @@ if __name__ == '__main__':
                 song_id INT NOT NULL REFERENCES Songs(id) ON DELETE CASCADE,
                 PRIMARY KEY (favorites_list_id, song_id)
             );
-            
+
             CREATE TABLE IF NOT EXISTS playlist_songs (
                 playlist_id INT NOT NULL REFERENCES playlists(id) ON DELETE CASCADE,
                 song_id INT NOT NULL REFERENCES songs(id) ON DELETE CASCADE,
@@ -124,7 +128,8 @@ if __name__ == '__main__':
             songs_data = json.load(file)
 
         import bcrypt
-        hashed_password = bcrypt.hashpw('password'.encode('utf-8'), bcrypt.gensalt())
+        hashed_password = bcrypt.hashpw(
+            'password'.encode('utf-8'), bcrypt.gensalt())
 
         cursor.execute("""
             INSERT INTO Users (name, email, password, role)
@@ -132,7 +137,7 @@ if __name__ == '__main__':
             RETURNING id;
         """, ('Admin', 'admin@example.com', hashed_password.decode('utf-8'), 'admin'))
         user_id = cursor.fetchone()[0]
-       
+
         cursor.execute("""
             INSERT INTO FavoritesLists (user_id)
             VALUES (%s)
@@ -166,24 +171,25 @@ if __name__ == '__main__':
                             song_id,
                             chart["isDoubles"],
                             chart["notes"],
-                            chart.get("freezeNotes", 0),  # Default to 0 if freezeNotes is missing or None
-                            chart.get("shockNotes", 0),  # Default to 0 if shockNotes is missing or None
+                            # Default to 0 if freezeNotes is missing or None
+                            chart.get("freezeNotes", 0),
+                            # Default to 0 if shockNotes is missing or None
+                            chart.get("shockNotes", 0),
                             chart["difficulty"].lower(),
                             chart["difficultyRating"]
                         ))
                 except Exception as e:
                     print(f"Error inserting chart for song ID {song_id}: {e}")
-                    
+
         print("Data inserted successfully.")
-        
+
     except Exception as e:
         print("Error occurred:", e)
         print(traceback.format_exc())
-        
+
     finally:
-            if cursor:
-                cursor.close()
-            if conn:
-                conn.close()
-            print("Database connection closed.")
-            
+        if cursor:
+            cursor.close()
+        if conn:
+            conn.close()
+        print("Database connection closed.")

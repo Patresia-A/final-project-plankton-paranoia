@@ -40,12 +40,12 @@ def search():
     songName = request.args.get('songName', default=None, type=str)
     artist = request.args.get('artist', default=None, type=str)
     highestDifficulty = request.args.get(
-        "highestDifficulty", default=None, type = str
+        "highestDifficulty", default=None, type=str
     )
     lowestDifficulty = request.args.get(
         "lowestDifficulty",
         default=None,
-        type = str
+        type=str
     )
     games = request.args.get('games', default=None)
     games_arr = games.split(",") if games else None
@@ -188,9 +188,9 @@ def search():
 
     playlists = []
     print("current user", str(current_user))
-    if current_user.is_authenticated :
-        playlists = Playlist.query.filter_by(user_id=current_user.id).all()     
-    
+    if current_user.is_authenticated:
+        playlists = Playlist.query.filter_by(user_id=current_user.id).all()
+
     return render_template(
         'search.html',
         songs=songs,
@@ -221,7 +221,8 @@ def signup():
             user_email = form.email.data.strip()
             existing_email = User.query.filter_by(email=user_email).first()
             if existing_email is None:
-                hashed_password = bcrypt.hashpw(form.password.data.encode('utf-8'), bcrypt.gensalt())
+                hashed_password = bcrypt.hashpw(
+                    form.password.data.encode('utf-8'), bcrypt.gensalt())
                 new_user = User(
                     name=form.name.data,
                     email=form.email.data,
@@ -246,7 +247,9 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
-        if user and bcrypt.checkpw(form.password.data.encode("utf-8"), user.password.encode("utf-8")):
+        if user and bcrypt.checkpw(
+                form.password.data.encode("utf-8"),
+                user.password.encode("utf-8")):
             login_user(user)
             flash('Login successful!')
             return redirect(url_for('index'))
@@ -383,7 +386,6 @@ def edit_song(song_id):
     print(f"Initializing edit_song route for Song ID: {song_id}, "
           f"Song Name: {song.song_name}")
 
-
     if form.validate_on_submit():
         print("Form submitted data:", form.data)
 
@@ -413,7 +415,7 @@ def edit_song(song_id):
         print(
             f"Post-commit DB check: Song Name: {updated_song.song_name}, "
             f"Artist: {updated_song.artist}"
-            )
+        )
 
         flash("Song updated successfully!", "success")
         return redirect(url_for("search"))

@@ -60,8 +60,8 @@ class SignUpForm(FlaskForm):
         validators=[
             DataRequired(),
             EqualTo('password')
-            ]
-        )
+        ]
+    )
     submit = SubmitField('Sign up')
 
 

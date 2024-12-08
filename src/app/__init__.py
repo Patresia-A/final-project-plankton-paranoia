@@ -17,8 +17,9 @@ from flask_login import LoginManager
 from flask_caching import Cache
 from app.models import User
 
-app = Flask('DDR DATABASE') # feel free to change this! 
-app.secret_key = os.environ.get('SECRET_KEY', '  ') # change this to a more secure secret key
+app = Flask('DDR DATABASE')  # feel free to change this!
+# change this to a more secure secret key
+app.secret_key = os.environ.get('SECRET_KEY', '  ')
 
 # database initialization
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/project3_test'
@@ -28,7 +29,7 @@ app.config['WTF_CSRF_ENABLED'] = False
 db = SQLAlchemy(app)  # initialize db here
 
 # create database tables if they don't exist
-with app.app_context(): 
+with app.app_context():
     db.create_all()
 
 login_manager = LoginManager()

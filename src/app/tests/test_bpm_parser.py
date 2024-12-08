@@ -1,6 +1,7 @@
 import unittest
 from app.bpm_parser import parse_bpm, parseBPM
 
+
 class TestBPMParser(unittest.TestCase):
 
     def test_parse_bpm_valid(self):
@@ -31,6 +32,7 @@ class TestBPMParser(unittest.TestCase):
     def test_parseBPM_invalid_format(self):
         with self.assertRaises(ValueError):
             parseBPM("invalid format")
+
 
 if __name__ == '__main__':
     unittest.main()

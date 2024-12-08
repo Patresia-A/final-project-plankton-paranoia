@@ -1,7 +1,7 @@
 '''
 CS3250 - Software Development Methods and Tools - Fall 2024
 Instructor: Thyago Mota
-Student(s): Hannah, Amina, Alex, Logan, Patty 
+Student(s): Hannah, Amina, Alex, Logan, Patty
 Description: Project 3 - DDR WebSearch
 
     in progress !!!
@@ -15,11 +15,17 @@ from sqlalchemy import Table, Column, Integer, ForeignKey, DateTime
 playlist_songs = Table(
     'playlist_songs',
     db.metadata,
-    Column('playlist_id', Integer, ForeignKey('playlists.id'), primary_key=True),
+    Column(
+        'playlist_id',
+        Integer,
+        ForeignKey('playlists.id'),
+        primary_key=True
+    ),
     Column('song_id', Integer, ForeignKey('songs.id'), primary_key=True),
     Column('added_date', DateTime, nullable=False, default=datetime.utcnow),
     extend_existing=True  # Prevent conflicts if already defined
 )
+
 
 class User(UserMixin, db.Model):
     __tablename__ = 'users'
@@ -32,7 +38,13 @@ class User(UserMixin, db.Model):
     playlists = db.relationship('Playlist', back_populates='user', lazy=True)
 
     # Relationship to FavoritesLists
-    favorites_lists = db.relationship('FavoritesList', back_populates='user', lazy='dynamic', cascade="all, delete-orphan")
+    favorites_lists = db.relationship(
+        'FavoritesList',
+        back_populates='user',
+        lazy='dynamic',
+        cascade="all, delete-orphan"
+    )
+
 
 class Playlist(db.Model):
     __tablename__ = 'playlists'
@@ -53,6 +65,7 @@ class Playlist(db.Model):
     def __repr__(self):
         return f"<Playlist {self.name}>"
 
+
 class Song(db.Model):
     __tablename__ = 'songs'
 
@@ -69,7 +82,7 @@ class Song(db.Model):
     # Relationship to Charts
     charts = db.relationship('Chart', backref='song', lazy=True)
 
-    # Many-to-many relationship with Playlists
+    # many-to-many relationship with Playlists
     playlists = db.relationship(
         'Playlist',
         secondary=playlist_songs,
@@ -84,6 +97,7 @@ class Song(db.Model):
         lazy='dynamic'
     )
 
+
 class Chart(db.Model):
     __tablename__ = 'charts'
 
@@ -95,6 +109,7 @@ class Chart(db.Model):
     shock_notes = db.Column(db.Integer)
     difficulty = db.Column(db.String(50), nullable=False)
     difficulty_rating = db.Column(db.Integer, nullable=False)
+
 
 class FavoritesList(db.Model):
     __tablename__ = 'favoriteslists'
@@ -113,9 +128,17 @@ class FavoritesList(db.Model):
         lazy='dynamic'
     )
 
+
 class FavoritesListSong(db.Model):
     __tablename__ = 'favoriteslistsongs'
 
-    favorites_list_id = db.Column(db.Integer, db.ForeignKey('favoriteslists.id'), primary_key=True)
-    song_id = db.Column(db.Integer, db.ForeignKey('songs.id'), primary_key=True)
-    
+    favorites_list_id = db.Column(
+        db.Integer,
+        db.ForeignKey('favoriteslists.id'),
+        primary_key=True
+    )
+    song_id = db.Column(
+        db.Integer,
+        db.ForeignKey('songs.id'),
+        primary_key=True
+    )

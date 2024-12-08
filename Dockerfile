@@ -1,19 +1,16 @@
 FROM python:3.9-slim-buster
 
-ENV PATH="/opt/homebrew/bin:$PATH"
+RUN apt-get update && apt-get install -y \
+    libpq-dev gcc \
+    && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /project-3-final-project-plankton-paranoia
+WORKDIR /app/app
 
-COPY requirements.txt requirements.txt
+ADD src /app
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
 
-COPY . .
-
-WORKDIR /project-3-final-project-plankton-paranoia/src
-
-ENV FLASK_APP=app
+ENV FLASK_APP=/app/app
 ENV FLASK_ENV=development
-ENV PYTHONPATH=/project-3-final-project-plankton-paranoia/src
 
-CMD ["python", "-m", "flask", "run", "--host=0.0.0.0"]
+CMD ["flask", "run", "--host=0.0.0.0", "--debug"]

@@ -358,14 +358,15 @@ def edit_song(song_id):
 
     return render_template("edit_song.html", form=form, song=song)
 
-@app.route('/songs/<int:id>/delete')
+@app.route('/songs/<int:id>/delete', methods=['POST'])
 @admin_required
 @login_required
 def delete_song(id):
-    song = db.session.query(Song).get(id)
+    song = db.session.query(Song).get_or_404(id)
     db.session.delete(song)
     db.session.commit()
-    return redirect(url_for('songs'))
+    flash("Song deleted successfully!", "success")
+    return redirect(url_for('search'))
 
 @app.route('/add_song', methods=['GET', 'POST'])
 @admin_required

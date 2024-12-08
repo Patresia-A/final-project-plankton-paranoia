@@ -7,14 +7,9 @@ Description: Project 3 - DDR WebSearch
 
     in progress !!!
 '''
-from sqlalchemy.sql.expression import func
+import bcrypt
 from app import app, db, cache
 from app.forms import *
-from app.models import User, Song, FavoritesList, Chart
-from flask import render_template, redirect, url_for, request, flash
-from flask_login import login_required, login_user, logout_user, current_user
-import bcrypt
-from misc import needs_chart
 from app.models import User, Song, FavoritesList, Playlist, Chart, FavoritesListSong
 from datetime import datetime
 from misc import needs_chart
@@ -159,13 +154,11 @@ def search():
     songs = []
     
     try: 
-        songs = Song.query.join(Chart).filter(
-            and_(
-                *filters,  
-                Chart.id.isnot(None),
-                *chartFilters
-            )
-        ).distinct(Song.id).paginate(page=page, per_page=page_size, error_out=False)
+        if filters :
+            songs = Song.query.filter(and_(*filters)).paginate(page=page, per_page=page_size, error_out=False)
+            print("songs:", str(songs.items))
+        else :
+            songs = Song.query.paginate(page=page, per_page=page_size, error_out=False)
     except Exception as e:
         print(f"Something went wrong querying the database {e}")
 
@@ -228,8 +221,8 @@ def login():
             flash('Incorrect email or password. Please try again.')
     return render_template('login.html', form=form)
 
-@login_required
 @app.route('/users/logout', methods=['GET', 'POST'])
+@login_required
 def logout():
     logout_user()
     flash('you have been logged out.')
@@ -318,8 +311,8 @@ def profile():
 def admin_required(f):
     @wraps(f)
     def wrap_decorator_function_admin(*args, **kwargs):
-        if not current_user.is_authenticated or not current_user.role == "admin":
-            flash('You do not have permission to access this page', 'Error!')
+        if not current_user.is_authenticated or current_user.role != 'admin':
+            flash('You do not have permission to access this page', 'error')
             return redirect(url_for('admin_error'))
         return f(*args, **kwargs)
     return wrap_decorator_function_admin
@@ -378,19 +371,56 @@ def delete_song(id):
     db.session.commit()
     return redirect(url_for('songs'))
 
-@app.route('/add_song') # + song code
+@app.route('/add_song', methods=['GET', 'POST'])
+@admin_required
+@login_required
 def add_song():
-    return 'Work in progress...'
+    song_form = AddSongForm()
+
+    if request.method == 'POST':
+
+        if song_form.validate_on_submit():
+            try:
+
+                new_song = Song(
+                    song_name=song_form.songName.data,
+                    artist=song_form.artist.data,
+                    higher_bpm=song_form.higherBPM.data,
+                    lower_bpm=song_form.lowerBPM.data,
+                    licensed=song_form.licensed.data,
+                    changing_bpm=song_form.changingBPM,
+                    runtime=song_form.runtime.data,
+                    game=song_form.game.data
+                )
+                db.session.add(new_song)
+                db.session.commit()
 
 
+                for chart_form in song_form.charts.entries:
+                    new_chart = Chart(
+                        song_id=new_song.id,
+                        difficulty=chart_form.form.difficulty.data,
+                        is_doubles=chart_form.form.isDoubles.data,
+                        notes=chart_form.form.notes.data,
+                        freeze_notes=chart_form.form.freezeNotes.data,
+                        shock_notes=chart_form.form.shockNotes.data,
+                        difficulty_rating=chart_form.form.difficultyRating.data
+                    )
+                    db.session.add(new_chart)
+                db.session.commit()
 
-@app.route('/games') # + game code 
-def games():
-    return 'Work in progress...'
+                flash(f"Song '{new_song.song_name}' added successfully!", "success")
+                return redirect(url_for('index'))
 
-@app.route('/charts')
-def charts():
-    return 'Work in progress...'
+            except Exception as e:
+                db.session.rollback()  
+                print("Database error:", str(e))
+                flash("An error occurred while adding the song. Please try again.", "danger")
+        else:
+            print("Form validation errors:", song_form.errors)
+            flash("There were errors in your form submission. Please check your inputs.", "danger")
+
+    return render_template('add_song.html', song_form=song_form)
 
 @app.route('/remove_favorite/<int:favorites_list_id>/<int:song_id>', methods=['POST'])
 @login_required
@@ -410,7 +440,8 @@ def remove_favorite(favorites_list_id, song_id):
     flash('Song removed from favorites.', 'success')
     return redirect(url_for('profile', section='favorites'))
 
-@app.route('/add_favorite') # + song code
+@app.route('/add_favorite', methods=['POST'])
+@login_required
 def add_favorite():
     try:
         song_id = request.form.get('song_id')

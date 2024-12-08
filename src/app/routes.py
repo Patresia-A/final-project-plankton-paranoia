@@ -169,7 +169,11 @@ def search():
     except Exception as e:
         print(f"Something went wrong querying the database {e}")
 
-    playlists = Playlist.query.filter_by(user_id=current_user.id).all()    
+    playlists = []
+    print("current user", str(current_user))
+    if current_user.is_authenticated :
+        playlists = Playlist.query.filter_by(user_id=current_user.id).all()     
+    
     return render_template(
         'search.html', 
         songs=songs,
@@ -314,7 +318,7 @@ def profile():
 def admin_required(f):
     @wraps(f)
     def wrap_decorator_function_admin(*args, **kwargs):
-        if not current_user.is_authenticated or not current_user.admin:
+        if not current_user.is_authenticated or not current_user.role == "admin":
             flash('You do not have permission to access this page', 'Error!')
             return redirect(url_for('admin_error'))
         return f(*args, **kwargs)
@@ -328,7 +332,6 @@ def edit_song(song_id):
     song = Song.query.get_or_404(song_id)
     print(f"Initializing edit_song route for Song ID: {song_id}, Song Name: {song.song_name}")
 
-    form = EditSongForm(song=song)
 
     if form.validate_on_submit():
         print("Form submitted data:", form.data)
@@ -362,6 +365,7 @@ def edit_song(song_id):
 
     if request.method == "POST":
         print("Form validation errors:", form.errors)
+    form = EditSongForm(song=song)
 
     return render_template("edit_song.html", form=form, song=song)
 

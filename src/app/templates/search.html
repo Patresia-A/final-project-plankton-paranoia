@@ -252,6 +252,7 @@
                         </tr>
                     </table>
                 </td>
+                {% if current_user.is_authenticated %}
                 <td class="list-action-form">
                     <form action="{{ url_for('add_favorite') }}" method="POST" style="display: inline">
                         <input type="hidden" name="song_id" value="{{ song.id }}" />
@@ -274,6 +275,7 @@
                     </form>
                     {% endif %}
                 </td>
+                {% endif %}
             </tr>
             {% endfor %}
         </table>

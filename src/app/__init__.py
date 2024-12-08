@@ -11,27 +11,24 @@ from flask import Flask
 import os
 import click
 from flask.cli import with_appcontext
+import bcrypt
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_caching import Cache
 from app.models import User
 
-app = Flask(
-    'DDR DATABASE',
-    template_folder="app/templates",
-    static_folder="app/static"
-)
-app.secret_key = os.environ.get('SECRET_KEY', '  ')
+app = Flask('DDR DATABASE') # feel free to change this! 
+app.secret_key = os.environ.get('SECRET_KEY', '  ') # change this to a more secure secret key
 
-app.config['SQLALCHEMY_DATABASE_URI'] = (
-    'postgresql://postgres:password@localhost/project3_test'
-)
+# database initialization
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/project3_test'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['WTF_CSRF_ENABLED'] = False
 
-db = SQLAlchemy(app)
+db = SQLAlchemy(app)  # initialize db here
 
-with app.app_context():
+# create database tables if they don't exist
+with app.app_context(): 
     db.create_all()
 
 login_manager = LoginManager()
@@ -57,7 +54,7 @@ cache.init_app(app, config={
 def create_admin_command(username, password, name):
     """Create a new admin user"""
     try:
-        if User.query.get(username):  # Check if the username already exists
+        if User.query.get(username):  # Cceck if the username already exists
             click.echo('Error: Username already exists')
             return
 

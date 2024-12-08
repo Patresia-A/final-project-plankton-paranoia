@@ -94,12 +94,12 @@ if __name__ == '__main__':
             );
 
             CREATE TABLE IF NOT EXISTS Charts (
-                id SERIAL PRIMARY KEY,
+                d SERIAL PRIMARY KEY,
                 song_id INT NOT NULL REFERENCES Songs(id) ON DELETE CASCADE,
                 is_doubles BOOLEAN NOT NULL,
                 notes INT NOT NULL,
-                freeze_notes INT NOT NULL,
-                shock_notes INT,
+                freeze_notes INT DEFAULT 0,
+                shock_notes INT DEFAULT 0,
                 difficulty VARCHAR(50) NOT NULL,
                 difficulty_rating INT NOT NULL
             );
@@ -132,7 +132,7 @@ if __name__ == '__main__':
             RETURNING id;
         """, ('Admin', 'admin@example.com', hashed_password.decode('utf-8'), 'admin'))
         user_id = cursor.fetchone()[0]
-        
+       
         cursor.execute("""
             INSERT INTO FavoritesLists (user_id)
             VALUES (%s)
@@ -142,32 +142,48 @@ if __name__ == '__main__':
         favorites_list_id = cursor.fetchone()[0]
 
         for song in songs_data:
-            cursor.execute("""
-                INSERT INTO Songs (song_name, game, higher_BPM, lower_BPM, licensed, changing_BPM, runtime, artist)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s) RETURNING id;
-            """, (
-                song["songName"], song["game"], song["higherBPM"],
-                song["lowerBPM"], song["licensed"], song["changingBPM"],
-                song["runtime"], song["artist"]
-            ))
-            song_id = cursor.fetchone()[0]
+            try:
+                cursor.execute("""
+                    INSERT INTO Songs (song_name, game, higher_BPM, lower_BPM, licensed, changing_BPM, runtime, artist)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s) RETURNING id;
+                """, (
+                    song["songName"], song["game"], song["higherBPM"],
+                    song["lowerBPM"], song["licensed"], song["changingBPM"],
+                    song["runtime"], song["artist"]
+                ))
+                song_id = cursor.fetchone()[0]
+            except Exception as e:
+                print(f"Error inserting song '{song['songName']}': {e}")
+                continue  # Skip to the next song if there's an issue
 
             for chart in song["charts"]:
-                # chart is null if there are no notes or difficulty rating
-                if chart["notes"] is not None and chart["difficultyRating"] is not None:
-                    cursor.execute("""
-                        INSERT INTO Charts (song_id, is_doubles, notes, freeze_Notes, shock_Notes, difficulty, difficulty_Rating)
-                        VALUES (%s, %s, %s, %s, %s, %s, %s);
-                    """, (
-                        song_id, chart["isDoubles"], chart["notes"],
-                        chart["freezeNotes"], chart["shockNotes"],
-                        chart["difficulty"].lower(), chart["difficultyRating"]
-                    ))
+                try:
+                    if chart["notes"] is not None and chart["difficultyRating"] is not None:
+                        cursor.execute("""
+                            INSERT INTO Charts (song_id, is_doubles, notes, freeze_Notes, shock_Notes, difficulty, difficulty_Rating)
+                            VALUES (%s, %s, %s, %s, %s, %s, %s);
+                        """, (
+                            song_id,
+                            chart["isDoubles"],
+                            chart["notes"],
+                            chart.get("freezeNotes", 0),  # Default to 0 if freezeNotes is missing or None
+                            chart.get("shockNotes", 0),  # Default to 0 if shockNotes is missing or None
+                            chart["difficulty"].lower(),
+                            chart["difficultyRating"]
+                        ))
+                except Exception as e:
+                    print(f"Error inserting chart for song ID {song_id}: {e}")
                     
         print("Data inserted successfully.")
-        cursor.close()
-        conn.close()
-        print("Database connection closed.")
+        
     except Exception as e:
         print("Error occurred:", e)
         print(traceback.format_exc())
+        
+    finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
+            print("Database connection closed.")
+            

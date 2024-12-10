@@ -11,35 +11,45 @@ from flask import Flask
 import os
 import click
 from flask.cli import with_appcontext
-import bcrypt
+from app.extensions import db, login_manager, cache
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_caching import Cache
-from app.models import User
 
-app = Flask('DDR DATABASE')  # feel free to change this!
-# change this to a more secure secret key
-app.secret_key = os.environ.get('SECRET_KEY', '  ')
 
-# database initialization
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/project3_test'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['WTF_CSRF_ENABLED'] = False
+# Create the Flask app
+def create_app():
+    app = Flask('DDR DATABASE', template_folder='src/templates')
 
-db = SQLAlchemy(app)  # initialize db here
+    app.secret_key = os.environ.get('SECRET_KEY', ' ')
 
-# create database tables if they don't exist
-with app.app_context():
-    db.create_all()
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
+        'DATABASE_URL',
+        'postgresql://postgres:password@localhost:5432/project3_test'
+    )
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['WTF_CSRF_ENABLED'] = False
 
-login_manager = LoginManager()
-login_manager.init_app(app)
+    # Initialize extensions
+    db.init_app(app)
+    login_manager.init_app(app)
+    cache.init_app(app, config={
+        'CACHE_TYPE': 'simple',
+        'CACHE_DEFAULT_TIMEOUT': 300
+    })
 
-cache = Cache()
-cache.init_app(app, config={
-    'CACHE_TYPE': 'simple',
-    'CACHE_DEFAULT_TIMEOUT': 300
-})
+    # Create database tables if they don't exist
+    with app.app_context():
+        db.create_all()
+
+    return app
+
+
+# Define the Flask app
+app = create_app()
+
+from app import routes  # noqa
+from app.models import User  # noqa
 
 
 @click.command('create-admin')
@@ -55,11 +65,11 @@ cache.init_app(app, config={
 def create_admin_command(username, password, name):
     """Create a new admin user"""
     try:
-        if User.query.get(username):  # Cceck if the username already exists
+        if User.query.get(username):
             click.echo('Error: Username already exists')
             return
 
-        import bcrypt  # Import bcrypt within the function
+        import bcrypt
         hashed_password = bcrypt.hashpw(
             password.encode('utf-8'),
             bcrypt.gensalt()
@@ -91,3 +101,7 @@ def load_user(id):
     except Exception as e:
         click.echo(f'Error loading user: {str(e)}')
         return None
+
+
+if __name__ == "__main__":
+    app.run(debug=True)

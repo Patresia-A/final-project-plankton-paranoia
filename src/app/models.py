@@ -1,12 +1,4 @@
-'''
-CS3250 - Software Development Methods and Tools - Fall 2024
-Instructor: Thyago Mota
-Student(s): Hannah, Amina, Alex, Logan, Patty
-Description: Project 3 - DDR WebSearch
-
-    in progress !!!
-'''
-from app import db
+from app.extensions import db
 from datetime import datetime
 from flask_login import UserMixin
 from sqlalchemy import Table, Column, Integer, ForeignKey, DateTime
@@ -26,7 +18,6 @@ playlist_songs = Table(
     extend_existing=True  # Prevent conflicts if already defined
 )
 
-
 class User(UserMixin, db.Model):
     __tablename__ = 'users'
 
@@ -44,7 +35,6 @@ class User(UserMixin, db.Model):
         lazy='dynamic',
         cascade="all, delete-orphan"
     )
-
 
 class Playlist(db.Model):
     __tablename__ = 'playlists'
@@ -64,7 +54,6 @@ class Playlist(db.Model):
 
     def __repr__(self):
         return f"<Playlist {self.name}>"
-
 
 class Song(db.Model):
     __tablename__ = 'songs'
@@ -97,7 +86,6 @@ class Song(db.Model):
         lazy='dynamic'
     )
 
-
 class Chart(db.Model):
     __tablename__ = 'charts'
 
@@ -109,7 +97,6 @@ class Chart(db.Model):
     shock_notes = db.Column(db.Integer)
     difficulty = db.Column(db.String(50), nullable=False)
     difficulty_rating = db.Column(db.Integer, nullable=False)
-
 
 class FavoritesList(db.Model):
     __tablename__ = 'favoriteslists'
@@ -127,7 +114,6 @@ class FavoritesList(db.Model):
         back_populates='favorites_lists',
         lazy='dynamic'
     )
-
 
 class FavoritesListSong(db.Model):
     __tablename__ = 'favoriteslistsongs'

@@ -113,13 +113,6 @@ if __name__ == '__main__':
                 song_id INT NOT NULL REFERENCES Songs(id) ON DELETE CASCADE,
                 PRIMARY KEY (favorites_list_id, song_id)
             );
-
-            CREATE TABLE IF NOT EXISTS playlist_songs (
-                playlist_id INT NOT NULL REFERENCES playlists(id) ON DELETE CASCADE,
-                song_id INT NOT NULL REFERENCES songs(id) ON DELETE CASCADE,
-                added_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                PRIMARY KEY (playlist_id, song_id)
-            );
         """)
 
         print("Tables created successfully.")

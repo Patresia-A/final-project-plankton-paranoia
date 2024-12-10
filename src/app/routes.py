@@ -8,14 +8,14 @@ Description: Project 3 - DDR WebSearch
     in progress !!!
 '''
 import bcrypt
-from app import app, db, cache
+from app import app
+from app.extensions import db, cache
 from app.forms import *
 from app.models import User, Song, FavoritesList, Playlist, Chart, FavoritesListSong
 from datetime import datetime
 from misc import needs_chart
 from flask import render_template, redirect, url_for, request, flash
 from flask_login import login_required, login_user, logout_user, current_user
-from flask_wtf import FlaskForm
 from functools import wraps
 from sqlalchemy.sql.expression import func
 from sqlalchemy import Table, Column, Integer, String, ForeignKey, and_
@@ -122,10 +122,11 @@ def search():
             )   # otherwise we only want singles charts
         if form.shockNotes.data != "Include shock charts":
             shockNotes = form.shockNotes.data
-            if shockNotes == "Exclude shock charts":
-                chartFilters.append(Chart.shock_notes == 0)
-            else:   # case where we want only shock charts
-                chartFilters.append(Chart.shock_notes != 0)
+        if shockNotes == "Exclude shock charts":
+            chartFilters.append(Chart.shock_notes == 0)
+        elif shockNotes == "Include only shock charts":
+            chartFilters.append(Chart.shock_notes != 0)
+
     # redirected or paginated case...
     else:
         print("dclass", difficultyClass)
@@ -166,8 +167,9 @@ def search():
         if shockNotes != "Include shock charts":
             if shockNotes == "Exclude shock charts":
                 chartFilters.append(Chart.shock_notes == 0)
-            else:  # case where we want only shock charts
+            elif shockNotes == "Include only shock charts":
                 chartFilters.append(Chart.shock_notes != 0)
+
     songs = []
     try:
         if filters:
@@ -185,12 +187,6 @@ def search():
             )
     except Exception as e:
         print(f"Something went wrong querying the database {e}")
-
-    playlists = []
-    print("current user", str(current_user))
-    if current_user.is_authenticated:
-        playlists = Playlist.query.filter_by(user_id=current_user.id).all()
-
     return render_template(
         'search.html',
         songs=songs,
@@ -208,8 +204,7 @@ def search():
         maxNotes=maxNotes,
         minNotes=minNotes,
         excludeDoubles=excludeDoubles,
-        shockNotes=shockNotes,
-        playlists=playlists
+        shockNotes=shockNotes
     )
 
 
@@ -266,10 +261,6 @@ def logout():
     return redirect(url_for('index'))
 
 
-class CSRFForm(FlaskForm):
-    pass
-
-
 @app.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
@@ -277,23 +268,14 @@ def profile():
     update_password_form = UpdatePasswordForm()
     update_email_form = UpdateEmailForm()
     playlist_form = CreatePlaylistForm()
-    csrf_form = CSRFForm()
 
     favorites_list = FavoritesList.query.filter_by(
         user_id=current_user.id).first()
-    if favorites_list:
-        favorites = (
-            db.session.query(FavoritesListSong, Song)
-            .join(Song)
-            .filter(FavoritesListSong.favorites_list_id == favorites_list.id)
-            .all()
-        )
-    else:
-        favorites = []
+    favorites = favorites_list.songs if favorites_list else []
 
     playlists = Playlist.query.filter_by(user_id=current_user.id).all()
-
-    section = request.args.get('section', 'default-message')
+    db.session.refresh(current_user)
+    print("Playlists:", playlists)
 
     if request.method == 'POST':
         if (update_name_form.submit_name.data
@@ -301,60 +283,61 @@ def profile():
             current_user.name = update_name_form.name.data
             db.session.commit()
             flash("Name updated successfully!", "success")
-            return redirect(url_for('profile', section='default-message'))
+            return redirect(url_for('profile'))
 
-        if (update_password_form.submit_password.data
-                and update_password_form.validate_on_submit()):
-            if bcrypt.checkpw(
-                update_password_form.current_password.data.encode('utf-8'),
-                current_user.password.encode('utf-8')
-            ):
-                hashed_password = bcrypt.hashpw(
-                    update_password_form.new_password.data.encode('utf-8'),
-                    bcrypt.gensalt()
-                ).decode('utf-8')
-                current_user.password = hashed_password
-                db.session.commit()
-                flash("Password updated successfully!", "success")
-                return redirect(url_for('profile', section='default-message'))
-            else:
-                flash("password is incorrect. please try again.", "danger")
-
-        if (update_email_form.submit_email.data
-                and update_email_form.validate_on_submit()):
-            existing_user = User.query.filter_by(
-                email=update_email_form.new_email.data).first()
-            if existing_user:
-                flash(
-                    "Email already in use. Please choose a different email.",
-                    "danger"
-                )
-            else:
-                current_user.email = update_email_form.new_email.data
-                try:
-                    db.session.commit()
-                    flash("Email updated successfully!", "success")
-                except Exception as e:
-                    db.session.rollback()
-                    flash(
-                        f"An error updating email: {str(e)}",
-                        "danger"
-                    )
-                return redirect(url_for('profile', section='default-message'))
-
-        if (playlist_form.submit_playlist.data and
-                playlist_form.validate_on_submit()):
-            playlist_name = playlist_form.name.data
-            new_playlist = Playlist(
-                name=playlist_name,
-                user_id=current_user.id)
-            db.session.add(new_playlist)
+    if update_password_form.submit_password.data and update_password_form.validate_on_submit():
+        if bcrypt.checkpw(
+            update_password_form.current_password.data.encode('utf-8'),
+            current_user.password.encode('utf-8')
+        ):
+            hashed_password = bcrypt.hashpw(
+                update_password_form.new_password.data.encode(
+                    'utf-8'), bcrypt.gensalt()
+            ).decode('utf-8')
+            current_user.password = hashed_password
             db.session.commit()
-            flash(
-                f"Playlist '{playlist_name}' created successfully!",
-                "success")
-            return redirect(url_for('profile', section='playlists'))
+            flash("Password updated successfully!", "success")
+            return redirect(url_for('profile'))
+        else:
+            flash("Current password is incorrect. Please try again.", "danger")
 
+    if update_email_form.submit_email.data and update_email_form.validate_on_submit():
+        existing_user = User.query.filter_by(
+            email=update_email_form.new_email.data).first()
+        if existing_user:
+            flash(
+                "This email is already in use. Please choose a different email.", "danger")
+        else:
+            current_user.email = update_email_form.new_email.data
+            try:
+                db.session.commit()
+                flash("Email updated successfully!", "success")
+            except Exception as e:
+                db.session.rollback()
+                flash(
+                    f"An error occurred while updating the email: {str(e)}", "danger")
+            return redirect(url_for('profile'))
+
+    if playlist_form.validate_on_submit():
+        playlist_name = playlist_form.name.data
+        new_playlist = Playlist(name=playlist_name, user_id=current_user.id)
+        db.session.add(new_playlist)
+        db.session.commit()
+
+        playlist_table_name = f"playlist_{new_playlist.id}"
+        playlist_table = Table(
+            playlist_table_name,
+            db.metadata,
+            Column('id', Integer, primary_key=True),
+            Column('song_id', Integer, ForeignKey('songs.id')),
+            Column('added_date', String, nullable=False)
+        )
+        db.metadata.create_all(db.engine)
+
+        flash(f"Playlist '{playlist_name}' created successfully!", "success")
+        return redirect(url_for('profile'))
+
+    playlists = FavoritesList.query.filter_by(user_id=current_user.id).all()
     return render_template(
         'profile.html',
         update_name_form=update_name_form,
@@ -362,10 +345,23 @@ def profile():
         update_email_form=update_email_form,
         playlist_form=playlist_form,
         favorites=favorites,
-        playlists=playlists,
-        section=section,
-        form=csrf_form
+        playlists=playlists
     )
+
+
+@app.route('/songs')  # + song code
+def songs():
+    return 'Work in progress...'
+
+
+@app.route('/games')  # + game code
+def games():
+    return 'Work in progress...'
+
+
+@app.route('/charts')
+def charts():
+    return 'Work in progress...'
 
 
 def admin_required(f):
@@ -378,19 +374,14 @@ def admin_required(f):
     return wrap_decorator_function_admin
 
 
-@app.route('/song/<int:song_id>', methods=['GET', 'POST'])
+@app.route('/song/<string:song_name>', methods=['GET', 'POST'])
 @admin_required
 @login_required
-def edit_song(song_id):
-    song = Song.query.get_or_404(song_id)
-    print(f"Initializing edit_song route for Song ID: {song_id}, "
-          f"Song Name: {song.song_name}")
+def edit_song(song_name):
+    song = Song.query.filter_by(song_name=song_name).first_or_404()
+    form = EditSongForm(song=song)
 
     if form.validate_on_submit():
-        print("Form submitted data:", form.data)
-
-        print(f"Updating Song Name from {song.song_name} to ",
-              f"{form.songName.data}")
         song.song_name = form.songName.data
         song.artist = form.artist.data
         song.higher_bpm = form.higherBPM.data
@@ -399,32 +390,20 @@ def edit_song(song_id):
         song.licensed = form.licensed.data
         song.game = form.game.data
 
-        for i, chart_form in enumerate(form.charts.entries):
-            if i < len(song.charts):
-                chart = song.charts[i]
-                print(f"Updating Chart ID {chart.id} with new values.")
-                chart.difficulty = chart_form.difficulty.data
-                chart.is_doubles = chart_form.isDoubles.data
-                chart.notes = chart_form.notes.data or 0
-                chart.freeze_notes = chart_form.freezeNotes.data or 0
-                chart.shock_notes = chart_form.shockNotes.data or 0
-                chart.difficulty_rating = chart_form.difficultyRating.data or 0
+        for chart_form, chart in zip(form.charts, song.charts):
+            chart.difficulty = chart_form.difficulty.data
+            chart.is_doubles = chart_form.isDoubles.data
+            chart.notes = chart_form.notes.data
+            chart.freeze_notes = chart_form.freezeNotes.data
+            chart.shock_notes = chart_form.shockNotes.data
+            chart.difficulty_rating = chart_form.difficultyRating.data
 
         db.session.commit()
-        updated_song = Song.query.get(song_id)
-        print(
-            f"Post-commit DB check: Song Name: {updated_song.song_name}, "
-            f"Artist: {updated_song.artist}"
-        )
+        flash('Song updated successfully!', 'success')
+        return redirect(url_for('search'))
 
-        flash("Song updated successfully!", "success")
-        return redirect(url_for("search"))
+    return render_template('edit_song.html', form=form, song=song)
 
-    if request.method == "POST":
-        print("Form validation errors:", form.errors)
-    form = EditSongForm(song=song)
-
-    return render_template("edit_song.html", form=form, song=song)
 
 @app.route('/songs/<int:id>/delete')
 @admin_required
@@ -491,67 +470,47 @@ def add_song():
     return render_template('add_song.html', song_form=song_form)
 
 
-@app.route(
-    '/remove_favorite/<int:favorites_list_id>/<int:song_id>', methods=['POST'])
+@app.route('/remove_favorite')  # + favorite id
 @login_required
-def remove_favorite(favorites_list_id, song_id):
-    favorite = FavoritesListSong.query.filter_by(
-        favorites_list_id=favorites_list_id,
-        song_id=song_id
-    ).first_or_404()
-    favorites_list = FavoritesList.query.get_or_404(favorites_list_id)
-    if favorites_list.user_id != current_user.id:
+def remove_favorite(favorite_id):
+    favorite = FavoritesList.query.get_or_404(favorite_id)
+    if favorite.user_id != current_user.id:
         flash('Unauthorized action!', 'error')
-        return redirect(url_for('profile', section='favorites'))
-
+        return redirect(url_for('profile'))
     db.session.delete(favorite)
     db.session.commit()
     flash('Song removed from favorites.', 'success')
-    return redirect(url_for('profile', section='favorites'))
+    return redirect(url_for('view_favorites'))
 
 
 @app.route('/add_favorite', methods=['POST'])
 @login_required
 def add_favorite():
-    try:
-        song_id = request.form.get('song_id')
-        song = Song.query.get(song_id)
+    song_id = request.form.get('song_id')
+    if not song_id:
+        flash('Song ID is required!', 'error')
+        return redirect(url_for('profile'))
 
-        if not song:
-            flash("Song not found.", "danger")
-            return redirect(url_for('profile', section='favorites'))
+    song = Song.query.get(song_id)
+    if not song:
+        flash('Song not found!', 'error')
+        return redirect(url_for('profile'))
 
-        favorite_list = FavoritesList.query.filter_by(
-            user_id=current_user.id).first()
+    favorites_list = FavoritesList.query.filter_by(
+        user_id=current_user.id).first()
+    if not favorites_list:
+        favorites_list = FavoritesList(user_id=current_user.id)
+        db.session.add(favorites_list)
+        db.session.commit()
 
-        if not favorite_list:
-            favorite_list = FavoritesList(user_id=current_user.id)
-            db.session.add(favorite_list)
-            db.session.commit()
+    if song in favorites_list.songs:
+        flash('Song is already in your favorites!', 'info')
+    else:
+        favorites_list.songs.append(song)
+        db.session.commit()
+        flash('Song added to favorites!', 'success')
 
-        existing_favorite = FavoritesListSong.query.filter_by(
-            favorites_list_id=favorite_list.id,
-            song_id=song_id
-        ).first()
-
-        if existing_favorite:
-            flash("This song is already in your favorites.", "info")
-        else:
-            new_favorite = FavoritesListSong(
-                favorites_list_id=favorite_list.id,
-                song_id=song_id)
-            db.session.add(new_favorite)
-            db.session.commit()
-            flash(
-                f"{song.song_name} has been added to your favorites!",
-                "success")
-
-        return redirect(url_for('profile', section='favorites'))
-
-    except Exception as e:
-        db.session.rollback()
-        flash(f"An error occurred: {str(e)}", "danger")
-        return redirect(url_for('profile', section='favorites'))
+    return redirect(url_for('profile'))
 
 
 @app.route('/favorites', methods=['GET'])
@@ -567,32 +526,31 @@ def view_favorites():
     return render_template('favorites.html', favorites=favorites_list.songs)
 
 
-@app.route('/add_song_to_playlist', methods=['POST'])
+@app.route('/add_song_to_playlist/<string:playlist_name>', methods=['POST'])
 @login_required
-def add_song_to_playlist():
-    playlist_id = request.form.get('playlist_id')
-    song_id = request.form.get('song_id')
-
+def add_song_to_playlist(playlist_name):
     playlist = Playlist.query.filter_by(
-        id=playlist_id,
-        user_id=current_user.id).first()
+        name=playlist_name, user_id=current_user.id).first()
     if not playlist:
         flash("Playlist not found!", "danger")
-        return redirect(url_for('profile', section='playlists'))
+        return redirect(url_for('profile'))
 
-    song = Song.query.get(song_id)
-    if not song:
-        flash("Song not found!", "danger")
-        return redirect(url_for('profile', section='playlists'))
+    song_id = request.form.get('song_id')
+    playlist_table_name = f"playlist_{playlist.id}"
 
-    if song in playlist.songs:
-        flash("Song is already in this playlist!", "info")
-    else:
-        playlist.songs.append(song)
-        db.session.commit()
-        flash(f"Song added to playlist '{playlist.name}'!", "success")
+    playlist_table = Table(
+        playlist_table_name,
+        db.metadata,
+        autoload_with=db.engine
+    )
 
-    return redirect(url_for('profile', section='playlists'))
+    insert_statement = playlist_table.insert().values(
+        song_id=song_id, added_date=str(datetime.utcnow()))
+    db.session.execute(insert_statement)
+    db.session.commit()
+
+    flash(f"Song added to playlist '{playlist_name}'!", "success")
+    return redirect(url_for('profile'))
 
 
 @app.route('/admin_error')

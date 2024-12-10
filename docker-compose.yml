@@ -10,17 +10,19 @@ services:
     environment:
       - FLASK_ENV=development
       - DATABASE_URL=postgresql://postgres:password@db:5432/project3_test
+      - FLASK_APP=app:create_app
+    command: flask run --host=0.0.0.0
     depends_on:
-      - db  # Ensure the database service is started before the web service
+      - db
 
   db:
     image: postgres:13
     volumes:
-      - postgres_data:/var/lib/postgresql/data 
+      - postgres_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=project3_test 
+      - POSTGRES_DB=project3_test
 
 volumes:
   postgres_data:

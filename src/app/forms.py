@@ -176,13 +176,13 @@ class SearchChartForm(FlaskForm):
             "Include only doubles charts"
         ]
     )
-    excludeShocks = SelectField(
+    shockNotes = SelectField(
         "Exclude shocks?",
         default="Include shock charts",
         choices=[
-            "Exclude shock charts",
-            "Include shock charts",
-            "Include only shock charts"
+            ("exclude", "Exclude shock charts"),
+            ("include", "Include shock charts"),
+            ("only", "Include only shock charts")
         ]
     )
     submit = SubmitField('Search Songs')
@@ -242,21 +242,10 @@ class AddSongForm(FlaskForm):
 class EditChartForm(FlaskForm):
     difficulty = StringField("Difficulty")
     isDoubles = BooleanField("Is Doubles")
-    notes = IntegerField("Notes", validators=[Optional()])
-    freezeNotes = IntegerField(
-        "Freeze Notes",
-        validators=[Optional()],
-        default=0
-    )
-    shockNotes = IntegerField(
-        "Shock Notes",
-        validators=[Optional()],
-        default=0
-    )
-    difficultyRating = IntegerField(
-        "Difficulty Rating",
-        validators=[Optional()]
-    )
+    notes = IntegerField("Notes")
+    freezeNotes = IntegerField("Freeze Notes")
+    shockNotes = IntegerField("Shock Notes")
+    difficultyRating = IntegerField("Difficulty Rating")
 
     def __init__(self, *args, **kwargs):
         chart = kwargs.pop('chart', None)
